@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,20 +8,39 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.scss',
 })
 export class Header {
-  /**
-   * Header wird sticky, sobald Hero-Section verlassen wird
-   */
   isScrolled = false;
   currentLang: 'de' | 'en' = 'de';
 
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {}
+
+  
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const heroHeight = window.innerHeight;
-    this.isScrolled = window.scrollY >= heroHeight;
+onWindowScroll() {
+  const heroHeight = window.innerHeight;
+  const headerHeight = 140; // Header yüksekliği (yaklaşık)
+  const scrollPosition = window.scrollY;
+  
+  const header = this.el.nativeElement.querySelector('.header');
+  if (!header) return;
+
+  // Header TAM kaybolunca fixed olsun
+  if (scrollPosition >= (heroHeight - headerHeight)) {
+    this.isScrolled = true;
+    this.renderer.setStyle(header, 'position', 'fixed');
+    this.renderer.setStyle(header, 'top', '0');
+    this.renderer.setStyle(header, 'bottom', 'auto');
+  } else {
+    this.isScrolled = false;
+    this.renderer.setStyle(header, 'position', 'absolute');
+    this.renderer.setStyle(header, 'bottom', '0');
+    this.renderer.setStyle(header, 'top', 'auto');
   }
+}
 
   switchLanguage(lang: 'de' | 'en') {
     this.currentLang = lang;
-    console.log('Sprache:', lang);
   }
 }

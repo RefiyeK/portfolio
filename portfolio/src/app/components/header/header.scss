@@ -3,18 +3,12 @@
 .header {
   background-color: $accent-color;
   padding: 1rem 0;
-  position: absolute;          
-  bottom: 0;                   
+  position: absolute;  // Default (JS değiştirecek)
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  will-change: transform;
-
-  &.scrolled {
-    position: fixed;            // Wird sticky
-    top: 0;                     // Oben fixiert
-    bottom: auto;
-  }
+  // transition KALDIR! JS anında değiştirsin
 
   .container {
     max-width: $container-max-width;
