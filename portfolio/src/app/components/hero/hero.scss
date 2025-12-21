@@ -1,20 +1,21 @@
 @use '../../../styles.scss' as *;
 
 .hero {
+  position: relative;           
   min-height: 100vh;
   background-color: $primary-color;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: $spacing-md;
+  overflow: visible;
 
   .hero-container {
     max-width: $container-max-width;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: $spacing-xl;
+    justify-content: center;
     padding: 0 $spacing-md;
   }
 
@@ -22,15 +23,17 @@
   .hero-image {
     position: relative;
     flex: 1;
-    width: 600px;
-    height: 600px;
+    min-height: 650px;
+    
 
     .background-shape {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 30%;
+      left: 2%;
+      transform: translate(-6%, -15%);
+      width: min(600px, 80vw);
+      height: min(600px, 80vw);
+      z-index: 1;
 
       img {
         position: absolute;
@@ -38,17 +41,18 @@
         left: 0;
         width: 100%;
         height: 100%;
-        transition: opacity 0.5s ease;
+        object-fit: contain;
+        transition: opacity 0.9s ease;
       }
 
       .shape-default {
         opacity: 1;
-        z-index: 1;
+        transform: rotate(-45deg);
       }
 
       .shape-hover {
         opacity: 0;
-        z-index: 1;
+        transform: rotate(-45deg);
       }
     }
 
@@ -66,14 +70,12 @@
 
     .image-circle {
         position: absolute;
-        top: 35%;
-        left: 65%;
-        transform: translate(-50%, -50%);
-        width: 850px;
-        height: 850px;
-        border-radius: 50%;
+        top: -50px;
+        left: -50px;
+        transform: translate(-2%, -12%);
+        width: min(850px, 100vw);
+        height: min(850px, 100vw);
         z-index: 10;
-        overflow: hidden;
 
       img {
         width: 100%;
@@ -85,19 +87,20 @@
 
   // Sağ taraf - İsim ve Bilgiler
   .hero-content {
-    flex: 1;
     color: $text-white;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: -100px;
+    margin-top: -200px;
+    
+    
     .hero-logo {
-        margin-bottom: 1rem;
+        margin: 0;
     img {
-        height: 350px;
+        height: 250px;
         }
-    }    
+    }
 
 
     .hero-text {
@@ -105,7 +108,7 @@
 
       .hero-name {
         font-family: $font-heading;
-        font-size: $font-size-xl;
+        font-size: $font-size-xxl;
         font-weight: 400;
         margin: 0;
         color: $text-white;
@@ -115,64 +118,97 @@
       .hero-title {
         font-family: $font-primary;
         font-size: $font-size-lg;
-        font-weight: 300;
+        font-weight: 400;
         margin: $spacing-xs 0 0 0;
-        color: $accent-color;
+        color: $text-white;
         letter-spacing: 0.2rem;
       }
     }
 
-    .hero-socials {
-      display: flex;
-      gap: $spacing-sm;
-      margin-bottom: $spacing-xl;
-      justify-content: center;
-
-      a {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform $transition-speed ease;
-
-        img {
-          width: 100%;
-          height: 100%;
-          filter: brightness(0) invert(1);
-          transition: filter $transition-speed ease;
-        }
-
-        &:hover {
-          transform: scale(1.2);
-
-          img {
-            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(175deg);
-          }
-        }
-      }
-    }
+   
 
     .scroll-down {
       margin-top: $spacing-md;
+      position: relative;
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
 
       img {
-        width: 50px;
-        height: 50px;
-        animation: bounce 2s infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 130%;
+        transition: opacity $transition-speed ease;
       }
 
-      @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-          transform: translateY(0);
+      .arrow-default {
+        opacity: 1;
+      }
+
+      .arrow-hover {
+        opacity: 0;
+      }
+
+      &:hover {
+        .arrow-default {
+          opacity: 0;
         }
-        40% {
-          transform: translateY(-10px);
-        }
-        60% {
-          transform: translateY(-5px);
+
+        .arrow-hover {
+          opacity: 1;
         }
       }
     }
   }
+}
+
+
+.vertical-socials {
+  position: fixed;
+  right: 40px;
+  top: 25%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 100;
+
+  .social-link {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform $transition-speed ease;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: opacity $transition-speed ease;
+    }
+
+    .icon-default {
+      opacity: 1;
+    }
+
+    .icon-hover {
+      opacity: 0;
+    }
+
+    &:hover {
+      .icon-default {
+        opacity: 0;
+      }
+
+      .icon-hover {
+        opacity: 1;
+      }
+    }
+  }
+
 }

@@ -8,16 +8,16 @@ import { Component, HostListener } from '@angular/core';
 })
 export class Header {
   /**
-   * Gibt an, ob die Seite gescrollt wurde
+   * Header wird sticky, sobald Hero-Section verlassen wird
    */
   isScrolled = false;
 
-  /**
-   * Hört auf Scroll-Events und aktualisiert den Header-Status
-   */
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Wenn mehr als 100px gescrollt wurde, Header nach oben
-    this.isScrolled = window.scrollY > 100;
+    // Hero = 100vh
+    const heroHeight = window.innerHeight;
+    
+    // Wenn Hero verlassen wurde, wird Header sticky
+    this.isScrolled = window.scrollY >= heroHeight;
   }
 }
