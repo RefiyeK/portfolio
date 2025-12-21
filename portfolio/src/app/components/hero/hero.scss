@@ -1,0 +1,164 @@
+@use '../../../styles.scss' as *;
+
+.hero {
+  min-height: 100vh;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+
+  .hero-container {
+    max-width: $container-max-width;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-xl;
+    padding: 0 $spacing-md;
+  }
+
+  // Sol taraf - Profil Fotoğrafı ve Shape
+  .hero-image {
+    position: relative;
+    flex: 1;
+    width: 500px;
+    height: 500px;
+
+    .background-shape {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.5s ease;
+      }
+
+      .shape-default {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .shape-hover {
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+
+    &:hover {
+      .background-shape {
+        .shape-default {
+          opacity: 0;
+        }
+
+        .shape-hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .image-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 10;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // Sağ taraf - İsim ve Bilgiler
+  .hero-content {
+    flex: 1;
+    color: $text-white;
+
+    .hero-text {
+      margin-bottom: $spacing-lg;
+
+      .hero-name {
+        font-family: $font-heading;
+        font-size: $font-size-xl;
+        font-weight: 400;
+        margin: 0;
+        color: $text-white;
+      }
+
+      .hero-title {
+        font-family: $font-primary;
+        font-size: $font-size-lg;
+        font-weight: 300;
+        margin: $spacing-xs 0 0 0;
+        color: $accent-color;
+        letter-spacing: 0.2rem;
+      }
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-xl;
+
+      a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform $transition-speed ease;
+
+        img {
+          width: 100%;
+          height: 100%;
+          filter: brightness(0) invert(1);
+          transition: filter $transition-speed ease;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+
+          img {
+            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+          }
+        }
+      }
+    }
+
+    .scroll-down {
+      margin-top: $spacing-md;
+
+      img {
+        width: 50px;
+        height: 50px;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}

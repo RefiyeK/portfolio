@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+/* Font Imports */
+@font-face {
+  font-family: 'Anta';
+  src: url('/fonts/Anta-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-Italic-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+
+/* SCSS Variables - Farben und Schriften */
+
+// Farben
+$primary-color: #2C3E50;        
+$accent-color: #87CEEB;         
+$text-white: #FFFFFF;           
+$text-light: #E0E0E0;           
+$header-bg: #2C3E50;            
+$footer-bg: #87CEEB;            
+
+// Schriften
+$font-primary: 'Josefin Sans', sans-serif;
+$font-heading: 'Anta', sans-serif;
+
+// Schriftgrößen
+$font-size-xl: 3.5rem;          // Hero Name
+$font-size-lg: 1.8rem;          // Hero Title
+$font-size-md: 1.2rem;          // Section Titles
+$font-size-base: 1rem;          // Normal Text
+$font-size-sm: 0.9rem;          // Klein Text
+
+// Abstände
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+$spacing-xl: 4rem;
+
+// Container
+$container-max-width: 1440px;
+
+// Transitions
+$transition-speed: 0.3s;
+
+/* Global Styles - Alle Elemente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $primary-color;
+  color: $text-white;
+}
