@@ -22,8 +22,8 @@
   .hero-image {
     position: relative;
     flex: 1;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
     .background-shape {
       position: absolute;
@@ -65,15 +65,15 @@
     }
 
     .image-circle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      overflow: hidden;
-      z-index: 10;
+        position: absolute;
+        top: 35%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        width: 850px;
+        height: 850px;
+        border-radius: 50%;
+        z-index: 10;
+        overflow: hidden;
 
       img {
         width: 100%;
@@ -87,6 +87,18 @@
   .hero-content {
     flex: 1;
     color: $text-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -100px;
+    .hero-logo {
+        margin-bottom: 1rem;
+    img {
+        height: 350px;
+        }
+    }    
+
 
     .hero-text {
       margin-bottom: $spacing-lg;
@@ -97,6 +109,7 @@
         font-weight: 400;
         margin: 0;
         color: $text-white;
+        margin-top: -50px;
       }
 
       .hero-title {
@@ -113,6 +126,7 @@
       display: flex;
       gap: $spacing-sm;
       margin-bottom: $spacing-xl;
+      justify-content: center;
 
       a {
         width: 50px;
