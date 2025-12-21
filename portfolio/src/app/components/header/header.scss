@@ -23,6 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
   }
 
   .logo {
@@ -80,3 +81,59 @@
     }
   }
 }
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .lang-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-family: $font-primary;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $primary-color;       
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all $transition-speed ease;
+
+    // Aktif: Beyaz text + Mavi daire
+    &.active {
+      color: $text-white;
+      background-image: url('/icons/ellipse.svg');
+    }
+
+    // Hover (aktif DEĞİLSE): Beyaz olur
+    &:not(.active):hover {
+      color: $text-white;
+    }
+  }
+
+  // Diğer aktif link'i değiştir
+      ~ .lang-link.active,
+      & ~ .separator ~ .lang-link.active {
+        color: $primary-color;
+        background-image: none;
+      }
+    }
+  
+
+  // Container hover: Pasif üzerine gelince aktifi değiştir
+  .lang-link:not(.active):hover ~ .separator ~ .lang-link.active,
+  .lang-link.active:has(~ .lang-link:not(.active):hover) {
+    color: $primary-color;
+    background-image: none;
+  }
+
+  .separator {
+    color: $primary-color;
+    font-size: 1.2rem;
+    font-weight: 300;
+    pointer-events: none;  // Separator'a tıklama yok
+  }

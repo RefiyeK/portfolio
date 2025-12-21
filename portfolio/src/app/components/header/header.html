@@ -18,5 +18,14 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+
+      <!-- DİL DEĞİŞTİRME -->
+  <div class="language-switcher">
+    <a href="#" class="lang-link" [class.active]="currentLang === 'de'" (click)="switchLanguage('de'); $event.preventDefault()">DE</a>
+  
+  <span class="separator">|</span>
+
+  <a href="#" class="lang-link" [class.active]="currentLang === 'en'" (click)="switchLanguage('en'); $event.preventDefault()">EN</a>
+  </div>
   </div>
 </header>

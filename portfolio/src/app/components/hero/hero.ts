@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 
+
 @Component({
   selector: 'app-hero',
   imports: [],
@@ -7,5 +8,6 @@ import { Component} from '@angular/core';
   styleUrl: './hero.scss',
 })
 export class Hero {
+  
 
 }

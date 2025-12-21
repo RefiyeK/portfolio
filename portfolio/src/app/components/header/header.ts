@@ -1,8 +1,9 @@
 import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -11,13 +12,16 @@ export class Header {
    * Header wird sticky, sobald Hero-Section verlassen wird
    */
   isScrolled = false;
+  currentLang: 'de' | 'en' = 'de';
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Hero = 100vh
     const heroHeight = window.innerHeight;
-    
-    // Wenn Hero verlassen wurde, wird Header sticky
     this.isScrolled = window.scrollY >= heroHeight;
+  }
+
+  switchLanguage(lang: 'de' | 'en') {
+    this.currentLang = lang;
+    console.log('Sprache:', lang);
   }
 }
