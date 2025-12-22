@@ -2,9 +2,9 @@
 
 .footer {
   width: 100%;
+  background-color: $footer-bg;
   
   .footer-content {
-    background-color: $footer-bg;
     display: flex;
     justify-content: space-between;
     align-items: center;
