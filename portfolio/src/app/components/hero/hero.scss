@@ -24,6 +24,16 @@
     position: relative;
     flex: 1;
     min-height: 650px;
+    padding: 0;
+    
+
+    &:hover {
+      .background-shape {
+        .shape-default {
+          opacity: 0;
+        }
+      }
+    }
     
 
     .background-shape {
@@ -128,7 +138,7 @@
    
 
     .scroll-down {
-      margin-top: $spacing-md;
+      margin-top: $spacing-xl;
       position: relative;
       width: 75px;
       height: 75px;

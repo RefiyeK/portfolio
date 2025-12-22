@@ -1,0 +1,204 @@
+@use '../../../styles.scss' as *;
+
+.footer {
+  width: 100%;
+  
+  .footer-content {
+    background-color: $footer-bg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    padding: $spacing-xl $spacing-xl;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    min-height: 180px;
+    
+    .footer-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+        gap: $spacing-xs;
+      
+      .legal-link {
+        color: $primary-color;
+        text-decoration: none;
+        font-size: $font-size-base;
+        font-family: $font-primary;
+        font-weight: 400;
+        transition: all 100ms ease;
+        cursor: pointer;
+        
+        &:hover {
+            color: $text-white;
+        }
+      }
+
+      .copyright {
+        margin: 0;
+        color: $primary-color;
+        font-size: $font-size-sm;
+        font-family: $font-primary;
+      }
+    }
+    
+    .footer-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-xs;
+      
+        img {
+         height: 60px;
+         width: auto;
+        }
+        
+        .logo-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        }
+
+        .logo-name {
+          font-size: $font-size-base;
+          font-family: $font-primary;
+          font-weight: 400;
+          color: $text-white;
+          line-height: 1.2;
+        }
+
+        .logo-text {
+          font-size: $font-size-sm;
+          font-family: $font-primary;
+          font-weight: 300;
+          color: $primary-color;
+          line-height: 1.2;
+        }
+      }
+    }
+    
+    .footer-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      
+      .social-icons {
+        display: flex;
+        gap: $spacing-xs;
+        
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          transition: transform 100ms ease;
+
+          img {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            transition: opacity 100ms ease;
+          }
+          
+          .icon-default {
+            opacity: 1;
+          }
+
+            .icon-hover {
+                opacity: 0;
+            }
+
+            &:hover {
+
+                .icon-default {
+                    opacity: 0;
+                }
+
+                .icon-hover {
+                    opacity: 1;
+                
+                }
+            }
+        }
+      }
+    }
+  }
+}
+          
+  
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-content {
+      flex-direction: column;
+      gap: $spacing-lg; // 3rem
+      padding: $spacing-lg $spacing-sm; // 3rem 1rem
+      min-height: auto;
+      
+      .footer-left,
+      .footer-center,
+      .footer-right {
+        flex: initial;
+        width: 100%;
+        align-items: center;
+      }
+      
+      .footer-left {
+        text-align: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 320px) {
+  .footer {
+    .footer-content {
+      padding: $spacing-md $spacing-xs; // 2rem 0.5rem
+      gap: $spacing-md;
+      
+      .footer-logo {
+        img {
+          height: 50px;
+        }
+        
+        .logo-info {
+          .logo-name {
+            font-size: $font-size-sm;
+          }
+          
+          .logo-text {
+            font-size: 0.8rem;
+          }
+        }
+      }
+      
+      .social-icons {
+        gap: $spacing-sm; // 1rem
+        
+        a {
+          width: 40px;
+          height: 40px;
+          
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+}
