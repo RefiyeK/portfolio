@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-
+import { Component } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-hero',
@@ -8,6 +8,7 @@ import { Component} from '@angular/core';
   styleUrl: './hero.scss',
 })
 export class Hero {
-  
+  scrollDownActive = false;
 
+  constructor(public translationService: TranslationService) {}
 }

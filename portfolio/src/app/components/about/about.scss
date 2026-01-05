@@ -2,31 +2,34 @@
 
 .about {
   width: 100%;
-  background-color: $primary-color; 
-  padding: $spacing-xl 0; // 4rem 0
+  min-height: 90vh;
+  background-color: $background-color;
+  padding-top: clamp(80px, 10vh, 100px);
+  display: flex;
+  align-items: center;
   
   .about-container {
     max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 $spacing-xl; // 0 4rem
+    padding: $spacing-md $spacing-xl;
+    width: 100%;
     
     .section-title {
-      font-family: $font-heading; // Anta
-      font-size: $font-size-xxl; // 5rem (80px)
-      color: $accent-color; // #87CEEB
+      font-family: $font-heading;
+      font-size: $font-size-xxl;
+      color: $primary-color;
       text-align: center;
-      margin-bottom: $spacing-xl; // 4rem
+      margin-bottom: $spacing-xl;
     }
     
     .about-content {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      gap: 120px;
+      align-items: center;
+      gap: clamp(60px, 10vw, 120px);
       max-width: 1200px;
       margin: 0 auto;
 
-      // Sol Taraf - Location
       .about-left {
         flex: 0 1 auto;
         max-width: 400px;
@@ -34,51 +37,49 @@
         .location {
           display: flex;
           align-items: center;
-          gap: $spacing-sm; // 1rem
+          gap: $spacing-sm; //1rem
           
           .location-icon {
-            width: 60px;
-            height: 60px;
+            width: clamp(50px, 5vw, 60px); //minimun, Ideal(ekran genisliginin 5% olsun), Maximum
+            height: clamp(50px, 5vw, 60px); //minimun, Ideal(ekran genisliginin 5% olsun), Maximum
             flex-shrink: 0;
           }
           
           .location-text {
-            font-family: $font-primary; // Josefin Sans
-            font-size: $font-size-lg; // 1.8rem (28.8px)
-            color: $text-white;
+            font-family: $font-primary;
+            font-size: $font-size-lg;
+            color: $secondary-color-white;
             margin: 0;
             
             .highlight {
-              color: $accent-color; // #87CEEB
+              color: $primary-color;
               font-weight: 700;
             }
           }
         }
       }
       
-      // Sağ Taraf - Text + Button
       .about-right {
         flex: 0 1 auto;
         max-width: 450px;
         display: flex;
         flex-direction: column;
-        gap: $spacing-md; // 2rem
-        
+        gap: $spacing-md;
         
         .about-description {
           font-family: $font-primary;
           font-size: $font-size-md;
-          color: $text-light;
+          color: $secondary-color-white;
           margin: 0;
-          line-height: 1.25;
+          line-height: 1.6; 
         }
         
         .cta-button {
           display: inline-block;
           padding: 12px 32px;
-          border: 2px solid $accent-color;
+          border: 2px solid $primary-color;
           border-radius: 30px;
-          color: $accent-color;
+          color: $primary-color;
           background-color: transparent;
           font-family: $font-primary;
           font-size: $font-size-base;
@@ -86,14 +87,11 @@
           text-decoration: none;
           text-align: center;
           cursor: pointer;
-          transition: all 100ms ease;
+          transition: all $transition-speed ease;
           align-self: flex-end;
           
           &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: $accent-color;
-           
-
+            background-color: rgba($primary-color, 0.2);
           }
         }
       }
@@ -104,12 +102,10 @@
 // Responsive - Tablet
 @media (max-width: 992px) {
   .about {
+    padding-top: 80px;
+    
     .about-container {
-      padding: 0 $spacing-lg; // 0 3rem
-      
-      .section-title {
-        font-size: $font-size-xl; // 3.5rem
-      }
+      padding: $spacing-md $spacing-lg;
       
       .about-content {
         flex-direction: column;
@@ -121,73 +117,56 @@
           max-width: 600px;
           text-align: center;
         }
+
+        .about-right {
+          .cta-button {
+            align-self: center; 
+          }
+        }
       }
     }
   }
 }
 
-// Responsive - Mobile
 @media (max-width: 768px) {
   .about {
-    padding: $spacing-lg 0; // 3rem 0
+    min-height: auto;
+    padding: $spacing-md;
     
     .about-container {
-      padding: 0 $spacing-sm; // 0 1rem
-      
-      .section-title {
-        font-size: $font-size-lg; // 1.8rem
-        margin-bottom: $spacing-lg;
-      }
-      
-      .about-content {
-        gap: $spacing-md;
-        
-        .about-left {
-            max-width: 100%;
+      padding: $spacing-sm;
 
+      .section-title {
+        font-size: $font-size-xl;
+        margin-bottom: $spacing-md;
+      }
+
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: $spacing-sm;
+
+        .about-left {
           .location {
-            flex-direction: column;
-            text-align: center;
-            
+            justify-content: center;
+
             .location-text {
-              font-size: $font-size-md; // 1.2rem
+              font-size: $font-size-md;
             }
           }
         }
-        
-        .about-right {
-            max-width: 100%;
 
-          .cta-button {
-            align-self: center;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Min 320px
-@media (max-width: 320px) {
-  .about {
-    .about-container {
-      padding: 0 $spacing-xs;
-      
-      .section-title {
-        font-size: $font-size-md;
-      }
-      
-      .about-content {
-        .about-left {
-          .location-text {
-            font-size: $font-size-base;
-          }
-        }
-        
         .about-right {
-          .cta-button {
-            padding: 10px 24px;
+          align-items: center;
+
+          .about-description {
+            text-align: center;
             font-size: $font-size-sm;
+          }
+
+          .cta-button {
+            display: none;
           }
         }
       }

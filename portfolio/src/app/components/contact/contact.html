@@ -1,1 +1,107 @@
-<p>contact works!</p>
+<section class="contact-container" id="contact">
+  
+  <!-- Header with Title and Scroll Button -->
+  <div class="contact-header">
+    <h2 class="contact-title">{{ translationService.t('contact.title') }}</h2>
+    <a href="#hero" class="scroll-top-btn" (mouseenter)="scrollHovered = true" (mouseleave)="scrollHovered = false">
+      <img [src]="scrollHovered ? 'icons/propertyhover.svg' : 'icons/propertydefault.svg'" alt="Nach oben scrollen">
+    </a>
+  </div>
+
+  <div class="contact-content">
+    <!-- Left Side - Description -->
+    <div class="contact-description">
+      <p>{{ translationService.t('contact.description1') }}</p>
+      <p>{{ translationService.t('contact.description2') }}</p>
+    </div>
+
+    <!-- Right Side - Contact Info -->
+    <div class="contact-info">
+      <a href="mailto:rkulhanbey@hotmail.com" class="contact-link" 
+        (mouseenter)="emailHovered = true" (mouseleave)="emailHovered = false">
+        <img [src]="emailHovered ? 'icons/icon _email_hover.svg' : 'icons/icon _email.svg'" alt="E-Mail">
+        <span>E-Mail: rkulhanbey&#64;hotmail.com</span>
+      </a>
+      <a href="tel:+4915712345668" class="contact-link"
+        (mouseenter)="phoneHovered = true" (mouseleave)="phoneHovered = false">
+        <img [src]="phoneHovered ? 'icons/icon _phone_hover.svg' : 'icons/icon _phone_.svg'" alt="Telefon">
+        <span>{{ translationService.t('contact.phone') }}: 0157 123 456 68</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile CTA Title - Only Mobile -->
+  <h3 class="contact-cta-title">{{ translationService.t('contact.cta') }}</h3>
+
+  <!-- Contact Form -->
+  <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+    <div class="form-row">
+      <!-- Name Field -->
+      <div class="form-group">
+        <div class="input-wrapper">
+          <label for="name" [class.error]="nameError">{{ translationService.t('contact.name') }}</label>
+          <input type="text" id="name" name="name" placeholder=" " [(ngModel)]="formData.name" (blur)="validateName()" [class.error]="nameError" autocomplete="name">
+          <img *ngIf="nameSuccess" src="icons/check_box_accept.svg" alt="Gültig" class="validation-icon">
+        </div>
+        <span class="error-message" [class.visible]="nameError">{{ translationService.t('contact.nameRequired') }}</span>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <div class="input-wrapper">
+          <label for="email" [class.error]="emailError">{{ translationService.t('contact.email') }}</label>
+          <input type="email" id="email" name="email" placeholder=" " [(ngModel)]="formData.email" (blur)="validateEmail()" [class.error]="emailError" autocomplete="email">
+          <img *ngIf="emailSuccess" src="icons/check_box_accept.svg" alt="Gültig" class="validation-icon">
+        </div>
+        <span class="error-message" [class.visible]="emailError">{{ translationService.t('contact.emailRequired') }}</span>
+      </div>
+    </div>
+
+    <!-- Message Field -->
+    <div class="form-group full-width">
+      <div class="input-wrapper">
+        <label for="message" [class.error]="messageError">{{ translationService.t('contact.message') }}</label>
+        <textarea id="message" name="message" placeholder=" " [(ngModel)]="formData.message" (blur)="validateMessage()"
+          [class.error]="messageError" rows="5"></textarea>
+        <img *ngIf="messageSuccess" src="icons/check_box_accept.svg" alt="Gültig" class="validation-icon textarea-icon">
+      </div>
+      <span class="error-message" [class.visible]="messageError">{{ translationService.t('contact.messageRequired') }}</span>
+    </div>
+
+    <!-- Privacy Policy Checkbox -->
+    <div class="privacy-wrapper">
+      <div class="checkbox-container" (click)="togglePrivacy()"
+           (mouseenter)="checkboxHovered = true" (mouseleave)="checkboxHovered = false">
+        <img [src]="getCheckboxIcon()" alt="Checkbox" class="checkbox-icon">
+      </div>
+      <span class="privacy-text">
+        {{ translationService.t('contact.privacyStart') }} 
+        <a routerLink="/privacy-policy" class="privacy-link">{{ translationService.t('contact.privacyLink') }}</a> 
+        {{ translationService.t('contact.privacyEnd') }}
+      </span> 
+    </div>
+
+    <span class="error-message privacy-error" [class.visible]="privacyError">{{ translationService.t('contact.privacyRequired') }}</span>
+
+    <!-- Submit Button -->
+    <div class="button-wrapper">
+      <button type="submit" class="submit-btn" [class.active]="isFormValid()" [disabled]="!isFormValid()">
+        {{ translationService.t('contact.send') }}
+      </button>
+    </div>
+  </form>
+
+  <!-- Mobile Scroll Top Button -->
+  <div class="scroll-top-mobile">
+    <a href="#hero" (touchstart)="scrollTopActive = true" (touchend)="scrollTopActive = false"
+     (mousedown)="scrollTopActive = true" (mouseup)="scrollTopActive = false" (mouseleave)="scrollTopActive = false">
+      <img [src]="scrollTopActive ? 'icons/propertyhover.svg' : 'icons/propertydefault.svg'" alt="Nach oben scrollen">
+    </a>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-message" *ngIf="messageSent">
+    <img src="icons/Cloud.svg" alt="Erfolg">
+    <p>{{ translationService.t('contact.success') }}</p>
+  </div>
+</section>

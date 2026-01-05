@@ -1,9 +1,16 @@
-<app-header></app-header>
+<app-header [isStatic]="isPrivacyPage()"></app-header>
 
-<app-hero></app-hero>
-<app-about></app-about>
-<app-skills></app-skills>
-<app-projects></app-projects>
-<app-contact></app-contact>
+<main>
+  @if (isPrivacyPage()) {
+    <router-outlet></router-outlet>
+  } @else {
+    <app-hero id="hero"></app-hero>
+    <app-about></app-about>
+    <app-skills></app-skills>
+    <app-projects></app-projects>
+    <app-references></app-references>
+    <app-contact></app-contact>
+  }
+</main>
 
 <app-footer></app-footer>

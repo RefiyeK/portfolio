@@ -1,0 +1,71 @@
+{
+  "header": {
+    "about": "About me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "FULLSTACK DEVELOPER"
+  },
+  "projects": {
+    "mainTitle": "My Projects",
+    "aboutProject": "About the project",
+    "duration": "Duration",
+    "workProcess": "How I organized my work process",
+    "groupExperience": "My experience with group work",
+    "technologies": "Technologies"
+  },
+  "contact": {
+    "title": "Contact me",
+    "cta": "Let's work together!",
+    "description1": "I look forward to new challenges and exciting projects. As a web developer, I bring fresh ideas and technical know-how to your team.",
+    "description2": "Feel free to contact me for job offers, project inquiries or collaboration opportunities.",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "nameRequired": "Your name is required",
+    "emailRequired": "Your email is required",
+    "messageRequired": "Your message is required",
+    "privacy": "I have read the",
+    "privacyLink": "Privacy Policy",
+    "privacyText": "and agree to the processing of my data.",
+    "privacyRequired": "Please accept the privacy policy",
+    "send": "Send",
+    "success": "Your message has been sent successfully!"
+  },
+  "footer": {
+    "legalNotice": "Legal Notice",
+    "developer": "Developer"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Introduction",
+    "introText": "This privacy policy explains how your personal data is collected, used, and protected when you use this portfolio website and contact form.",
+    "dataCollection": "Data Collection",
+    "dataCollectionText": "When you use the contact form, the following data is collected:",
+    "dataName": "Your name",
+    "dataEmail": "Your email address",
+    "dataMessage": "Your message content",
+    "dataCollectionPurpose": "This data is collected solely for the purpose of responding to your inquiry.",
+    "dataUsage": "Use of Data",
+    "dataUsageText": "Your personal data will only be used to:",
+    "dataUsage1": "Respond to your contact request",
+    "dataUsage2": "Communicate regarding potential job opportunities or collaborations",
+    "dataUsageNote": "Your data will not be shared with third parties or used for marketing purposes.",
+    "dataStorage": "Data Storage",
+    "dataStorageText": "Your data is stored securely and will be deleted after the purpose of communication has been fulfilled, unless legal retention periods require otherwise.",
+    "yourRights": "Your Rights",
+    "yourRightsText": "Under GDPR, you have the following rights:",
+    "right1": "Right to access your personal data",
+    "right2": "Right to rectification of inaccurate data",
+    "right3": "Right to erasure (\"right to be forgotten\")",
+    "right4": "Right to restrict processing",
+    "right5": "Right to data portability",
+    "right6": "Right to object to processing",
+    "contactTitle": "Contact",
+    "contactText": "For any questions or requests regarding your personal data, please contact:",
+    "date": "Date",
+    "backBtn": "Back to Contact"
+  }
+}

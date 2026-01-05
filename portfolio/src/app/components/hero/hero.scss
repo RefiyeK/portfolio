@@ -1,57 +1,45 @@
 @use '../../../styles.scss' as *;
 
-.hero {
-  position: relative;           
+.hero {        
   min-height: 100vh;
-  background-color: $primary-color;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: $spacing-md;
-  overflow: visible;
+ 
 
   .hero-container {
+    position: relative;
     max-width: $container-max-width;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 $spacing-md;
+    justify-content: space-between;
+    gap: 5%;
+
   }
 
   // Sol taraf - Profil Fotoğrafı ve Shape
   .hero-image {
+    min-width: clamp(300px, 35vw, 500px);
     position: relative;
-    flex: 1;
-    min-height: 650px;
-    padding: 0;
     
-
-    &:hover {
-      .background-shape {
-        .shape-default {
-          opacity: 0;
-        }
+    .mobile-hero-image {
+      display: none;
       }
-    }
-    
+
 
     .background-shape {
       position: absolute;
-      top: 30%;
-      left: 2%;
-      transform: translate(-6%, -15%);
-      width: min(600px, 80vw);
-      height: min(600px, 80vw);
-      z-index: 1;
+      top: 10%;
+      left: 10%;
+      transform: translate(-10%, 20%);
+      width: clamp(350px, 40vw, 700px);
+      height: clamp(350px, 40vw, 700px);
+    
+    }
 
       img {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        object-fit: contain;
         transition: opacity 0.9s ease;
       }
 
@@ -79,13 +67,12 @@
     }
 
     .image-circle {
-        position: absolute;
-        top: -50px;
-        left: -50px;
-        transform: translate(-2%, -12%);
-        width: min(850px, 100vw);
-        height: min(850px, 100vw);
-        z-index: 10;
+      position: absolute;
+      top: 4%;
+      left: -27%;
+      width: clamp(450px, 70vw, 850px);
+      height: clamp(500px,65vw, 850px);
+      z-index: 10;
 
       img {
         width: 100%;
@@ -93,103 +80,100 @@
         object-fit: cover;
       }
     }
-  }
+  
 
   // Sağ taraf - İsim ve Bilgiler
   .hero-content {
-    color: $text-white;
+    color: $secondary-color-white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: -200px;
-    
+    // margin-top: -35%;
+    // margin-right: 10%;
+    position: relative;
+    flex: 1;
     
     .hero-logo {
-        margin: 0;
-    img {
-        height: 250px;
-        }
+
+      img {
+        height: clamp(120px, 12vw, 250px);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      &:hover img {
+        transform: scaleX(1.10);
+      }
     }
 
-
     .hero-text {
-      margin-bottom: $spacing-lg;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
 
       .hero-name {
         font-family: $font-heading;
-        font-size: $font-size-xxl;
+        font-size: clamp(2.5rem, 4vw, $font-size-xxl);
         font-weight: 400;
+        color: $secondary-color-white;
         margin: 0;
-        color: $text-white;
-        margin-top: -50px;
       }
 
       .hero-title {
         font-family: $font-primary;
-        font-size: $font-size-lg;
+        font-size: clamp(1.2rem, 1.8vw, $font-size-lg);
         font-weight: 400;
-        margin: $spacing-xs 0 0 0;
-        color: $text-white;
+        margin:0;
+        color: $secondary-color-white;
         letter-spacing: 0.2rem;
       }
     }
 
-   
+    
+  .scroll-down {
+    position: absolute;
+    bottom: 20%;
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
+    display: block;
+    cursor: pointer;
 
-    .scroll-down {
-      margin-top: $spacing-xl;
-      position: relative;
-      width: 75px;
-      height: 75px;
-      cursor: pointer;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity $transition-speed ease;
+    }
 
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 130%;
-        transition: opacity $transition-speed ease;
-      }
+    .arrow-default {
+      opacity: 1;
+    }
 
-      .arrow-default {
-        opacity: 1;
-      }
-
-      .arrow-hover {
-        opacity: 0;
-      }
-
-      &:hover {
-        .arrow-default {
-          opacity: 0;
-        }
-
-        .arrow-hover {
-          opacity: 1;
-        }
-      }
+    .arrow-hover {
+      opacity: 0;
     }
   }
 }
+  }
 
 
 .vertical-socials {
   position: absolute;
-  right: 40px;
-  top: 25%;
-  transform: translateY(-50%);
+  right: clamp(20px, 3vw, 40px);
+  top: 10%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.5rem;
   z-index: 100;
 
   .social-link {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: clamp(30px, 3vw, 40px);
+    height: clamp(30px, 3vw, 40px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,5 +204,155 @@
       }
     }
   }
+}
 
+
+
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    display: flex;
+    align-items: flex-start;
+    padding-top: $header-height-mobile;
+    padding-bottom: $header-height-mobile;
+    box-sizing: border-box;
+    
+    .hero-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: $spacing-md;
+      gap: 0;
+      width: 100%;
+    }
+
+    .hero-image {
+      min-width: auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: $mobile-circle-margin-top;
+      z-index: 1;
+      
+      .background-shape {
+        display: none;
+      }
+      
+      .image-circle {
+        display: none;
+      }
+
+      .mobile-hero-image {
+        display: block;
+        width: $mobile-circle-size;
+        max-width: $mobile-circle-max;
+        height: $mobile-circle-size;
+        max-height: $mobile-circle-max;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .hero-content {
+      margin: 0;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+      z-index: 1;
+
+      .hero-logo {
+        display: none;
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-sm;
+        
+        .hero-name {
+          font-size: clamp(2rem, 8vw, 4rem);
+        }
+
+        .hero-title {
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          font-weight: 400;
+          letter-spacing: 0.15rem;
+        }
+      }
+
+      .scroll-down {
+        position: relative;
+        margin-top: $spacing-xl;
+        width: clamp(70px, 18vw, 100px);
+        height: clamp(70px, 18vw, 100px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .arrow-hover {
+          display: none;
+        }
+
+        &:hover {
+          .arrow-default {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .vertical-socials {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    .hero-image {
+      margin-top: $mobile-circle-margin-top-sm;
+      
+      .mobile-hero-image {
+        width: $mobile-circle-size-sm;
+        max-width: $mobile-circle-max-sm;
+        height: $mobile-circle-size-sm;
+        max-height: $mobile-circle-max-sm;
+      }
+    }
+
+    .hero-content {
+      margin-top: $spacing-md;
+
+
+      .hero-text {
+        .hero-name {
+          font-size: clamp(1.5rem, 6vw, 1.8rem);
+        }
+
+        .hero-title {
+          font-size: clamp(0.8rem, 3vw, 0.9rem);
+        }
+      }
+
+      .scroll-down {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
 }

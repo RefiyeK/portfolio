@@ -1,1 +1,91 @@
-<p>skills works!</p>
+<section class="skills" id="skills">
+  <div class="skills-container">
+    
+    <h2 class="section-title">{{ translationService.t('skills.title') }}</h2>
+    
+    <div class="skills-content">
+      
+      <!-- Sol Taraf - Skill İkonları -->
+      <div class="skills-left">
+        <div class="skill-item">
+          <img src="icons/angular-default.svg" alt="Angular">
+        </div>
+        <div class="skill-item">
+          <img src="icons/typescript.svg" alt="TypeScript">
+        </div>
+        <div class="skill-item">
+          <img src="icons/javascript.svg" alt="JavaScript">
+        </div>
+        <div class="skill-item">
+          <img src="icons/html.svg" alt="HTML">
+        </div>
+        <div class="skill-item">
+          <img src="icons/css.svg" alt="CSS">
+        </div>
+        <div class="skill-item">
+          <img src="icons/rest-api.svg" alt="REST-API">
+        </div>
+        <div class="skill-item">
+          <img src="icons/firebase.svg" alt="Firebase">
+        </div>
+        <div class="skill-item">
+          <img src="icons/git.svg" alt="Git">
+        </div>
+        <div class="skill-item">
+          <img src="icons/material-design.svg" alt="Material Design">
+        </div>
+        <div class="skill-item">
+          <img src="icons/scrum.svg" alt="Scrum">
+        </div>
+      </div>
+      
+      <!-- Desktop - Sağ Taraf -->
+      <div class="skills-right">
+        <div class="learning-content">
+          <div class="circle-background" (mouseenter)="circleHovered = true" (mouseleave)="circleHovered = false">
+            <img [src]="circleHovered ? 'icons/ellipse25-hover.svg' : 'icons/ellipse-myskills.svg'" alt="" class="circle-default">
+          </div>
+    
+          <div class="text-content">
+            <h3>{{ translationService.t('skills.learning') }}</h3>
+      
+            <div class="learning-icons">
+              <div class="learning-item">
+                <img src="icons/react.svg" alt="React">
+              </div>
+              <div class="learning-item">
+                <img src="icons/vue.svg" alt="Vue.js">
+              </div>
+            </div>
+      
+            <p class="learning-text">{{ translationService.t('skills.learningText') }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile Learning Section -->
+    <div class="mobile-learning-section">
+      <h3 class="mobile-learning-title">{{ translationService.t('skills.learning') }}</h3>
+      
+      <div class="mobile-learning-content">
+        <p class="mobile-learning-text">{{ translationService.t('skills.learningText') }}</p>
+        
+        <div class="mobile-learning-icons">
+          <div class="learning-item">
+            <img src="icons/vue_.svg" alt="Vue.js">
+            <span>Vue.js</span>
+          </div>
+          <div class="learning-item">
+            <img src="icons/react_.svg" alt="React">
+            <span>React</span>
+          </div>
+        </div>
+      </div>
+      
+      <a href="#contact" class="cta-button-mobile">{{ translationService.t('skills.cta') }}</a>
+    </div>
+
+  </div>
+</section>

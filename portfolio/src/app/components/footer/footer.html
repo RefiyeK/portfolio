@@ -2,7 +2,7 @@
   <div class="footer-content">
     
     <div class="footer-left">
-      <a routerLink="/legal-notice" class="legal-link">Legal notice</a>
+      <a routerLink="/legal-notice" class="legal-link">{{ translationService.t('footer.legalNotice') }}</a>
       <p class="copyright">© Refiye Külhanbey 2025</p>
     </div>
 
@@ -11,26 +11,27 @@
         <img src="/logo/logo-dark.png" alt="RK Logo">
         <div class="logo-info">
           <span class="logo-name">Refiye Külhanbey</span>
-          <span class="logo-text">developer</span>    
+          <span class="logo-text">{{ translationService.t('footer.developer') }}</span>    
         </div>
       </div>
     </div>
-  
 
-    
     <div class="footer-right">
       <div class="social-icons">
-        <a href="https://github.com/your-username" target="_blank" aria-label="GitHub">
-          <img src="icons/github-vector.svg" alt="GitHub" class="icon-default">
+        <a href="https://github.com/RefiyeK" target="_blank" aria-label="GitHub">
+          <img src="icons/github-dark.svg" alt="GitHub" class="icon-default">
           <img src="icons/github-white.svg" alt="GitHub" class="icon-hover">
+          <img src="icons/github-mobile.svg" alt="GitHub" class="icon-mobile">
         </a>
-        <a href="mailto:your-email@example.com" aria-label="Email">
-          <img src="icons/email-default.svg" alt="Email" class="icon-default">
-          <img src="icons/email-white.svg" alt="EMail" class="icon-hover">
+        <a href="mailto:rkulhanbey@hotmail.com" aria-label="Email">
+          <img src="icons/email-dark.svg" alt="Email" class="icon-default">
+          <img src="icons/email-white.svg" alt="Email" class="icon-hover">
+          <img src="icons/email-mobile.svg" alt="Email" class="icon-mobile">
         </a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" aria-label="LinkedIn">
-          <img src="icons/linkedin-default.svg" alt="LinkedIn" class="icon-default">
-          <img src="icons/linkedin-white.svg" alt="Linkedin" class="icon-hover">
+        <a href="https://linkedin.com/in/refiye-külhanbey" target="_blank" aria-label="LinkedIn">
+          <img src="icons/linkedin-dark.svg" alt="LinkedIn" class="icon-default">
+          <img src="icons/linkedin-white.svg" alt="LinkedIn" class="icon-hover">
+          <img src="icons/linkedin-mobile.svg" alt="LinkedIn" class="icon-mobile">
         </a>
       </div>
     </div>

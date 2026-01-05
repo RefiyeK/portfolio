@@ -1,1 +1,112 @@
-<p>projects works!</p>
+<div class="projects-container" id="projects">
+  <!-- Header -->
+  <header class="projects-header">
+    <h1 class="main-title">{{ translationService.t('projects.mainTitle') }}</h1>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <nav class="tabs-navigation">
+    <button *ngFor="let project of projects; let i = index" class="tab-button"
+      [class.active]="activeTab === i" (click)="selectTab(i)">{{ i + 1 }}. {{ project.name }}
+    </button>
+  </nav>
+
+  <!-- Project Content -->
+  <div class="project-content">
+    <!-- Desktop: Left Side - Project Info -->
+    <div class="project-info">
+      <section class="info-section">
+        <div class="section-header">
+          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <h2>{{ translationService.t('projects.aboutProject') }}</h2>
+          <span class="duration">{{ translationService.t('projects.duration') }}: {{ currentProject.duration[currentLang] }}</span>
+        </div>
+        <p class="section-text">{{ currentProject.about[currentLang] }}</p>
+      </section>
+
+      <section class="info-section">
+        <div class="section-header">
+          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <h2>{{ translationService.t('projects.workProcess') }}</h2>
+        </div>
+        <p class="section-text">{{ currentProject.workProcess[currentLang] }}</p>
+      </section>
+
+      <section class="info-section">
+        <div class="section-header">
+          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <h2>{{ translationService.t('projects.groupExperience') }}</h2>
+        </div>
+        <p class="section-text">{{ currentProject.groupExperience[currentLang] }}</p>
+      </section>
+    </div>
+
+    <!-- Desktop: Right Side - Preview & Technologies -->
+    <div class="project-preview">
+      <div class="technologies">
+        <h3>{{ translationService.t('projects.technologies') }}</h3>
+        <div class="tech-icons">
+          <img *ngFor="let tech of currentProject.technologies"
+            [src]="tech.icon" [alt]="tech.name">
+        </div>
+      </div>
+
+      <div class="app-preview">
+        <img [src]="currentProject.previewImage" [alt]="currentProject.name + ' Preview'">
+      </div>
+
+      <div class="action-buttons">
+        <a [href]="currentProject.liveUrl" target="_blank" class="btn-primary">Live Test</a>
+        <a [href]="currentProject.githubUrl" target="_blank" class="btn-secondary">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="mobile-project-layout">
+      <h2 class="mobile-project-title">{{ currentProject.name }}</h2>
+      
+      <div class="mobile-technologies">
+        <span class="tech-label">{{ translationService.t('projects.technologies') }}:</span>
+        <span class="tech-list">{{ currentProject.technologiesText }}</span>
+      </div>
+      
+      <div class="mobile-duration">
+        <span class="duration-label">{{ translationService.t('projects.duration') }}:</span>
+        <span class="duration-value">{{ currentProject.duration[currentLang] }}</span>
+      </div>
+      
+      <div class="mobile-app-preview">
+        <img [src]="currentProject.previewImage" [alt]="currentProject.name + ' Preview'">
+      </div>
+      
+      <section class="mobile-info-section">
+        <div class="mobile-section-header">
+          <span class="circle-icon"></span>
+          <h3>{{ translationService.t('projects.aboutProject') }}</h3>
+        </div>
+        <p class="mobile-section-text">{{ currentProject.about[currentLang] }}</p>
+      </section>
+
+      <section class="mobile-info-section">
+        <div class="mobile-section-header">
+          <span class="circle-icon"></span>
+          <h3>{{ translationService.t('projects.workProcess') }}</h3>
+        </div>
+        <p class="mobile-section-text">{{ currentProject.workProcess[currentLang] }}</p>
+      </section>
+
+      <section class="mobile-info-section">
+        <div class="mobile-section-header">
+          <span class="circle-icon"></span>
+          <h3>{{ translationService.t('projects.groupExperience') }}</h3>
+        </div>
+        <p class="mobile-section-text">{{ currentProject.groupExperience[currentLang] }}</p>
+      </section>
+
+      <div class="mobile-action-buttons">
+        <a [href]="currentProject.liveUrl" target="_blank" class="btn-mobile">Live Test</a>
+        <a [href]="currentProject.githubUrl" target="_blank" class="btn-mobile">GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,13 +2,12 @@
 
 .footer {
   width: 100%;
-  background-color: $footer-bg;
+  background-color: $primary-color;
   
   .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 100px;
     padding: $spacing-xl $spacing-xl;
     max-width: $container-max-width;
     margin: 0 auto;
@@ -18,10 +17,10 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-        gap: $spacing-xs;
+      gap: $spacing-sm;
       
       .legal-link {
-        color: $primary-color;
+        color: $background-color;
         text-decoration: none;
         font-size: $font-size-base;
         font-family: $font-primary;
@@ -29,15 +28,16 @@
         transition: all 100ms ease;
         cursor: pointer;
         
+        // Desktop hover - beyaz renk
         &:hover {
-            color: $text-white;
+          color: $secondary-color-white;
         }
       }
 
       .copyright {
         margin: 0;
-        color: $primary-color;
-        font-size: $font-size-sm;
+        color: $background-color;
+        font-size: $font-size-md;
         font-family: $font-primary;
       }
     }
@@ -59,17 +59,17 @@
         }
         
         .logo-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
         }
 
         .logo-name {
           font-size: $font-size-base;
           font-family: $font-primary;
           font-weight: 400;
-          color: $text-white;
+          color: $secondary-color-white;
           line-height: 1.2;
         }
 
@@ -77,7 +77,7 @@
           font-size: $font-size-sm;
           font-family: $font-primary;
           font-weight: 300;
-          color: $primary-color;
+          color: $background-color;
           line-height: 1.2;
         }
       }
@@ -97,51 +97,53 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           cursor: pointer;
           transition: transform 100ms ease;
 
           img {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             transition: opacity 100ms ease;
           }
           
           .icon-default {
-            opacity: 1;
+            opacity: 0.5;
           }
 
+          .icon-hover {
+            opacity: 0;
+          }
+
+          // Desktop'ta mobile ikonları gizle
+          .icon-mobile {
+            opacity: 0;
+          }
+
+          &:hover {
+            .icon-default {
+              opacity: 0;
+            }
+
             .icon-hover {
-                opacity: 0;
+              opacity: 1;
             }
-
-            &:hover {
-
-                .icon-default {
-                    opacity: 0;
-                }
-
-                .icon-hover {
-                    opacity: 1;
-                
-                }
-            }
+          }
         }
       }
     }
   }
 }
           
-  
 
 @media (max-width: 768px) {
   .footer {
     .footer-content {
       flex-direction: column;
-      gap: $spacing-lg; // 3rem
-      padding: $spacing-lg $spacing-sm; // 3rem 1rem
+      gap: $spacing-lg;
+      padding: $spacing-lg $spacing-md;
       min-height: auto;
       
       .footer-left,
@@ -149,53 +151,117 @@
       .footer-right {
         flex: initial;
         width: 100%;
-        align-items: center;
+      }
+
+      .footer-center {
+        order: 1;
+
+        .footer-logo {
+          img {
+            height: 50px;
+          }
+
+          .logo-name {
+            font-size: $font-size-sm;
+            font-weight: 300;
+          }
+
+          .logo-text {
+            font-size: $font-size-sm;
+          }
+        }
       }
       
-      .footer-left {
-        text-align: center;
-      }
-      
-      .social-icons {
+      .footer-right {
+        order: 2;
         justify-content: center;
+
+        .social-icons {
+          justify-content: center;
+          gap: $spacing-sm;
+
+          a {
+            width: 35px;
+            height: 35px;
+
+            img {
+              width: 28px;
+              height: 28px;
+            }
+
+            .icon-default,
+            .icon-hover {
+              opacity: 0;
+            }
+
+            .icon-mobile {
+              opacity: 1;
+            }
+
+            &:hover {
+              .icon-default,
+              .icon-hover {
+                opacity: 0;
+              }
+
+              .icon-mobile {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .footer-left {
+        order: 3;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-md;
+        text-align: center;
+
+        .legal-link {
+          font-size: $font-size-sm;
+
+          // Mobilde hover yok
+          &:hover {
+            color: $background-color;
+          }
+        }
+
+        .copyright {
+          font-size: $font-size-sm;
+        }
       }
     }
   }
 }
 
-
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .footer {
     .footer-content {
-      padding: $spacing-md $spacing-xs; // 2rem 0.5rem
-      gap: $spacing-md;
-      
-      .footer-logo {
-        img {
-          height: 50px;
-        }
-        
-        .logo-info {
-          .logo-name {
-            font-size: $font-size-sm;
-          }
-          
-          .logo-text {
-            font-size: 0.8rem;
-          }
+      padding: $spacing-md $spacing-sm;
+
+      .footer-left {
+        flex-direction: row;
+        gap: $spacing-sm;
+
+        .legal-link,
+        .copyright {
+          font-size: 0.75rem;
         }
       }
-      
-      .social-icons {
-        gap: $spacing-sm; // 1rem
-        
-        a {
-          width: 40px;
-          height: 40px;
-          
-          img {
-            width: 32px;
-            height: 32px;
+
+      .footer-right {
+        .social-icons {
+          a {
+            width: 30px;
+            height: 30px;
+
+            img {
+              width: 24px;
+              height: 24px;
+            }
           }
         }
       }

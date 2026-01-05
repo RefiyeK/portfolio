@@ -1,14 +1,19 @@
 @use '../../../styles.scss' as *;
 
 .header {
-  background-color: $accent-color;
+  background-color: $primary-color;
   padding: 1rem 0;
-  position: absolute;  // Default (JS değiştirecek)
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  // transition KALDIR! JS anında değiştirsin
+
+  &.static {
+    position: relative !important;
+    bottom: auto !important;
+    top: auto !important;
+  }
 
   .container {
     max-width: $container-max-width;
@@ -29,6 +34,18 @@
       text-decoration: none;
     }
 
+    .logo-desktop {
+      display: block;
+      height: 60px;
+      transition: transform $transition-speed ease;
+    }
+
+    .logo-mobile {
+      display: none;
+      height: 60px;
+      transition: transform $transition-speed ease;
+    }
+
     img {
       height: 60px;
       transition: transform $transition-speed ease;
@@ -37,39 +54,38 @@
     .logo-name {
       font-family: $font-heading;
       font-size: $font-size-sm;
-      color: $text-white;
+      color: $secondary-color-white;
       font-weight: 300;
     }
 
     .logo-text {
       font-family: $font-primary;
       font-size: 0.75rem;
-      color: $primary-color;
+      color: $background-color;
       font-weight: 300;
-    }
     }
   }
 
   .nav-list {
     display: flex;
-    gap: $spacing-md;
+    gap: $spacing-lg;
     list-style: none;
     margin: 0;
     padding: 0;
 
     a {
-      color: $primary-color;
+      color: $background-color;
       text-decoration: none;
-      font-size: $font-size-base;
+      font-size: $font-size-lg;
       transition: color $transition-speed ease;
       position: relative;
 
       &:hover {
-        color: $text-white;
+        color: $secondary-color-white;
       }
     }
   }
-
+}
 
 .language-switcher {
   display: flex;
@@ -80,49 +96,277 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     text-decoration: none;
     font-family: $font-primary;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    color: $primary-color;       
+    color: $background-color;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     transition: all $transition-speed ease;
 
-    // Aktif: Beyaz text + Mavi daire
     &.active {
-      color: $text-white;
+      color: $secondary-color-white;
       background-image: url('/icons/ellipse.svg');
     }
 
-    // Hover (aktif DEĞİLSE): Beyaz olur
-    &:not(.active):hover {
-      color: $text-white;
+    &.highlighted {
+      color: $secondary-color-white;
     }
-  }
-
-  // Diğer aktif link'i değiştir
-      ~ .lang-link.active,
-      & ~ .separator ~ .lang-link.active {
-        color: $primary-color;
-        background-image: none;
-      }
-    }
-  
-
-  // Container hover: Pasif üzerine gelince aktifi değiştir
-  .lang-link:not(.active):hover ~ .separator ~ .lang-link.active,
-  .lang-link.active:has(~ .lang-link:not(.active):hover) {
-    color: $primary-color;
-    background-image: none;
   }
 
   .separator {
-    color: $primary-color;
+    color: $background-color;
     font-size: 1.2rem;
     font-weight: 300;
-    pointer-events: none;  // Separator'a tıklama yok
+    pointer-events: none;
   }
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: $secondary-color-white;
+    border-radius: 2px;
+  }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  z-index: 1000;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: $spacing-lg;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-speed ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile-menu-circle {
+  width: 320px;
+  height: 320px;
+  background: $primary-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: $spacing-md;
+  transform: scale(0);
+  transition: transform 0.4s ease;
+
+  .open & {
+    transform: scale(1);
+  }
+}
+
+.mobile-nav {
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-lg 0;
+
+    li {
+      margin-bottom: $spacing-md;
+
+      a {
+        font-family: $font-primary;
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+        font-weight: 400;
+        color: $background-color;
+        text-decoration: none;
+        transition: color $transition-speed ease;
+
+        &:hover {
+          color: $secondary-color-white;
+        }
+      }
+    }
+  }
+}
+
+.mobile-lang {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+
+  a {
+    font-family: $font-primary;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    font-weight: 500;
+    color: $background-color;
+    text-decoration: none;
+    padding: 10px 14px;
+    transition: all $transition-speed ease;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &.active {
+      color: $secondary-color-white;
+      background-image: url('/icons/ellipse.svg');
+    }
+
+    &.active.dimmed {
+      color: $background-color;
+      background-image: none;
+    }
+
+    &:not(.active):hover {
+      color: $secondary-color-white;
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+    background-color: $background-color;
+    padding: $spacing-sm 0;
+
+    .container {
+      padding: 0 $spacing-md;
+      align-items: flex-start;
+    }
+
+    .desktop-nav,
+    .desktop-lang {
+      display: none;
+    }
+
+    .hamburger-btn {
+      display: flex;
+      width: 40px;
+      height: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .hamburger-line {
+        height: 3px;
+      }
+    }
+
+    .mobile-menu-overlay {
+      display: flex;
+    }
+
+    .logo {
+      a {
+        gap: 0.2rem;
+      }
+
+      .logo-desktop {
+        display: none;
+      }
+
+      .logo-mobile {
+        display: block;
+        height: 40px;
+      }
+
+      .logo-name {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        color: $secondary-color-white;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .logo-text {
+        font-size: clamp(0.55rem, 1.8vw, 0.75rem);
+        color: $primary-color;
+        line-height: 1;
+        margin: 0;
+      }
+    }
+  }
+
+  .mobile-menu-overlay {
+    top: 100%;
+    padding-top: 0;
+    justify-content: center;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .mobile-menu-circle {
+    width: $mobile-circle-size;
+    height: $mobile-circle-size;
+    max-width: $mobile-circle-max;
+    max-height: $mobile-circle-max;
+    margin: 0 auto;
+    margin-top: $mobile-circle-margin-top;
+    background: url('/icons/ellipse-img.svg') no-repeat center center;
+    background-size: contain;
+    border-radius: 0;
+    background-color: transparent;
+    transform: scale(0);
+
+    .open & {
+      transform: scale(1);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .hamburger-btn {
+      width: 30px;
+      height: 35px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      .hamburger-line {
+        height: 2px;
+      }
+    }
+
+    .logo {
+      .logo-mobile {
+        height: 45px;
+      }
+    }
+  }
+
+  .mobile-menu-circle {
+    width: $mobile-circle-size-sm;
+    height: $mobile-circle-size-sm;
+    max-width: $mobile-circle-max-sm;
+    max-height: $mobile-circle-max-sm;
+    margin-top: $mobile-circle-margin-top-sm;
+  }
+}
+

@@ -1,0 +1,161 @@
+@use '../../../styles.scss' as *;
+
+.privacy-container {
+  background: $background-color;  // Koyu arka plan
+  min-height: 100vh;
+  padding: $spacing-xl;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.privacy-title {
+  font-family: $font-heading;
+  font-size: $font-size-xxl;
+  font-weight: 300;
+  color: $primary-color;  // Mavi başlık
+  margin-bottom: $spacing-xl;
+}
+
+.privacy-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+.policy-section {
+  margin-bottom: $spacing-lg;
+  
+  h2 {
+    font-family: $font-primary;
+    font-size: $font-size-lg;
+    font-weight: 500;
+    color: $primary-color;  // Mavi alt başlıklar
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    font-family: $font-primary;
+    font-size: $font-size-md;
+    font-weight: 300;
+    color: $secondary-color-white;  // Beyaz metin
+    line-height: 1.6;
+    margin-bottom: $spacing-sm;
+  }
+  
+  ul {
+    margin-left: $spacing-md;
+    margin-bottom: $spacing-sm;
+    
+    li {
+      font-family: $font-primary;
+      font-size: $font-size-md;
+      font-weight: 300;
+      color: $secondary-color-white;  // Beyaz liste
+      line-height: 1.8;
+    }
+  }
+}
+
+.contact-info {
+  a {
+    color: $primary-color;  // Mavi link
+    text-decoration: underline;
+    
+    &:hover {
+      color: $secondary-color-white;
+    }
+  }
+}
+
+.policy-date {
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  color: $secondary-color-white;
+  margin-top: $spacing-lg;
+}
+
+.back-btn {
+  margin-top: $spacing-xl;
+  font-family: $font-primary;
+  font-size: $font-size-md;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 25px;
+  border: 2px solid $primary-color;  // Mavi border
+  background: transparent;
+  color: $primary-color;  // Mavi yazı
+  text-decoration: none;
+  transition: all $transition-speed ease;
+  
+  &:hover {
+    background: rgba($primary-color, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: $spacing-lg $spacing-md;
+    padding-top: 100px;
+  }
+  
+  .privacy-title {
+    font-size: $font-size-xl;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: $spacing-lg $spacing-md;
+    padding-top: 100px;
+  }
+  
+  .privacy-title {
+    font-size: $font-size-xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-container {
+    padding: $spacing-md $spacing-sm;
+    padding-top: 90px;
+  }
+  
+  .privacy-title {
+    font-size: $font-size-lg;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  .policy-section {
+    margin-bottom: $spacing-md;
+    
+    h2 {
+      font-size: $font-size-md;
+      margin-bottom: $spacing-xs;
+    }
+    
+    p {
+      font-size: $font-size-sm;
+      line-height: 1.5;
+    }
+    
+    ul {
+      margin-left: $spacing-sm;
+      
+      li {
+        font-size: $font-size-sm;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .policy-date {
+    font-size: 0.75rem;
+    margin-top: $spacing-md;
+  }
+
+  .back-btn {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-md;
+  }
+}

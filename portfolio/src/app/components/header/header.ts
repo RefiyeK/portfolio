@@ -1,5 +1,6 @@
-import { Component, HostListener, ElementRef, Renderer2 } from '@angular/core';
+import { Component, HostListener, ElementRef, Renderer2, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -8,39 +9,61 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.scss',
 })
 export class Header {
+  @Input() isStatic: boolean = false;
   isScrolled = false;
   currentLang: 'de' | 'en' = 'de';
+  langHovered = false;
+  hoveredLang: 'de' | 'en' | null = null;  // BU SATIRI EKLE
+  mobileLangHoveredOn: 'de' | 'en' | null = null;
+  mobileMenuOpen = false;
 
   constructor(
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public translationService: TranslationService
   ) {}
 
-  
   @HostListener('window:scroll', [])
-onWindowScroll() {
-  const heroHeight = window.innerHeight;
-  const headerHeight = 140; // Header yüksekliği (yaklaşık)
-  const scrollPosition = window.scrollY;
-  
-  const header = this.el.nativeElement.querySelector('.header');
-  if (!header) return;
+  onWindowScroll() {
+    if (window.innerWidth <= 768) return;
+    if (this.isStatic) return;
 
-  // Header TAM kaybolunca fixed olsun
-  if (scrollPosition >= (heroHeight - headerHeight)) {
-    this.isScrolled = true;
-    this.renderer.setStyle(header, 'position', 'fixed');
-    this.renderer.setStyle(header, 'top', '0');
-    this.renderer.setStyle(header, 'bottom', 'auto');
-  } else {
-    this.isScrolled = false;
-    this.renderer.setStyle(header, 'position', 'absolute');
-    this.renderer.setStyle(header, 'bottom', '0');
-    this.renderer.setStyle(header, 'top', 'auto');
+    const heroHeight = window.innerHeight;
+    const headerHeight = 140;
+    const scrollPosition = window.scrollY;
+    
+    const header = this.el.nativeElement.querySelector('.header');
+    if (!header) return;
+
+    if (scrollPosition >= (heroHeight - headerHeight)) {
+      this.isScrolled = true;
+      this.renderer.setStyle(header, 'position', 'fixed');
+      this.renderer.setStyle(header, 'top', '0');
+      this.renderer.setStyle(header, 'bottom', 'auto');
+    } else {
+      this.isScrolled = false;
+      this.renderer.setStyle(header, 'position', 'absolute');
+      this.renderer.setStyle(header, 'bottom', '0');
+      this.renderer.setStyle(header, 'top', 'auto');
+    }
   }
-}
 
   switchLanguage(lang: 'de' | 'en') {
     this.currentLang = lang;
+    this.translationService.setLanguage(lang);
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+    if (this.mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
+    document.body.style.overflow = '';
   }
 }

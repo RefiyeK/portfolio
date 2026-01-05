@@ -1,26 +1,22 @@
 <section class="about" id="about">
   <div class="about-container">
     
-    <h2 class="section-title">Why me</h2>
+    <h2 class="section-title">{{ translationService.t('about.title') }}</h2>
     
     <div class="about-content">
       
       <!-- Sol Taraf - Location -->
       <div class="about-left">
         <div class="location">
-          <img src="icons/location.svg" alt="Location" class="location-icon">
-          <p class="location-text"><span class="highlight">I am </span>located in Köln... |</p>
+          <img src="icons/location.svg" alt="Standort" class="location-icon">
+          <p class="location-text"><span class="highlight">{{ translationService.t('about.location') }} </span>{{ translationService.t('about.locationCity') }} |</p>
         </div>
       </div>
       
       <!-- Sağ Taraf - Text + Button -->
       <div class="about-right">
-        <p class="about-description">
-          Why are you passionate about coding?<br>
-          You can include some key traits like: analytical thinking, creativity, 
-          persistence and collaboration. A problem-solving mindset is always nice to have.
-        </p>
-        <a href="#contact" class="cta-button">Let's talk</a>
+        <p class="about-description">{{ translationService.t('about.description') }}</p>
+        <a href="#contact" class="cta-button">{{ translationService.t('about.cta') }}</a>
       </div>
       
     </div>

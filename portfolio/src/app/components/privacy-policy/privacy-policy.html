@@ -1,0 +1,69 @@
+<section class="privacy-container">
+  <h1 class="privacy-title">{{ translationService.t('privacy.title') }}</h1>
+
+  <div class="privacy-content">
+    <!-- Einleitung -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.intro') }}</h2>
+      <p>{{ translationService.t('privacy.introText') }}</p>
+    </div>
+
+    <!-- Datenerhebung -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.dataCollection') }}</h2>
+      <p>{{ translationService.t('privacy.dataCollectionText') }}</p>
+      <ul>
+        <li>{{ translationService.t('privacy.dataName') }}</li>
+        <li>{{ translationService.t('privacy.dataEmail') }}</li>
+        <li>{{ translationService.t('privacy.dataMessage') }}</li>
+      </ul>
+      <p>{{ translationService.t('privacy.dataCollectionPurpose') }}</p>
+    </div>
+
+    <!-- Datenverwendung -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.dataUsage') }}</h2>
+      <p>{{ translationService.t('privacy.dataUsageText') }}</p>
+      <ul>
+        <li>{{ translationService.t('privacy.dataUsage1') }}</li>
+        <li>{{ translationService.t('privacy.dataUsage2') }}</li>
+      </ul>
+      <p>{{ translationService.t('privacy.dataUsageNote') }}</p>
+    </div>
+
+    <!-- Datenspeicherung -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.dataStorage') }}</h2>
+      <p>{{ translationService.t('privacy.dataStorageText') }}</p>
+    </div>
+
+    <!-- Ihre Rechte -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.yourRights') }}</h2>
+      <p>{{ translationService.t('privacy.yourRightsText') }}</p>
+      <ul>
+        <li>{{ translationService.t('privacy.right1') }}</li>
+        <li>{{ translationService.t('privacy.right2') }}</li>
+        <li>{{ translationService.t('privacy.right3') }}</li>
+        <li>{{ translationService.t('privacy.right4') }}</li>
+        <li>{{ translationService.t('privacy.right5') }}</li>
+        <li>{{ translationService.t('privacy.right6') }}</li>
+      </ul>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="policy-section">
+      <h2>{{ translationService.t('privacy.contactTitle') }}</h2>
+      <p>{{ translationService.t('privacy.contactText') }}</p>
+      <p class="contact-info">
+        E-Mail: <a href="mailto:rkulhanbey@gmail.com">rkulhanbey&#64;gmail.com</a>
+      </p>
+    </div>
+
+    <!-- Datum -->
+    <p class="policy-date">{{ translationService.t('privacy.date') }}: 28. Dezember 2025</p>
+  </div>
+
+  <!-- Zurück-Button -->
+  <a routerLink="/" fragment="contact" class="back-btn">{{ translationService.t('privacy.backBtn') }}</a>
+</section>

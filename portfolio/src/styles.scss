@@ -28,37 +28,51 @@
 }
 
 
-/* SCSS Variables - Farben und Schriften */
-
-// Farben
-$primary-color: #2C3E50;        
-$accent-color: #87CEEB;         
-$text-white: #FFFFFF;           
-$text-light: #E0E0E0;           
-$header-bg: #2C3E50;            
-$footer-bg: #87CEEB;            
+/* SCSS Variables - Farben und Schriften */       
+$background-color: #262E34;
+$primary-color: #89BCD9;        
+$secondary-color-white: #F8F5EC;           
+$inactive-grey: #262E341F; //12%          
+$error-color: #E44C36;
+$done-color: #97E163;     
 
 // Schriften
 $font-primary: 'Josefin Sans', sans-serif;
 $font-heading: 'Anta', sans-serif;
 
 // Schriftgrößen
-$font-size-xxl: 5rem;          // Große Überschriften 80px
-$font-size-xl: 3.5rem;          // Hero Name 56px
-$font-size-lg: 1.8rem;          // Hero Title 28.8 px
-$font-size-md: 1.2rem;          // Section Titles 19.2 px
-$font-size-base: 1rem;          // Normal Text 16px
-$font-size-sm: 0.9rem;          // Klein Text 14.4px
+$font-size-xxl: clamp(3rem, 5vw, 5rem);          // 48px - 80px arası
+$font-size-xl: clamp(2.5rem, 4vw, 3.5rem);       // 40px - 56px arası
+$font-size-lg: clamp(1.4rem, 2vw, 1.8rem);       // 22px - 29px arası
+$font-size-md: clamp(1rem, 1.5vw, 1.2rem);       // 16px - 19px arası
+$font-size-base: 1rem;                            // 16px (sabit)
+$font-size-sm: clamp(0.85rem, 1vw, 0.9rem);      // 14px - 14.4px arası
 
 // Abstände
-$spacing-xs: 0.5rem;            //8px
-$spacing-sm: 1rem;              //16px
-$spacing-md: 2rem;              //32px
-$spacing-lg: 3rem;              //48px
-$spacing-xl: 4rem;              //64px  
+$spacing-xs: clamp(0.4rem, 0.5vw, 0.5rem);
+$spacing-sm: clamp(0.8rem, 1vw, 1rem);
+$spacing-md: clamp(1.5rem, 2vw, 2rem);
+$spacing-lg: clamp(2.5rem, 3vw, 3rem);
+$spacing-xl: clamp(3.5rem, 4vw, 4rem);
 
 // Container
-$container-max-width: 1440px;
+$container-max-width: min(1440px, 90vw);
+
+// Header Heights
+$header-height-desktop: 100px;
+$header-height-mobile: 80px;
+$hero-mobile-offset: 270px;
+
+
+$mobile-circle-size: calc(100vw - 40px);
+$mobile-circle-max: 500px;
+$mobile-circle-margin-top: 10px;
+
+
+$mobile-circle-size-sm: calc(100vw - 40px);
+$mobile-circle-max-sm: 350px;
+$mobile-circle-margin-top-sm: 10px;
+
 
 // Transitions
 $transition-speed: 0.3s;
@@ -72,10 +86,11 @@ $transition-speed: 0.3s;
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   font-family: $font-primary;
-  background-color: $primary-color;
-  color: $text-white;
+  background-color: $background-color;
+  color: $secondary-color-white;
 }

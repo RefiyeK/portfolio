@@ -2,55 +2,52 @@
   <div class="hero-container">
     <!-- Sol taraf - Profil Fotoğrafı -->
     <div class="hero-image">
-      <!-- Arka plan shape'leri -->
       <div class="background-shape">
         <img src="icons/shape-1.svg" alt="" class="shape-default">
         <img src="icons/shape.svg" alt="" class="shape-hover">
       </div>
       <div class="image-circle">
-        <img src="img/RefiyeK.N.png" alt="Refiye Külhanbey">
+        <img src="img/RefiyeK-N.png" alt="Refiye Külhanbey">
+      </div>
+      <div class="mobile-hero-image">
+        <img src="img/refiye-mobile.png" alt="Refiye">
       </div>
     </div>
-
+    
     <!-- Sağ taraf - İsim ve Bilgiler -->
     <div class="hero-content">
-      <!-- Logo üstte -->
       <div class="hero-logo">
         <img src="logo/logo.png" alt="RK Logo">
       </div>
       
       <div class="hero-text">
         <h1 class="hero-name">Refiye Külhanbey</h1>
-        <h2 class="hero-title">FRONTEND DEVELOPER</h2>
+        <h2 class="hero-title">{{ translationService.t('hero.title') }}</h2>
       </div>
-
- 
-
-      <!-- Scroll Down Pfeil -->
-      <a href="#about" class="scroll-down">
-        <img src="icons/pfeile-unten.svg" alt="Scroll down" class="arrow-default">
-        <img src="icons/pfeile-unten-hover.svg" alt="Scroll down" class="arrow-hover">
+    
+      <a href="#about" class="scroll-down" (mouseenter)="scrollDownActive = true" (mouseleave)="scrollDownActive = false"
+        (touchstart)="scrollDownActive = true" (touchend)="scrollDownActive = false">
+        <img [src]="scrollDownActive ? 'icons/pfeile-unten-hover.svg' : 'icons/pfeile-unten.svg'" alt="Scroll down">
       </a>
     </div>
+
+    <!-- Vertical Socials - hero-container İÇİNDE -->
+    <div class="vertical-socials">
+      <a href="mailto:rkulhanbey@hotmail.com" aria-label="E-Mail" target="_blank" class="social-link">
+        <img src="icons/email-default.svg" alt="Email" class="icon-default">
+        <img src="icons/email-blue.svg" alt="Email" class="icon-hover">
+      </a>
+
+      <a href="https://github.com/RefiyeK" aria-label="GitHub" target="_blank" class="social-link">
+        <img src="icons/github-vector.svg" alt="GitHub" class="icon-default">
+        <img src="icons/githubHover.svg" alt="GitHub" class="icon-hover">
+      </a>
+
+      <a href="https://linkedin.com/in/refiye-külhanbey" aria-label="LinkedIn" target="_blank" class="social-link">
+        <img src="icons/linkedin-default.svg" alt="LinkedIn" class="icon-default">
+        <img src="icons/linkedin-hover.svg" alt="LinkedIn" class="icon-hover">
+      </a>
+    </div>
+    
   </div>
-
-  <!-- ✅ SAĞ ÜSTTE DİKEY SOSYAL MEDYA (BURAYA EKLE!) -->
-  <div class="vertical-socials">
-    <a href="mailto:refakir@hotmail.com" aria-label="E-Mail" target="_blank" class="social-link">
-    <img src="icons/email-default.svg" alt="Email" class="icon-default">
-    <img src="icons/email-blue.svg" alt="Email" class="icon-hover">
-  </a>
-
-  <!-- GitHub -->
-  <a href="https://github.com/RefiyeK" aria-label="GitHub" target="_blank" class="social-link">
-    <img src="icons/github-vector.svg" alt="GitHub" class="icon-default">
-    <img src="icons/githubHover.svg" alt="GitHub" class="icon-hover">
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/refiye-külhanbey" aria-label="LinkedIn" target="_blank" class="social-link">
-    <img src="icons/linkedin-default.svg" alt="LinkedIn" class="icon-default">
-    <img src="icons/linkedin-hover.svg" alt="LinkedIn" class="icon-hover">
-  </a>
-
-  </div>
+</section>

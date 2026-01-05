@@ -1,31 +1,75 @@
-<header class="header" [class.scrolled]="isScrolled">
+<header class="header" [class.scrolled]="isScrolled" [class.static]="isStatic">
   <div class="container">
     <!-- Logo -->
     <div class="logo">
         <a href="#home">
-            <img src="/logo/logo-dark.png" alt="RK Logo">
-                <span class="logo-name">Refiye Külhanbey</span>
-                <span class="logo-text">developer</span>    
+            <img src="/logo/logo-dark.png" alt="RK Logo" class="logo-desktop">
+            <img src="/logo/logo-white-.png" alt="RK Logo" class="logo-mobile">
+            <span class="logo-name">Refiye Külhanbey</span>
+            <span class="logo-text">{{ translationService.t('footer.developer') }}</span>    
         </a>
     </div>
 
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Desktop Navigation -->
+    <nav class="nav desktop-nav">
       <ul class="nav-list">
-        <li><a href="#about">Why me</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">{{ translationService.t('header.about') }}</a></li>
+        <li><a href="#skills">{{ translationService.t('header.skills') }}</a></li>
+        <li><a href="#projects">{{ translationService.t('header.projects') }}</a></li>
+        <li><a href="#contact">{{ translationService.t('header.contact') }}</a></li>
       </ul>
     </nav>
 
-      <!-- DİL DEĞİŞTİRME -->
-  <div class="language-switcher">
-    <a href="#" class="lang-link" [class.active]="currentLang === 'de'" (click)="switchLanguage('de'); $event.preventDefault()">DE</a>
-  
-  <span class="separator">|</span>
+    <!-- Desktop Sprachumschaltung -->
+    <div class="language-switcher desktop-lang">
+      <a href="#" class="lang-link" 
+         [class.active]="currentLang === 'de' && hoveredLang !== 'en'"
+         [class.highlighted]="hoveredLang === 'de' && currentLang !== 'de'"
+         (mouseenter)="hoveredLang = 'de'"
+         (mouseleave)="hoveredLang = null"
+         (click)="switchLanguage('de'); $event.preventDefault()">DE</a>
+      <span class="separator">|</span>
+      <a href="#" class="lang-link" 
+         [class.active]="currentLang === 'en' && hoveredLang !== 'de'"
+         [class.highlighted]="hoveredLang === 'en' && currentLang !== 'en'"
+         (mouseenter)="hoveredLang = 'en'"
+         (mouseleave)="hoveredLang = null"
+         (click)="switchLanguage('en'); $event.preventDefault()">EN</a>
+    </div>
 
-  <a href="#" class="lang-link" [class.active]="currentLang === 'en'" (click)="switchLanguage('en'); $event.preventDefault()">EN</a>
+    <!-- Hamburger Button (Mobile) -->
+    <button class="hamburger-btn" (click)="toggleMobileMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" [class.open]="mobileMenuOpen" (click)="closeMobileMenu()">
+    <div class="mobile-menu-circle" (click)="$event.stopPropagation()">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="#about" (click)="closeMobileMenu()">{{ translationService.t('header.about') }}</a></li>
+          <li><a href="#skills" (click)="closeMobileMenu()">{{ translationService.t('header.skills') }}</a></li>
+          <li><a href="#projects" (click)="closeMobileMenu()">{{ translationService.t('header.projects') }}</a></li>
+          <li><a href="#contact" (click)="closeMobileMenu()">{{ translationService.t('header.contact') }}</a></li>
+        </ul>
+        <div class="mobile-lang">
+          <a href="#" 
+             [class.active]="currentLang === 'de'" 
+             [class.dimmed]="currentLang === 'de' && mobileLangHoveredOn === 'en'"
+             (mouseenter)="mobileLangHoveredOn = 'de'"
+             (mouseleave)="mobileLangHoveredOn = null"
+             (click)="switchLanguage('de'); closeMobileMenu(); $event.preventDefault()">DE</a>
+          <a href="#" 
+             [class.active]="currentLang === 'en'" 
+             [class.dimmed]="currentLang === 'en' && mobileLangHoveredOn === 'de'"
+             (mouseenter)="mobileLangHoveredOn = 'en'"
+             (mouseleave)="mobileLangHoveredOn = null"
+             (click)="switchLanguage('en'); closeMobileMenu(); $event.preventDefault()">EN</a>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>

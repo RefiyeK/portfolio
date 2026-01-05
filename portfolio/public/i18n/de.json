@@ -1,0 +1,71 @@
+{
+  "header": {
+    "about": "Über mich",
+    "skills": "Kenntnisse",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "FULLSTACK DEVELOPER"
+  },
+  "projects": {
+    "mainTitle": "Meine Projekte",
+    "aboutProject": "Über das Projekt",
+    "duration": "Dauer",
+    "workProcess": "Wie ich meinen Arbeitsprozess organisiert habe",
+    "groupExperience": "Meine Erfahrung mit Gruppenarbeit",
+    "technologies": "Technologien"
+  },
+  "contact": {
+    "title": "Kontaktiere mich",
+    "cta": "Lass uns zusammenarbeiten!",
+    "description1": "Ich freue mich über neue Herausforderungen und spannende Projekte. Als Webentwicklerin bringe ich frische Ideen und technisches Know-how in Ihr Team ein.",
+    "description2": "Kontaktieren Sie mich gerne bei Jobangeboten, Projektanfragen oder Kooperationsmöglichkeiten.",
+    "name": "Ihr Name",
+    "email": "Ihre E-Mail",
+    "message": "Ihre Nachricht",
+    "nameRequired": "Ihr Name ist erforderlich",
+    "emailRequired": "Ihre E-Mail ist erforderlich",
+    "messageRequired": "Ihre Nachricht ist erforderlich",
+    "privacyStart": "Ich habe die",
+    "privacyLink": "Datenschutzerklärung",
+    "privacyEnd": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+    "privacyRequired": "Bitte akzeptieren Sie die Datenschutzerklärung",
+    "send": "Senden",
+    "success": "Ihre Nachricht wurde erfolgreich gesendet!"
+  },
+  "footer": {
+    "legalNotice": "Impressum",
+    "developer": "Entwicklerin"
+  },
+  "privacyPage": {
+    "title": "Datenschutzerklärung",
+    "intro": "Einleitung",
+    "introText": "Diese Datenschutzerklärung erläutert, wie Ihre personenbezogenen Daten bei der Nutzung dieser Portfolio-Website und des Kontaktformulars erhoben, verwendet und geschützt werden.",
+    "dataCollection": "Datenerhebung",
+    "dataCollectionText": "Bei der Nutzung des Kontaktformulars werden folgende Daten erhoben:",
+    "dataName": "Ihr Name",
+    "dataEmail": "Ihre E-Mail-Adresse",
+    "dataMessage": "Ihr Nachrichteninhalt",
+    "dataCollectionPurpose": "Diese Daten werden ausschließlich zur Beantwortung Ihrer Anfrage erhoben.",
+    "dataUsage": "Verwendung der Daten",
+    "dataUsageText": "Ihre personenbezogenen Daten werden nur verwendet, um:",
+    "dataUsage1": "Ihre Kontaktanfrage zu beantworten",
+    "dataUsage2": "Bezüglich potenzieller Jobangebote oder Kooperationen zu kommunizieren",
+    "dataUsageNote": "Ihre Daten werden nicht an Dritte weitergegeben oder für Marketingzwecke verwendet.",
+    "dataStorage": "Datenspeicherung",
+    "dataStorageText": "Ihre Daten werden sicher gespeichert und nach Erfüllung des Kommunikationszwecks gelöscht, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen.",
+    "yourRights": "Ihre Rechte",
+    "yourRightsText": "Gemäß der DSGVO haben Sie folgende Rechte:",
+    "right1": "Recht auf Auskunft über Ihre personenbezogenen Daten",
+    "right2": "Recht auf Berichtigung unrichtiger Daten",
+    "right3": "Recht auf Löschung (Recht auf Vergessenwerden)",
+    "right4": "Recht auf Einschränkung der Verarbeitung",
+    "right5": "Recht auf Datenübertragbarkeit",
+    "right6": "Recht auf Widerspruch gegen die Verarbeitung",
+    "contactTitle": "Kontakt",
+    "contactText": "Bei Fragen oder Anliegen zu Ihren personenbezogenen Daten wenden Sie sich bitte an:",
+    "date": "Stand",
+    "backBtn": "Zurück zum Kontakt"
+  }
+}
