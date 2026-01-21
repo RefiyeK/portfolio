@@ -8,13 +8,13 @@ export class TranslationService {
 
   private translations: { [key: string]: { de: string; en: string } } = {
     // Header
-    'header.about': { de: 'Über mich', en: 'About me' },
+    'header.about': { de: 'Über mich', en: 'Why me' },
     'header.skills': { de: 'Kenntnisse', en: 'Skills' },
     'header.projects': { de: 'Projekte', en: 'Projects' },
     'header.contact': { de: 'Kontakt', en: 'Contact' },
 
     // Hero
-    'hero.title': { de: 'FULLSTACK DEVELOPER', en: 'FULLSTACK DEVELOPER' },
+    'hero.title': { de: 'FRONTEND DEVELOPER', en: 'FRONTEND DEVELOPER' },
 
     // Projects
     'projects.mainTitle': { de: 'Meine Projekte', en: 'My Projects' },
@@ -23,6 +23,7 @@ export class TranslationService {
     'projects.workProcess': { de: 'Wie ich meinen Arbeitsprozess organisiert habe', en: 'How I organized my work process' },
     'projects.groupExperience': { de: 'Meine Erfahrung mit Gruppenarbeit', en: 'My experience with group work' },
     'projects.technologies': { de: 'Technologien', en: 'Technologies' },
+    'projects.project': { de: 'Projekt', en: 'Project' },
 
     // Contact
     'contact.title': { de: 'Kontaktiere mich', en: 'Contact me' },
@@ -134,7 +135,7 @@ export class TranslationService {
     },
     'legal.date': { de: 'Datum', en: 'Date' },
   
-    'about.title': { de: 'Über mich', en: 'About me' },
+    'about.title': { de: 'Über mich', en: 'Why me' },
     'about.location': { de: 'Ich wohne', en: 'I live' },
     'about.locationCity': { de: 'in Köln...', en: 'in Cologne...' },
     'about.description': { 
@@ -143,13 +144,13 @@ export class TranslationService {
     },
     'about.cta': { de: 'Lass uns reden', en: "Let's talk" },
 
-    'references.title': { de: 'Brauchen Sie einen Teamplayer?', en: 'Need a team player?' },
+    'references.title': { de: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich', en: 'Need a team player? Here what my colloagues said about me' },
     'references.subtitle': { de: 'Das sagen meine Kollegen über mich', en: 'What my colleagues say about me' },
     'references.linkedIn': { de: 'LinkedIn Profil', en: 'LinkedIn Profile' },
     'references.project': { de: 'Projekt', en: 'Project' },
 
     'skills.title': { de: 'Meine Kenntnisse', en: 'My Skills' },
-    'skills.learning': { de: 'Das lerne ich gerade', en: 'Currently learning' },
+    'skills.learning': { de: 'Das lerne ich gerade', en: 'I am currently learning' },
     'skills.learningText': { 
       de: 'Ich bin motiviert, meine Fähigkeiten kontinuierlich zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien auf dem Laufenden zu bleiben.',
       en: 'I am motivated to continuously improve my skills, implement innovative solutions, and stay up to date with new technologies.'

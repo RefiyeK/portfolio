@@ -1,5 +1,8 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// CONTACT SEKTION - DESKTOP
+// ==========================================
 .contact-container {
   background: $background-color;
   height: 100vh;
@@ -13,6 +16,9 @@
   scroll-margin-top: 100px;
 }
 
+// ------------------------------------------
+// Scroll Top Button (oben rechts)
+// ------------------------------------------
 .scroll-top-btn {
   position: absolute;
   top: 10%;
@@ -32,6 +38,9 @@
   }
 }
 
+// ------------------------------------------
+// Header (Titel)
+// ------------------------------------------
 .contact-header {
   display: flex;
   justify-content: center;
@@ -52,16 +61,21 @@
   margin: 0;
 }
 
+// ------------------------------------------
+// Inhalt (Beschreibung + Info)
+// ------------------------------------------
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-sm;
+  grid-template-columns: 1.1fr 1fr;
+  gap: $spacing-md;
   width: 100%;
   max-width: 900px;
   margin-bottom: $spacing-sm;
 }
 
+// Beschreibungstext
 .contact-description { 
+
   p {
     font-family: $font-primary;
     font-size: $font-size-md;
@@ -72,10 +86,11 @@
   }
 }
 
+// Kontakt Links (Email, Telefon)
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $spacing-md;
 }
 
 .contact-link {
@@ -98,17 +113,20 @@
   }
 }
 
-/* CTA Title - Desktop'ta gizle */
+// CTA Titel (Desktop versteckt)
 .contact-cta-title {
   display: none;
 }
 
-/* Form Styles */
+// ==========================================
+// FORMULAR
+// ==========================================
 .contact-form {
   width: 100%;
   max-width: 900px;
 }
 
+// Formular Zeile (2 Spalten)
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -116,6 +134,7 @@
   margin-bottom: $spacing-xs;
 }
 
+// Formular Gruppe (einzelnes Feld)
 .form-group {
   display: flex;
   flex-direction: column;
@@ -126,6 +145,9 @@
   }
 }
 
+// ------------------------------------------
+// Labels
+// ------------------------------------------
 label {
   font-family: $font-primary;
   font-size: $font-size-sm;
@@ -143,10 +165,16 @@ label {
   }
 }
 
+// ------------------------------------------
+// Input Wrapper
+// ------------------------------------------
 .input-wrapper {
   position: relative;
 }
 
+// ------------------------------------------
+// Input & Textarea Felder
+// ------------------------------------------
 input,
 textarea {
   width: 100%;
@@ -161,20 +189,24 @@ textarea {
   font-weight: 300;
   transition: border-color $transition-speed ease;
   
+  // Fokus mit Placeholder
   &:focus:placeholder-shown {
     outline: none;
     background: #36444d;
   }
 
+  // Fokus
   &:focus {
     outline: none;
     border-color: $primary-color;
   }
 
+  // Mit Inhalt
   &:not(:placeholder-shown) {
     background: transparent;
   }
   
+  // Fehler Status
   &.error {
     border-color: $error-color;
   }
@@ -183,7 +215,7 @@ textarea {
     color: transparent;
   }
   
-  /* Webkit autofill fix */
+  // Webkit Autofill Fix
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
@@ -193,12 +225,16 @@ textarea {
   }
 }
 
+// Textarea spezifisch
 textarea {
   border-radius: 12px;
   resize: none;
   min-height: 100px;
 }
 
+// ------------------------------------------
+// Validierungs Icon
+// ------------------------------------------
 .validation-icon {
   position: absolute;
   right: 15px;
@@ -213,6 +249,9 @@ textarea {
   }
 }
 
+// ------------------------------------------
+// Fehlermeldung
+// ------------------------------------------
 .error-message {
   font-family: $font-primary;
   font-size: $font-size-sm;
@@ -232,6 +271,9 @@ textarea {
   }
 }
 
+// ------------------------------------------
+// Datenschutz Checkbox
+// ------------------------------------------
 .privacy-wrapper {
   display: flex;
   align-items: center;
@@ -244,6 +286,7 @@ textarea {
   }
 }
 
+// Checkbox Container
 .checkbox-container {
   width: 24px;
   height: 24px;
@@ -255,6 +298,7 @@ textarea {
   background: transparent;
 }
 
+// Checkbox Icon
 .checkbox-icon {
   width: 24px;
   height: 24px;
@@ -263,12 +307,14 @@ textarea {
   object-fit: contain;
 }
 
+// Datenschutz Text
 .privacy-text {
   font-family: $font-primary;
   font-size: $font-size-sm;
   color: $secondary-color-white;
 }
 
+// Datenschutz Link
 .privacy-link {
   color: $primary-color;
   text-decoration: underline;
@@ -278,7 +324,9 @@ textarea {
   }
 }
 
-/* Submit Button */
+// ------------------------------------------
+// Submit Button
+// ------------------------------------------
 .button-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -297,21 +345,26 @@ textarea {
   cursor: pointer;
   transition: all $transition-speed ease;
   
+  // Aktiv Status
   &.active {
     border-color: $primary-color;
     color: $primary-color;
     cursor: pointer;
     
     &:hover {
-      background: rgba($secondary-color-white, 0.2);
+      background: rgba($secondary-color-white, 0.15);  // ← Gri hover
     }
   }
 }
 
+// Scroll Top Button - Mobil (Desktop versteckt)
 .scroll-top-mobile {
   display: none;
 }
 
+// ==========================================
+// MOBIL - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .contact-container {
     height: auto;
@@ -320,6 +373,7 @@ textarea {
     padding-top: $spacing-xl;
   }
 
+  // Header - Mobil
   .contact-header {
     flex-direction: column;
     margin-bottom: $spacing-md;
@@ -333,6 +387,7 @@ textarea {
     }
   }
 
+  // Inhalt - Mobil
   .contact-content {
     grid-template-columns: 1fr;
     gap: $spacing-md;
@@ -340,6 +395,7 @@ textarea {
     width: 90%;
     max-width: 550px; 
 
+    // Kontakt Info - Mobil
     .contact-info {
       order: 1;
       gap: $spacing-sm;
@@ -358,13 +414,14 @@ textarea {
           color: $secondary-color-white;
         }
 
-        // Telefon üstte olsun (mobilde)
+        // Telefon oben (Mobil)
         &:last-child {
           order: -1;
         }
       }
     }
 
+    // Beschreibung - Mobil
     .contact-description {
       order: 2;
 
@@ -375,7 +432,7 @@ textarea {
     }
   }
 
-  // CTA Title - Mobilde göster
+  // CTA Titel - Mobil (sichtbar)
   .contact-cta-title {
     display: block;
     font-family: $font-primary;
@@ -386,6 +443,9 @@ textarea {
     margin-bottom: $spacing-md;
   }
 
+  // ------------------------------------------
+  // Formular - Mobil
+  // ------------------------------------------
   .contact-form {
     width: 90%; 
     max-width: 550px;
@@ -396,12 +456,14 @@ textarea {
       gap: $spacing-md;
     }
 
+    // Formular Gruppe - Mobil
     .form-group {
       position: relative;
 
       .input-wrapper {
         position: relative;
 
+        // Label innerhalb Input
         label {
           position: absolute;
           top: 50%;
@@ -417,6 +479,7 @@ textarea {
         }
       }
 
+      // Input - Mobil
       input {
         font-size: $font-size-sm;
         padding: $spacing-md $spacing-sm;
@@ -429,6 +492,7 @@ textarea {
         }
       }
 
+      // Textarea - Mobil
       textarea {
         font-size: $font-size-sm;
         padding: $spacing-md;
@@ -436,6 +500,7 @@ textarea {
         border-radius: 30px;
       }
 
+      // Textarea Label Position
       &.full-width .input-wrapper label {
         top: $spacing-md;
         left: $spacing-md;
@@ -443,6 +508,7 @@ textarea {
       }
     }
 
+    // Datenschutz - Mobil
     .privacy-wrapper {
       pointer-events: none;
       align-items: flex-start;
@@ -479,6 +545,7 @@ textarea {
       }
     }
 
+    // Submit Button - Mobil
     .button-wrapper {
       justify-content: flex-end;
 
@@ -504,7 +571,7 @@ textarea {
     }
   }
 
-  // Scroll top button - form altında göster
+  // Scroll Top Button - Mobil (sichtbar)
   .scroll-top-mobile {
     display: flex;
     justify-content: center;
@@ -524,11 +591,16 @@ textarea {
   }
 }
 
+// ==========================================
+// KLEIN MOBIL - max 480px
+// ==========================================
 @media (max-width: 480px) {
+  // Inhalt - Klein Mobil
   .contact-content {
     max-width: 300px; 
   }
 
+  // Formular - Klein Mobil
   .contact-form {
     max-width: 300px;
 
@@ -545,6 +617,7 @@ textarea {
     }
   }
 
+  // Scroll Top - Klein Mobil
   .scroll-top-mobile {
     a {
       img {

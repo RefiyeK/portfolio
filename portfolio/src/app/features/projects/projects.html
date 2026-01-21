@@ -5,11 +5,11 @@
   </header>
 
   <!-- Tabs Navigation -->
-  <nav class="tabs-navigation">
-    <button *ngFor="let project of projects; let i = index" class="tab-button"
-      [class.active]="activeTab === i" (click)="selectTab(i)">{{ i + 1 }}. {{ project.name }}
-    </button>
-  </nav>
+<nav class="tabs-navigation">
+  <button *ngFor="let project of projects; let i = index" class="tab-button"
+    [class.active]="activeTab === i" (click)="selectTab(i)">{{ i + 1 }}. {{ translationService.t('projects.project') }}
+  </button>
+</nav>
 
   <!-- Project Content -->
   <div class="project-content">
@@ -63,8 +63,7 @@
 
     <!-- Mobile Layout -->
     <div class="mobile-project-layout">
-      <h2 class="mobile-project-title">{{ currentProject.name }}</h2>
-      
+    <h2 class="mobile-project-title">{{ currentProject.name }}</h2>      
       <div class="mobile-technologies">
         <span class="tech-label">{{ translationService.t('projects.technologies') }}:</span>
         <span class="tech-list">{{ currentProject.technologiesText }}</span>

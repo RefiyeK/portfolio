@@ -1,5 +1,8 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// ABOUT SEKTION - DESKTOP
+// ==========================================
 .about {
   width: 100%;
   min-height: 90vh;
@@ -8,12 +11,16 @@
   display: flex;
   align-items: center;
   
+  // ------------------------------------------
+  // Container
+  // ------------------------------------------
   .about-container {
     max-width: $container-max-width;
     margin: 0 auto;
     padding: $spacing-md $spacing-xl;
     width: 100%;
     
+    // Titel
     .section-title {
       font-family: $font-heading;
       font-size: $font-size-xxl;
@@ -22,29 +29,38 @@
       margin-bottom: $spacing-xl;
     }
     
+    // ------------------------------------------
+    // Inhalt (Links + Rechts)
+    // ------------------------------------------
     .about-content {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;  // ← GEÄNDERT: center → flex-start (nach oben)
       gap: clamp(60px, 10vw, 120px);
       max-width: 1200px;
       margin: 0 auto;
 
+      // ------------------------------------------
+      // Linke Seite - Standort
+      // ------------------------------------------
       .about-left {
         flex: 0 1 auto;
         max-width: 400px;
+        margin-top: 0;  // ← Falls nötig: negative Wert z.B. -20px
         
         .location {
           display: flex;
           align-items: center;
-          gap: $spacing-sm; //1rem
+          gap: $spacing-sm;
           
+          // Standort Icon
           .location-icon {
-            width: clamp(50px, 5vw, 60px); //minimun, Ideal(ekran genisliginin 5% olsun), Maximum
-            height: clamp(50px, 5vw, 60px); //minimun, Ideal(ekran genisliginin 5% olsun), Maximum
+            width: clamp(50px, 5vw, 60px);
+            height: clamp(50px, 5vw, 60px);
             flex-shrink: 0;
           }
           
+          // Standort Text
           .location-text {
             font-family: $font-primary;
             font-size: $font-size-lg;
@@ -59,6 +75,9 @@
         }
       }
       
+      // ------------------------------------------
+      // Rechte Seite - Beschreibung
+      // ------------------------------------------
       .about-right {
         flex: 0 1 auto;
         max-width: 450px;
@@ -66,6 +85,7 @@
         flex-direction: column;
         gap: $spacing-md;
         
+        // Beschreibungstext
         .about-description {
           font-family: $font-primary;
           font-size: $font-size-md;
@@ -74,6 +94,7 @@
           line-height: 1.6; 
         }
         
+        // CTA Button
         .cta-button {
           display: inline-block;
           padding: 12px 32px;
@@ -91,7 +112,7 @@
           align-self: flex-end;
           
           &:hover {
-            background-color: rgba($primary-color, 0.2);
+            background-color: rgba($secondary-color-white, 0.15);
           }
         }
       }
@@ -99,7 +120,9 @@
   }
 }
 
-// Responsive - Tablet
+// ==========================================
+// TABLET - max 992px
+// ==========================================
 @media (max-width: 992px) {
   .about {
     padding-top: 80px;
@@ -128,6 +151,9 @@
   }
 }
 
+// ==========================================
+// MOBIL - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .about {
     min-height: auto;
@@ -136,6 +162,7 @@
     .about-container {
       padding: $spacing-sm;
 
+      // Titel - Mobil
       .section-title {
         font-size: $font-size-xl;
         margin-bottom: $spacing-md;
@@ -147,6 +174,7 @@
         text-align: center;
         gap: $spacing-sm;
 
+        // Linke Seite - Mobil
         .about-left {
           .location {
             justify-content: center;
@@ -157,6 +185,7 @@
           }
         }
 
+        // Rechte Seite - Mobil
         .about-right {
           align-items: center;
 

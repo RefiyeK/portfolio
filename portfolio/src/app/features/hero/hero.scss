@@ -1,10 +1,12 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// HERO SEKTION - DESKTOP
+// ==========================================
 .hero {        
   min-height: 100vh;
   display: flex;
   justify-content: center;
- 
 
   .hero-container {
     position: relative;
@@ -14,75 +16,111 @@
     justify-content: space-between;
     gap: 5%;
 
+
+     // Scroll-Pfeil nach unten
+    .scroll-down {
+      position: absolute;
+      bottom: clamp(210px, 5vw, 80px);
+      left: clamp(75%, 65vw, 80%);
+      transform: translateX(-50%);
+      width: clamp(60px, 12vw, 100px);
+      height: clamp(60px, 12vw, 100px);
+      cursor: pointer;
+      z-index: 20;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: opacity $transition-speed ease;
+      }
+
+      .arrow-default {
+        opacity: 1;
+      }
+
+      .arrow-hover {
+        opacity: 0;
+      }
+    }
   }
 
-  // Sol taraf - Profil Fotoğrafı ve Shape
+  // ------------------------------------------
+  // LINKE SEITE - Profilbild und Shape
+  // ------------------------------------------
   .hero-image {
     min-width: clamp(300px, 35vw, 500px);
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-top: clamp(50px, 8vw, 55px);
     
     .mobile-hero-image {
       display: none;
-      }
-
-
-    .background-shape {
-      position: absolute;
-      top: 1%;
-      left: 10%;
-      transform: translate(-10%, 20%);
-      width: clamp(350px, 40vw, 700px);
-      height: clamp(350px, 40vw, 700px);
-    
     }
 
-      img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transition: opacity 0.9s ease;
-      }
+    // Desktop Wrapper - Shape und Circle zusammen
+    .desktop-image-wrapper {
+      position: relative;
+      width: clamp(350px, 60vw, 700px);
+      height: clamp(400px, 55vw, 800px);
 
-      .shape-default {
-        opacity: 1;
-        transform: rotate(-45deg);
-      }
-
-      .shape-hover {
-        opacity: 0;
-        transform: rotate(-45deg);
-      }
-    }
-
-    &:hover {
       .background-shape {
+        position: absolute;
+        top: 15%;
+        left:9%;
+        width: 85%;
+        height: 80%;
+      
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transition: opacity 0.9s ease;
+        }
+
         .shape-default {
-          opacity: 0;
+          opacity: 1;
+          transform: rotate(-45deg);
         }
 
         .shape-hover {
-          opacity: 1;
+          opacity: 0;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .image-circle {
+        position: absolute;
+        top: -9%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &:hover {
+        .background-shape {
+          .shape-default {
+            opacity: 0;
+          }
+
+          .shape-hover {
+            opacity: 1;
+          }
         }
       }
     }
+  }
 
-    .image-circle {
-      position: absolute;
-      top: 4%;
-      left: -27%;
-      width: clamp(450px, 70vw, 850px);
-      height: clamp(500px,65vw, 850px);
-      z-index: 10;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  
-
-  // Sağ taraf - İsim ve Bilgiler
+  // ------------------------------------------
+  // RECHTE SEITE - Name und Informationen
+  // ------------------------------------------
   .hero-content {
     color: $secondary-color-white;
     display: flex;
@@ -90,23 +128,26 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    // margin-top: -35%;
-    // margin-right: 10%;
     position: relative;
     flex: 1;
+    min-width: 350px;
+    margin-bottom: clamp(60px, 14vw, 190px);
+    transform: translateX(-9%);
     
+    // Logo
     .hero-logo {
-
       img {
-        height: clamp(120px, 12vw, 250px);
+        height: clamp(80px, 12vw, 100px);
         transition: transform 0.4s ease-in-out;
+        margin-bottom: clamp(20px, 5vw, 60px);
       }
 
       &:hover img {
-        transform: scaleX(1.10);
+        transform: scaleX(1.20);
       }
     }
 
+    // Name und Titel
     .hero-text {
       display: flex;
       flex-direction: column;
@@ -117,49 +158,24 @@
         font-size: clamp(2.5rem, 4vw, $font-size-xxl);
         font-weight: 400;
         color: $secondary-color-white;
-        margin: 0;
+        white-space: nowrap;
       }
 
       .hero-title {
         font-family: $font-primary;
         font-size: clamp(1.2rem, 1.8vw, $font-size-lg);
         font-weight: 400;
-        margin:0;
         color: $secondary-color-white;
         letter-spacing: 0.2rem;
       }
     }
 
-    
-  .scroll-down {
-    position: absolute;
-    bottom: 20%;
-    width: clamp(60px, 8vw, 100px);
-    height: clamp(60px, 8vw, 100px);
-    display: block;
-    cursor: pointer;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transition: opacity $transition-speed ease;
-    }
-
-    .arrow-default {
-      opacity: 1;
-    }
-
-    .arrow-hover {
-      opacity: 0;
-    }
   }
 }
-  }
 
-
+// ==========================================
+// VERTIKALE SOCIAL MEDIA LINKS
+// ==========================================
 .vertical-socials {
   position: absolute;
   right: clamp(20px, 3vw, 40px);
@@ -207,15 +223,15 @@
 }
 
 
-
-
+// ==========================================
+// TABLET - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
     display: flex;
     align-items: flex-start;
     padding-top: $header-height-mobile;
-    padding-bottom: $header-height-mobile;
     box-sizing: border-box;
     
     .hero-container {
@@ -225,8 +241,38 @@
       padding: $spacing-md;
       gap: 0;
       width: 100%;
+
+
+      .scroll-down {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: $spacing-xl;
+        width: clamp(90px, 22vw, 130px);
+        height: clamp(90px, 22vw, 130px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .arrow-hover {
+          display: none;
+        }
+
+        &:hover {
+          .arrow-default {
+            opacity: 1;
+          }
+        }
+      }
     }
 
+    // Profilbild - Tablet
     .hero-image {
       min-width: auto;
       width: 100%;
@@ -236,11 +282,8 @@
       margin-top: $mobile-circle-margin-top;
       z-index: 1;
       
-      .background-shape {
-        display: none;
-      }
-      
-      .image-circle {
+      // Desktop Wrapper ausblenden
+      .desktop-image-wrapper {
         display: none;
       }
 
@@ -259,8 +302,11 @@
       }
     }
 
+    // Inhalt - Tablet
     .hero-content {
       margin: 0;
+      transform: none;
+      min-width: auto; 
       align-items: center;
       text-align: center;
       width: 100%;
@@ -289,41 +335,21 @@
           letter-spacing: 0.15rem;
         }
       }
-
-      .scroll-down {
-        position: relative;
-        margin-top: $spacing-xl;
-        width: clamp(70px, 18vw, 100px);
-        height: clamp(70px, 18vw, 100px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        img {
-          width: 100%;
-          height: 100%;
-        }
-
-        .arrow-hover {
-          display: none;
-        }
-
-        &:hover {
-          .arrow-default {
-            opacity: 1;
-          }
-        }
-      }
     }
 
+    // Social Links ausblenden - Tablet
     .vertical-socials {
       display: none;
     }
   }
 }
 
+// ==========================================
+// MOBIL - max 480px
+// ==========================================
 @media (max-width: 480px) {
   .hero {
+    // Profilbild - Mobil
     .hero-image {
       margin-top: $mobile-circle-margin-top-sm;
       
@@ -335,9 +361,9 @@
       }
     }
 
+    // Inhalt - Mobil
     .hero-content {
       margin-top: $spacing-md;
-
 
       .hero-text {
         .hero-name {

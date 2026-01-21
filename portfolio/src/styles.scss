@@ -43,6 +43,8 @@ $font-heading: 'Anta', sans-serif;
 // Schriftgrößen
 $font-size-xxl: clamp(3rem, 5vw, 5rem);          // 48px - 80px arası
 $font-size-xl: clamp(2.5rem, 4vw, 3.5rem);       // 40px - 56px arası
+$font-size-project-title: clamp(1.8rem, 2.5vw, 2.063rem);  //(29px - 33px)
+$font-size-project-heading: clamp(1.5rem, 2vw, 1.75rem);   //(24px - 28px)
 $font-size-lg: clamp(1.4rem, 2vw, 1.8rem);       // 22px - 29px arası
 $font-size-md: clamp(1rem, 1.5vw, 1.2rem);       // 16px - 19px arası
 $font-size-base: 1rem;                            // 16px (sabit)

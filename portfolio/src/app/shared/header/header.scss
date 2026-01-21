@@ -1,5 +1,8 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// HEADER - DESKTOP
+// ==========================================
 .header {
   background-color: $primary-color;
   padding: 1rem 0;
@@ -9,12 +12,18 @@
   right: 0;
   z-index: 9999;
 
+  // ------------------------------------------
+  // Static Modus (für Impressum/Privacy)
+  // ------------------------------------------
   &.static {
     position: relative !important;
     bottom: auto !important;
     top: auto !important;
   }
 
+  // ------------------------------------------
+  // Container
+  // ------------------------------------------
   .container {
     max-width: $container-max-width;
     margin: 0 auto;
@@ -25,6 +34,9 @@
     gap: 2rem;
   }
 
+  // ------------------------------------------
+  // Logo Bereich
+  // ------------------------------------------
   .logo {
     a {
       display: flex;
@@ -63,12 +75,16 @@
       font-size: 0.75rem;
       color: $background-color;
       font-weight: 300;
+      margin-top: -2px;
     }
   }
 
+  // ------------------------------------------
+  // Navigation Links (Desktop)
+  // ------------------------------------------
   .nav-list {
     display: flex;
-    gap: $spacing-lg;
+    gap: clamp(20px, 4vw, 70px);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -76,7 +92,7 @@
     a {
       color: $background-color;
       text-decoration: none;
-      font-size: $font-size-lg;
+      font-size: clamp(1rem, 1.5vw, $font-size-lg);
       transition: color $transition-speed ease;
       position: relative;
 
@@ -87,6 +103,9 @@
   }
 }
 
+// ==========================================
+// SPRACHUMSCHALTUNG (Desktop)
+// ==========================================
 .language-switcher {
   display: flex;
   align-items: center;
@@ -126,7 +145,9 @@
   }
 }
 
-/* Hamburger Button */
+// ==========================================
+// HAMBURGER BUTTON (Mobile)
+// ==========================================
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -147,7 +168,9 @@
   }
 }
 
-/* Mobile Menu Overlay */
+// ==========================================
+// MOBILE MENU OVERLAY
+// ==========================================
 .mobile-menu-overlay {
   display: none;
   position: absolute;
@@ -169,6 +192,9 @@
   }
 }
 
+// ==========================================
+// MOBILE MENU CIRCLE
+// ==========================================
 .mobile-menu-circle {
   width: 320px;
   height: 320px;
@@ -186,6 +212,9 @@
   }
 }
 
+// ==========================================
+// MOBILE NAVIGATION
+// ==========================================
 .mobile-nav {
   text-align: center;
 
@@ -213,6 +242,9 @@
   }
 }
 
+// ==========================================
+// MOBILE SPRACHUMSCHALTUNG
+// ==========================================
 .mobile-lang {
   display: flex;
   justify-content: center;
@@ -246,7 +278,9 @@
   }
 }
 
-/* Mobile Responsive */
+// ==========================================
+// TABLET - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .header {
     position: fixed !important;
@@ -260,30 +294,35 @@
       align-items: flex-start;
     }
 
+    // Desktop Navigation ausblenden
     .desktop-nav,
     .desktop-lang {
       display: none;
     }
 
+    // Hamburger Button anzeigen
     .hamburger-btn {
       display: flex;
       width: 40px;
       height: 50px;
       padding-top: 10px;
       padding-bottom: 10px;
+     
 
       .hamburger-line {
         height: 3px;
       }
     }
 
+    // Mobile Menu anzeigen
     .mobile-menu-overlay {
       display: flex;
     }
 
+    // Logo - Tablet
     .logo {
       a {
-        gap: 0.2rem;
+        gap: 0;
       }
 
       .logo-desktop {
@@ -311,9 +350,9 @@
     }
   }
 
+  // Mobile Menu Overlay - Tablet
   .mobile-menu-overlay {
     top: 100%;
-    padding-top: 0;
     justify-content: center;
 
     &.open {
@@ -322,13 +361,13 @@
     }
   }
 
+  // Mobile Menu Circle - Tablet
   .mobile-menu-circle {
     width: $mobile-circle-size;
     height: $mobile-circle-size;
     max-width: $mobile-circle-max;
     max-height: $mobile-circle-max;
     margin: 0 auto;
-    margin-top: $mobile-circle-margin-top;
     background: url('/icons/ellipse-img.svg') no-repeat center center;
     background-size: contain;
     border-radius: 0;
@@ -341,8 +380,12 @@
   }
 }
 
+// ==========================================
+// MOBIL - max 480px
+// ==========================================
 @media (max-width: 480px) {
   .header {
+    // Hamburger Button - Mobil
     .hamburger-btn {
       width: 30px;
       height: 35px;
@@ -354,6 +397,7 @@
       }
     }
 
+    // Logo - Mobil
     .logo {
       .logo-mobile {
         height: 45px;
@@ -361,6 +405,7 @@
     }
   }
 
+  // Mobile Menu Circle - Mobil
   .mobile-menu-circle {
     width: $mobile-circle-size-sm;
     height: $mobile-circle-size-sm;
@@ -369,4 +414,3 @@
     margin-top: $mobile-circle-margin-top-sm;
   }
 }
-

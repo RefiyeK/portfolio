@@ -1,5 +1,8 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// PROJECTS SEKTION - DESKTOP
+// ==========================================
 .projects-container {
   background: $background-color;
   min-height: 100vh;
@@ -11,6 +14,9 @@
   padding: $spacing-lg;
 }
 
+// ------------------------------------------
+// Header (Titel)
+// ------------------------------------------
 .projects-header {
   text-align: center;
   margin-bottom: $spacing-xl;
@@ -23,7 +29,9 @@
   color: $primary-color;
 }
 
-/* Tabs Navigation */
+// ------------------------------------------
+// Tabs Navigation
+// ------------------------------------------
 .tabs-navigation {
   display: flex;
   max-width: $container-max-width;
@@ -34,7 +42,7 @@
   border: none;
   color: $primary-color;
   font-family: $font-primary;
-  font-size: $font-size-lg;
+  font-size: $font-size-project-title;
   font-weight: 500;
   padding: $spacing-sm $spacing-md;
   cursor: pointer;
@@ -50,7 +58,9 @@
   }
 }
 
-/* Project Content Layout */
+// ------------------------------------------
+// Projekt Inhalt (Grid Layout)
+// ------------------------------------------
 .project-content {
   display: grid;
   justify-content: center;
@@ -63,7 +73,9 @@
   border-radius: 0 20px 20px 20px;
 }
 
-/* Left Side - Project Info */
+// ------------------------------------------
+// Linke Seite - Projekt Info
+// ------------------------------------------
 .project-info {
   display: flex;
   flex-direction: column;
@@ -71,11 +83,13 @@
   padding-top: clamp(40px, 8vw, 60px);
 }
 
+// Info Sektion (What/Why)
 .info-section {
   border-radius: 16px;
   padding: $spacing-sm;
 }
 
+// Sektion Header (Icon + Titel)
 .section-header {
   display: flex;
   align-items: center;
@@ -90,18 +104,20 @@
   
   h2 {
     font-family: $font-primary;
-    font-size: clamp($font-size-sm, 1.5vw, $font-size-lg);
+    font-size: $font-size-project-heading;
     font-weight: 400;
     color: $secondary-color-white;
   }
 }
 
+// Dauer Text
 .duration {
   padding-left: 5%;
   font-size: clamp($font-size-sm, 1.2vw, $font-size-base);
   color: $secondary-color-white;
 }
 
+// Sektion Text
 .section-text {
   font-family: $font-primary;
   font-size: clamp($font-size-sm, 1.2vw, $font-size-md);
@@ -111,14 +127,16 @@
   padding-left: clamp(25px, 3vw, 40px);
 }
 
-/* Right Side - Preview */
+// ------------------------------------------
+// Rechte Seite - Vorschau
+// ------------------------------------------
 .project-preview {
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
-  
 }
 
+// Technologien
 .technologies {
   h3 {
     font-family: $font-primary;
@@ -130,6 +148,7 @@
   }
 }
 
+// Technologie Icons
 .tech-icons {
   display: flex;
   justify-content: center;
@@ -142,6 +161,7 @@
   }
 }
 
+// App Vorschaubild
 .app-preview {
   width: 100%;
   height: 300px;
@@ -161,7 +181,9 @@
   }
 }
 
-/* Action Buttons */
+// ------------------------------------------
+// Action Buttons
+// ------------------------------------------
 .action-buttons {
   display: flex;
   gap: $spacing-md;
@@ -169,6 +191,7 @@
   margin-top: auto;
 }
 
+// Button Stile (Primary & Secondary)
 .btn-primary,
 .btn-secondary {
   font-family: $font-primary;
@@ -198,16 +221,20 @@
   border: 2px solid $primary-color;
    
   &:hover {
-    background: rgba($primary-color, 0.1);
+    background: rgba($secondary-color-white, 0.15);
   }
 }
 
+// ------------------------------------------
+// Mobile Layout (Desktop versteckt)
+// ------------------------------------------
 .mobile-project-layout {
   display: none;
 }
 
-
-/* Responsive - 1200px */
+// ==========================================
+// LAPTOP - max 1200px
+// ==========================================
 @media (max-width: 1200px) {
   .projects-container {
     padding: $spacing-md;
@@ -232,14 +259,16 @@
   }
 }
 
-
-/* Responsive - 992px */
+// ==========================================
+// TABLET - max 992px
+// ==========================================
 @media (max-width: 992px) {
   .project-content {
     grid-template-columns: 1fr;
     gap: $spacing-lg;
   }
 
+  // Reihenfolge ändern
   .project-info {
     order: 2;
   }
@@ -263,13 +292,15 @@
   }
 }
 
-
-
+// ==========================================
+// MOBIL - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .projects-container {
     padding: $spacing-md;
     min-height: auto;
 
+    // Header - Mobil
     .projects-header {
       margin-bottom: $spacing-md;
 
@@ -278,6 +309,7 @@
       }
     }
 
+    // Tabs Navigation - Mobil
     .tabs-navigation {
       max-width: 100%;
       display: flex;
@@ -299,6 +331,7 @@
       }
     }
 
+    // Projekt Inhalt - Mobil
     .project-content {
       display: block;
       width: 100%;
@@ -306,18 +339,21 @@
       padding: $spacing-md;
       border-radius: 0 20px 20px 20px;
 
-     
+      // Desktop Elemente verstecken
       .project-info,
       .project-preview {
         display: none;
       }
 
-     
+      // ------------------------------------------
+      // Mobile Projekt Layout
+      // ------------------------------------------
       .mobile-project-layout {
         display: flex;
         flex-direction: column;
         gap: $spacing-xs;
 
+        // Projekt Titel
         .mobile-project-title {
           font-family: $font-heading;
           font-size: $font-size-lg;
@@ -326,10 +362,10 @@
           margin-bottom: $spacing-sm;
         }
 
+        // Technologien
         .mobile-technologies {
           display: flex;
           flex-wrap: wrap;
-
           
           .tech-label {
             font-family: $font-primary;
@@ -346,6 +382,7 @@
           }
         }
 
+        // Dauer
         .mobile-duration {
           display: flex;
           gap: $spacing-xs;
@@ -366,6 +403,7 @@
           }
         }
 
+        // App Vorschau - Mobil
         .mobile-app-preview {
           width: 90%;
           max-width: 450px;
@@ -385,6 +423,7 @@
           }
         }
 
+        // Info Sektion - Mobil
         .mobile-info-section {
           .mobile-section-header {
             display: flex;
@@ -420,6 +459,7 @@
           }
         }
 
+        // Action Buttons - Mobil
         .mobile-action-buttons {
           display: flex;
           justify-content: center;
@@ -451,8 +491,12 @@
   }
 }
 
+// ==========================================
+// KLEIN MOBIL - max 480px
+// ==========================================
 @media (max-width: 480px) {
   .projects-container {
+    // Tabs - Klein Mobil
     .tabs-navigation {
       .tab-button {
         font-size: $font-size-sm;
@@ -460,18 +504,22 @@
       }
     }
     
+    // Projekt Inhalt - Klein Mobil
     .project-content {
       padding: $spacing-sm;
 
       .mobile-project-layout {
+        // Titel
         .mobile-project-title {
           font-size: $font-size-md;
         }
         
+        // App Vorschau
         .mobile-app-preview {
           height: 180px;
         }
 
+        // Info Sektion
         .mobile-info-section {
           .mobile-section-header {
             .circle-icon {
@@ -490,6 +538,7 @@
           }
         }
 
+        // Buttons
         .mobile-action-buttons {
           .btn-mobile {
             padding: $spacing-xs $spacing-md;

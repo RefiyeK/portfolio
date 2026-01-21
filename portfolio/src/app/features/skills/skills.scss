@@ -1,5 +1,8 @@
 @use '../../../styles.scss' as *;
 
+// ==========================================
+// SKILLS SEKTION - DESKTOP
+// ==========================================
 .skills {
   width: 100%;
   min-height: 100vh;
@@ -8,12 +11,16 @@
   display: flex;
   align-items: center;
   
+  // ------------------------------------------
+  // Container
+  // ------------------------------------------
   .skills-container {
     max-width: $container-max-width;
     margin: 0 auto;
     padding: $spacing-md $spacing-xl;
     width: 100%;
     
+    // Titel
     .section-title {
       font-family: $font-heading;
       font-size: $font-size-xxl;
@@ -23,36 +30,54 @@
       font-weight: 100;
     }
     
+    // ------------------------------------------
+    // Inhalt (Links + Rechts)
+    // ------------------------------------------
     .skills-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: clamp(60px, 8vw, 100px);
+      gap: clamp(40px, 8vw, 60px);
       max-width: 1400px;
       margin: 0 auto;
       
-      // Sol Taraf - Skill Grid
+      // ------------------------------------------
+      // Linke Seite - Skill Grid
+      // ------------------------------------------
       .skills-left {
         flex: 1;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: clamp(40px, 4vw, 60px);
+        row-gap: clamp(30px, 4vw, 50px);
+        column-gap: clamp(20px, 2vw, 40px);
         max-width: 600px;
+        margin-left: clamp(50px, 8vw, 150px);
         
+        // Einzelnes Skill Item
         .skill-item {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: $spacing-sm;
           
-          img {
+          // Desktop Icon
+          .skill-desktop {
+            display: block;
             width: clamp(80px, 6vw, 120px);
             height: clamp(80px, 6vw, 120px);
             transition: transform $transition-speed ease;
           }
+          
+          // Mobile Icon (Desktop'ta gizle)
+          .skill-mobile {
+            display: none;
+          }
         }
       }
       
+      // ------------------------------------------
+      // Rechte Seite - Lernbereich
+      // ------------------------------------------
       .skills-right {
         flex: 1;
         display: flex;
@@ -60,6 +85,7 @@
         justify-content: center;
         max-width: 600px;
   
+        // Lerninhalt mit Kreis
         .learning-content {
           position: relative;
           display: flex;
@@ -67,10 +93,11 @@
           justify-content: center;
           min-height: 500px;
     
+          // Kreis Hintergrund
           .circle-background {
             position: absolute;
-            width: clamp(400px, 35vw, 500px);
-            height: clamp(400px, 35vw, 500px);
+            width: clamp(350px, 35vw, 450px);
+            height: clamp(350px, 35vw, 450px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,6 +126,9 @@
       }
     }
     
+    // ------------------------------------------
+    // Text Inhalt (im Kreis)
+    // ------------------------------------------
     .text-content {
       position: relative;
       z-index: 2;
@@ -108,7 +138,8 @@
       align-items: center;
       text-align: center;
       gap: $spacing-xs;
-      padding: $spacing-lg;
+      padding: $spacing-md;
+      max-width: 380px;
         
       h3 {
         font-family: $font-primary;
@@ -118,6 +149,7 @@
         margin-top: 0;
       }
       
+      // Lern-Icons
       .learning-icons {
         display: flex;
         gap: $spacing-xl;
@@ -142,6 +174,7 @@
         }
       }
       
+      // Lern-Text
       .learning-text {
         font-family: $font-primary;
         font-size: $font-size-md;
@@ -152,18 +185,23 @@
       }
     }
 
-    // Desktop'ta mobile section gizli
+    // ------------------------------------------
+    // Mobile Learning Sektion (Desktop versteckt)
+    // ------------------------------------------
     .mobile-learning-section {
       display: none;
     }
   }
 }
 
-// Responsive - Tablet
+// ==========================================
+// LAPTOP - max 1200px
+// ==========================================
 @media (max-width: 1200px) {
   .skills {
     .skills-container {
       .skills-content {
+        // Skill Grid - 3 Spalten
         .skills-left {
           grid-template-columns: repeat(3, 1fr);
           gap: $spacing-lg;
@@ -173,6 +211,9 @@
   }
 }
 
+// ==========================================
+// TABLET - max 992px
+// ==========================================
 @media (max-width: 992px) {
   .skills {
     padding-top: 80px;
@@ -184,11 +225,14 @@
         flex-direction: column;
         gap: $spacing-xl;
         
+        // Skill Grid - 4 Spalten
         .skills-left {
           max-width: 100%;
           grid-template-columns: repeat(4, 1fr);
+          margin-left: 0;
         }
         
+        // Rechte Seite - volle Breite
         .skills-right {
           max-width: 100%;
         }
@@ -197,6 +241,9 @@
   }
 }
 
+// ==========================================
+// MOBIL - max 768px
+// ==========================================
 @media (max-width: 768px) {
   .skills {
     min-height: auto;
@@ -205,6 +252,7 @@
     .skills-container {
       padding: $spacing-sm;
       
+      // Titel - Mobil
       .section-title {
         font-size: $font-size-xl;
         margin-bottom: $spacing-md;
@@ -214,30 +262,51 @@
         flex-direction: column;
         gap: $spacing-md;
         
+        // Skill Grid - Mobil
         .skills-left {
           grid-template-columns: repeat(4, 1fr);
-          gap: $spacing-md;
+          gap: $spacing-lg;
           max-width: 100%;
-          
-          .skill-item img {
-            width: 50px;
-            height: 50px;
+          padding: 0 $spacing-md;
+
+          .skill-item:nth-last-child(2) {
+             grid-column: 2;
+          }
+  
+          .skill-item:nth-last-child(1) {
+            grid-column: 3;
+          }
+
+          .skill-item {
+            .skill-desktop {
+              display: none;
+            }
+
+            // Mobile Icon göster
+            .skill-mobile {
+              display: block;
+              width: clamp(60px, 15vw, 80px);
+              height: clamp(60px, 15vw, 80px);
+            }
           }
         }
         
-        // Desktop sağ tarafı gizle
+        // Desktop Lernbereich verstecken
         .skills-right {
           display: none;
         }
       }
       
-      // Mobile Learning Section
+      // ------------------------------------------
+      // Mobile Learning Sektion (nur Mobil sichtbar)
+      // ------------------------------------------
       .mobile-learning-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: $spacing-xl;
         
+        // Titel
         .mobile-learning-title {
           font-family: $font-primary;
           font-size: $font-size-lg;
@@ -248,6 +317,7 @@
           margin-top: $spacing-md;
         }
         
+        // Inhalt (Text + Icons)
         .mobile-learning-content {
           display: flex;
           align-items: center;
@@ -255,6 +325,7 @@
           gap: $spacing-md;
           width: 100%;
           
+          // Text
           .mobile-learning-text {
             flex: 1;
             font-family: $font-primary;
@@ -265,6 +336,7 @@
             margin: 0;
           }
           
+          // Icons mit Ellipse Hintergrund
           .mobile-learning-icons {
             position: relative;
             display: flex;
@@ -273,7 +345,7 @@
             gap: $spacing-sm;
             padding: $spacing-lg;
             
-            // Ellipse arka plan
+            // Ellipse Hintergrundbild
             &::before {
               content: '';
               position: absolute;
@@ -287,6 +359,7 @@
               z-index: 1;
             }
             
+            // Einzelnes Lern-Item
             .learning-item {
               position: relative;
               z-index: 2;
@@ -309,6 +382,7 @@
           }
         }
         
+        // CTA Button - Mobil
         .cta-button-mobile {
           display: block;
           margin-top: $spacing-lg;
@@ -327,26 +401,34 @@
   }
 }
 
+// ==========================================
+// KLEIN MOBIL - max 480px
+// ==========================================
 @media (max-width: 480px) {
   .skills {
     .skills-container {
       .skills-content {
+        // Skill Grid - Klein Mobil
         .skills-left {
           grid-template-columns: repeat(4, 1fr);
-          gap: $spacing-sm;
+          gap: $spacing-md;
           
-          .skill-item img {
-            width: 40px;
-            height: 40px;
+          .skill-item {
+            .skill-mobile {
+              width: clamp(50px, 12vw, 65px);
+              height: clamp(50px, 12vw, 65px);
+            }
           }
         }
       }
       
+      // Mobile Learning - Klein Mobil
       .mobile-learning-section {
         .mobile-learning-content {
           .mobile-learning-icons {
             padding: $spacing-md;
             
+            // Kleinere Ellipse
             &::before {
               width: 120px;
               height: 120px;
