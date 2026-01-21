@@ -81,18 +81,18 @@ export class Contact {
 
   // getCheckboxIcon(): string {
   //   if (this.privacyAccepted) {
-  //     return 'icons/check_box_accept.svg';
+  //     return 'icon/check_box_accept.svg';
   //   }
-  //   return 'icons/check_box_.svg';
+  //   return 'icon/check_box_.svg';
   // }
   getCheckboxIcon(): string {
     if (this.privacyAccepted) {
-      return 'icons/check_box_accept.svg';
+      return 'icon/check_box_accept.svg';
     }
     if (this.checkboxHovered) {
-      return 'icons/check_box_hover.svg';
+      return 'icon/check_box_hover.svg';
     }
-    return 'icons/check_box_.svg';
+    return 'icon/check_box_.svg';
   }
 
   

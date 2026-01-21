@@ -129,7 +129,7 @@
 
     &.active {
       color: $secondary-color-white;
-      background-image: url('/icons/ellipse.svg');
+      background-image: url('/icon/ellipse.svg');
     }
 
     &.highlighted {
@@ -264,7 +264,7 @@
 
     &.active {
       color: $secondary-color-white;
-      background-image: url('/icons/ellipse.svg');
+      background-image: url('/icon/ellipse.svg');
     }
 
     &.active.dimmed {
@@ -368,7 +368,7 @@
     max-width: $mobile-circle-max;
     max-height: $mobile-circle-max;
     margin: 0 auto;
-    background: url('/icons/ellipse-img.svg') no-repeat center center;
+    background: url('/icon/ellipse-img.svg') no-repeat center center;
     background-size: contain;
     border-radius: 0;
     background-color: transparent;

@@ -88,7 +88,7 @@
       display: flex;
       justify-content: flex-end;
       
-      .social-icons {
+      .social-icon {
         display: flex;
         gap: $spacing-xs;
         
@@ -176,7 +176,7 @@
         order: 2;
         justify-content: center;
 
-        .social-icons {
+        .social-icon {
           justify-content: center;
           gap: $spacing-sm;
 
@@ -253,7 +253,7 @@
       }
 
       .footer-right {
-        .social-icons {
+        .social-icon {
           a {
             width: 30px;
             height: 30px;

@@ -149,8 +149,8 @@
         margin-top: 0;
       }
       
-      // Lern-Icons
-      .learning-icons {
+      // Lern-icon
+      .learning-icon {
         display: flex;
         gap: $spacing-xl;
         margin-top: $spacing-md;
@@ -317,7 +317,7 @@
           margin-top: $spacing-md;
         }
         
-        // Inhalt (Text + Icons)
+        // Inhalt (Text + icon)
         .mobile-learning-content {
           display: flex;
           align-items: center;
@@ -336,8 +336,8 @@
             margin: 0;
           }
           
-          // Icons mit Ellipse Hintergrund
-          .mobile-learning-icons {
+          // icon mit Ellipse Hintergrund
+          .mobile-learning-icon {
             position: relative;
             display: flex;
             align-items: center;
@@ -354,7 +354,7 @@
               transform: translate(-50%, -50%) rotate(-45deg);
               width: 140px;
               height: 140px;
-              background: url('/icons/ellipse24.svg') no-repeat center center;
+              background: url('/icon/ellipse24.svg') no-repeat center center;
               background-size: contain;
               z-index: 1;
             }
@@ -425,7 +425,7 @@
       // Mobile Learning - Klein Mobil
       .mobile-learning-section {
         .mobile-learning-content {
-          .mobile-learning-icons {
+          .mobile-learning-icon {
             padding: $spacing-md;
             
             // Kleinere Ellipse

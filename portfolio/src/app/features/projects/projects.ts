@@ -32,9 +32,9 @@ export class MyProjectsComponent {
         en: 'This was a solo project where I implemented all aspects of development independently - from game logic to animations to collision detection.'
       },
       technologies: [
-        { name: 'Html', icon: 'icons/html_.svg' },
-        { name: 'css', icon: 'icons/css_.svg' },
-        { name: 'JavaScript', icon: 'icons/javascript_.svg' }
+        { name: 'Html', icon: 'icon/html_.svg' },
+        { name: 'css', icon: 'icon/css_.svg' },
+        { name: 'JavaScript', icon: 'icon/javascript_.svg' }
       ],
       previewImage: 'img/elpolloloco.png',
       liveUrl: 'https://refiyek.github.io/El-Pollo-Loco-Game/',
@@ -57,9 +57,9 @@ export class MyProjectsComponent {
         en: 'This was a solo project where I deepened my knowledge in API integration and dynamic DOM manipulation.'
       },
       technologies: [
-        { name: 'Html', icon: 'icons/html_.svg' },
-        { name: 'css', icon: 'icons/css_.svg' },
-        { name: 'JavaScript', icon: 'icons/javascript_.svg' }
+        { name: 'Html', icon: 'icon/html_.svg' },
+        { name: 'css', icon: 'icon/css_.svg' },
+        { name: 'JavaScript', icon: 'icon/javascript_.svg' }
       ],
       previewImage: 'img/pokedex-.png',
       liveUrl: 'https://refiyek.github.io/pokedex/',

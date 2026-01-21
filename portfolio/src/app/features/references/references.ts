@@ -54,8 +54,8 @@ export class ReferencesComponent {
 
   getCircleImage(ref: any): string {
     if (this.isMobile) {
-      return 'icons/ellipse25.svg';
+      return 'icon/ellipse25.svg';
     }
-    return ref.isHovered ? 'icons/ellipse25-hover.svg' : 'icons/ellipse25.svg';
+    return ref.isHovered ? 'icon/ellipse25-hover.svg' : 'icon/ellipse25.svg';
   }
 }

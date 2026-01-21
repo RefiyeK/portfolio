@@ -17,7 +17,7 @@
     <div class="project-info">
       <section class="info-section">
         <div class="section-header">
-          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <img src="icon/ellipse-blau.svg" alt="" class="circle-icon">
           <h2>{{ translationService.t('projects.aboutProject') }}</h2>
           <span class="duration">{{ translationService.t('projects.duration') }}: {{ currentProject.duration[currentLang] }}</span>
         </div>
@@ -26,7 +26,7 @@
 
       <section class="info-section">
         <div class="section-header">
-          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <img src="icon/ellipse-blau.svg" alt="" class="circle-icon">
           <h2>{{ translationService.t('projects.workProcess') }}</h2>
         </div>
         <p class="section-text">{{ currentProject.workProcess[currentLang] }}</p>
@@ -34,7 +34,7 @@
 
       <section class="info-section">
         <div class="section-header">
-          <img src="icons/ellipse-blau.svg" alt="" class="circle-icon">
+          <img src="icon/ellipse-blau.svg" alt="" class="circle-icon">
           <h2>{{ translationService.t('projects.groupExperience') }}</h2>
         </div>
         <p class="section-text">{{ currentProject.groupExperience[currentLang] }}</p>
@@ -45,7 +45,7 @@
     <div class="project-preview">
       <div class="technologies">
         <h3>{{ translationService.t('projects.technologies') }}</h3>
-        <div class="tech-icons">
+        <div class="tech-icon">
           <img *ngFor="let tech of currentProject.technologies"
             [src]="tech.icon" [alt]="tech.name">
         </div>
