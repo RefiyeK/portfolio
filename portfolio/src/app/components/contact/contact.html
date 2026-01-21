@@ -19,12 +19,12 @@
     <div class="contact-info">
       <a href="mailto:rkulhanbey@hotmail.com" class="contact-link" 
         (mouseenter)="emailHovered = true" (mouseleave)="emailHovered = false">
-        <img [src]="emailHovered ? 'icons/icon _email_hover.svg' : 'icons/icon _email.svg'" alt="E-Mail">
+        <img [src]="emailHovered ? 'icons/icon_email_hover.svg' : 'icons/icon_email.svg'" alt="E-Mail">
         <span>E-Mail: rkulhanbey&#64;hotmail.com</span>
       </a>
       <a href="tel:+4915712345668" class="contact-link"
         (mouseenter)="phoneHovered = true" (mouseleave)="phoneHovered = false">
-        <img [src]="phoneHovered ? 'icons/icon _phone_hover.svg' : 'icons/icon _phone_.svg'" alt="Telefon">
+        <img [src]="phoneHovered ? 'icons/icon_phone_hover.svg' : 'icons/icon_phone_.svg'" alt="Telefon">
         <span>{{ translationService.t('contact.phone') }}: 0157 123 456 68</span>
       </a>
     </div>
