@@ -52,7 +52,10 @@
     position: relative;
     display: flex;
     align-items: flex-start;
-    padding-top: clamp(50px, 8vw, 55px);
+    padding-top: clamp(60px, 9vw, 155px);
+
+    //padding-top: clamp(50px, 8vw, 55px);
+    //padding-top: clamp(60px, 9vw, 65px);
     
     .mobile-hero-image {
       display: none;

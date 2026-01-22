@@ -93,8 +93,8 @@ export class TranslationService {
     // Legal Notice
     'legal.title': { de: 'Impressum', en: 'Legal Notice' },
     'legal.imprint': { de: 'Impressum', en: 'Imprint' },
-    'legal.address': { de: 'Musterstraße 123', en: 'Sample Street 123' },
-    'legal.city': { de: '12345 Berlin, Deutschland', en: '12345 Berlin, Germany' },
+    'legal.address': { de: 'Frankfurter Str. 28', en: 'Frankfurter Str.28' },
+    'legal.city': { de: '51065 Köln, Deutschland', en: '51065 Köln, Germany' },
     'legal.acceptance': { de: 'Akzeptanz der Bedingungen', en: 'Acceptance of Terms' },
     'legal.acceptanceText': { 
       de: 'Durch den Zugriff auf und die Nutzung von Portfolio (Produkt) erkennen Sie die folgenden Geschäftsbedingungen sowie alle Richtlinien, Leitlinien oder Änderungen an, die Ihnen von Zeit zu Zeit vorgelegt werden können. Wir, die aufgeführten Studenten, können die Geschäftsbedingungen von Zeit zu Zeit ohne Vorankündigung aktualisieren oder ändern.',
@@ -134,6 +134,7 @@ export class TranslationService {
       en: 'For questions or comments, please contact us at'
     },
     'legal.date': { de: 'Datum', en: 'Date' },
+    'legal.dateValue': { de: '01. Januar 2026', en: '01 January 2026' },
   
     'about.title': { de: 'Über mich', en: 'Why me' },
     'about.location': { de: 'Ich wohne', en: 'I live' },
