@@ -20,9 +20,9 @@
      // Scroll-Pfeil nach unten
     .scroll-down {
       position: absolute;
-      bottom: clamp(210px, 5vw, 80px);
-      left: clamp(75%, 65vw, 80%);
-      transform: translateX(-50%);
+      bottom: clamp(230px, 5vw, 80px);
+      left: clamp(75%, 65vw, 75%);
+      transform: translateX(-90%);
       width: clamp(60px, 12vw, 100px);
       height: clamp(60px, 12vw, 100px);
       cursor: pointer;
