@@ -3,7 +3,8 @@
   <!-- Header with Title and Scroll Button -->
   <div class="contact-header">
     <h2 class="contact-title">{{ translationService.t('contact.title') }}</h2>
-    <a href="#hero" class="scroll-top-btn" (mouseenter)="scrollHovered = true" (mouseleave)="scrollHovered = false">
+    <a href="#hero" class="scroll-top-btn" (click)="scrollToHero($event)"
+   (mouseenter)="scrollHovered = true" (mouseleave)="scrollHovered = false">
       <img [src]="scrollHovered ? 'icon/propertyhover.svg' : 'icon/propertydefault.svg'" alt="Nach oben scrollen">
     </a>
   </div>
@@ -93,15 +94,16 @@
 
   <!-- Mobile Scroll Top Button -->
   <div class="scroll-top-mobile">
-    <a href="#hero" (touchstart)="scrollTopActive = true" (touchend)="scrollTopActive = false"
-     (mousedown)="scrollTopActive = true" (mouseup)="scrollTopActive = false" (mouseleave)="scrollTopActive = false">
+    <a href="#hero" (click)="scrollToHero($event)"
+   (touchstart)="scrollTopActive = true" (touchend)="scrollTopActive = false"
+   (mousedown)="scrollTopActive = true" (mouseup)="scrollTopActive = false" (mouseleave)="scrollTopActive = false">
       <img [src]="scrollTopActive ? 'icon/propertyhover.svg' : 'icon/propertydefault.svg'" alt="Nach oben scrollen">
     </a>
   </div>
 
   <!-- Success Message -->
   <div class="success-message" *ngIf="messageSent">
-    <img src="icon/Cloud.svg" alt="Erfolg">
+    <img src="icon/check_box_accept.svg" alt="Erfolg">
     <p>{{ translationService.t('contact.success') }}</p>
   </div>
 </section>

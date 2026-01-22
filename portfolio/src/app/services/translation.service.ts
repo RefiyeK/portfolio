@@ -92,49 +92,49 @@ export class TranslationService {
 
     // Legal Notice
     'legal.title': { de: 'Impressum', en: 'Legal Notice' },
-    'legal.imprint': { de: 'Impressum', en: 'Imprint' },
-    'legal.address': { de: 'Frankfurter Str. 28', en: 'Frankfurter Str.28' },
-    'legal.city': { de: '51065 Köln, Deutschland', en: '51065 Köln, Germany' },
-    'legal.acceptance': { de: 'Akzeptanz der Bedingungen', en: 'Acceptance of Terms' },
+    'legal.imprint': { de: 'Kontakt', en: 'Contact' },
+    'legal.address': { de: 'Frankfurter Str. 28', en: 'Frankfurter Str. 28' },
+    'legal.city': { de: '51065 Köln, Deutschland', en: '51065 Cologne, Germany' },
+    'legal.acceptance': { de: 'Nutzungsbedingungen', en: 'Terms of Use' },
     'legal.acceptanceText': { 
-      de: 'Durch den Zugriff auf und die Nutzung von Portfolio (Produkt) erkennen Sie die folgenden Geschäftsbedingungen sowie alle Richtlinien, Leitlinien oder Änderungen an, die Ihnen von Zeit zu Zeit vorgelegt werden können. Wir, die aufgeführten Studenten, können die Geschäftsbedingungen von Zeit zu Zeit ohne Vorankündigung aktualisieren oder ändern.',
-      en: 'By accessing and using Portfolio (Product), you acknowledge the following terms and conditions as well as all policies, guidelines, or amendments that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.'
+      de: 'Mit der Nutzung dieser Website akzeptieren Sie die folgenden Bedingungen. Diese können jederzeit ohne Vorankündigung geändert werden.', 
+      en: 'By using this website, you accept the following terms. These may be changed at any time without notice.' 
     },
-    'legal.scope': { de: 'Umfang und Eigentum des Produkts', en: 'Scope and Ownership of the Product' },
+    'legal.scope': { de: 'Projektrahmen', en: 'Project Scope' },
     'legal.scopeText1': { 
-      de: 'Portfolio wurde im Rahmen eines Studenten-Gruppenprojekts in einem Webentwicklungs-Bootcamp bei der Developer Akademie GmbH entwickelt. Es dient Bildungszwecken und ist nicht für umfangreiche persönliche oder geschäftliche Nutzung vorgesehen. Daher können wir keine konsistente Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder andere Qualitätsaspekte dieses Produkts garantieren.',
-      en: 'Portfolio was developed as part of a student group project in a web development bootcamp at Developer Akademie GmbH. It serves educational purposes and is not intended for extensive personal or business use. Therefore, we cannot guarantee consistent availability, reliability, accuracy, or other quality aspects of this product.'
+      de: 'Diese Portfolio-Website dient der Präsentation meiner Arbeit als Frontend-Entwicklerin.', 
+      en: 'This portfolio website serves to showcase my work as a frontend developer.' 
     },
     'legal.scopeText2': { 
-      de: 'Das Design von Portfolio ist Eigentum der Developer Akademie GmbH. Die unbefugte Nutzung, Vervielfältigung, Modifikation, Verbreitung oder Replikation des Designs ist strengstens untersagt.',
-      en: 'The design of Portfolio is the property of Developer Akademie GmbH. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.'
+      de: 'Alle Inhalte und das Design sind urheberrechtlich geschützt. Eine unbefugte Nutzung ist untersagt.', 
+      en: 'All content and design are protected by copyright. Unauthorized use is prohibited.' 
     },
-    'legal.proprietary': { de: 'Eigentumsrechte', en: 'Proprietary Rights' },
+    'legal.proprietary': { de: 'Urheberrecht', en: 'Copyright' },
     'legal.proprietaryText': { 
-      de: 'Abgesehen vom Design, das der Developer Akademie GmbH gehört, behalten wir, die aufgeführten Studenten, alle Eigentumsrechte an Portfolio, einschließlich aller zugehörigen urheberrechtlich geschützten Materialien, Marken und anderen geschützten Informationen.',
-      en: 'Apart from the design, which belongs to Developer Akademie GmbH, we, the listed students, retain all proprietary rights to Portfolio, including all related copyrighted materials, trademarks, and other protected information.'
+      de: 'Alle Inhalte dieser Website, einschließlich Texte, Bilder und Code, sind mein geistiges Eigentum.', 
+      en: 'All content on this website, including text, images and code, is my intellectual property.' 
     },
-    'legal.use': { de: 'Nutzung des Produkts', en: 'Use of the Product' },
+    'legal.use': { de: 'Nutzung', en: 'Usage' },
     'legal.useText': { 
-      de: 'Portfolio ist nur für rechtmäßige Zwecke in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften zu verwenden. Jede Nutzung von Portfolio für illegale Aktivitäten oder um eine andere Person zu belästigen, zu schädigen, zu bedrohen oder einzuschüchtern, ist strengstens untersagt. Sie sind allein verantwortlich für Ihre Interaktionen mit anderen Nutzern von Portfolio.',
-      en: 'Portfolio is to be used only for lawful purposes in compliance with all applicable laws and regulations. Any use of Portfolio for illegal activities or to harass, harm, threaten, or intimidate another person is strictly prohibited. You are solely responsible for your interactions with other users of Portfolio.'
+      de: 'Diese Website darf nur für rechtmäßige Zwecke genutzt werden. Jede missbräuchliche Nutzung ist untersagt.', 
+      en: 'This website may only be used for lawful purposes. Any misuse is prohibited.' 
     },
-    'legal.disclaimer': { de: 'Haftungsausschluss und Haftungsbeschränkung', en: 'Disclaimer and Limitation of Liability' },
+    'legal.disclaimer': { de: 'Haftungsausschluss', en: 'Disclaimer' },
     'legal.disclaimerText': { 
-      de: 'Portfolio wird ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigenden Gewährleistungen der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung. In keinem Fall haften wir, die aufgeführten Studenten, oder die Developer Akademie für direkte, indirekte, zufällige, besondere, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch entgangenen Gewinn, Goodwill, Nutzung, Daten oder andere immaterielle Verluste, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die aus oder in Verbindung mit der Nutzung oder Leistung von Portfolio entstehen.',
-      en: 'Portfolio is provided without any express or implied warranty, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall we, the listed students, or Developer Akademie be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of Portfolio.'
+      de: 'Diese Website wird ohne Gewährleistung bereitgestellt. Ich hafte nicht für Schäden, die durch die Nutzung entstehen.', 
+      en: 'This website is provided without warranty. I am not liable for any damages arising from its use.' 
     },
     'legal.indemnity': { de: 'Freistellung', en: 'Indemnity' },
     'legal.indemnityText': { 
-      de: 'Sie erklären sich damit einverstanden, uns, die aufgeführten Studenten, die Developer Akademie und unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen und schadlos zu halten, die aus oder in Verbindung mit Ihrer Nutzung von Portfolio und/oder Ihrem Verstoß gegen dieses Impressum entstehen.',
-      en: 'You agree to indemnify and hold harmless us, the listed students, Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees from any claims, demands, losses, damages, costs, or liabilities (including reasonable attorney fees) arising out of or in connection with your use of Portfolio and/or your violation of this Legal Notice.'
+      de: 'Sie erklären sich bereit, mich von allen Ansprüchen freizustellen, die aus Ihrer Nutzung dieser Website entstehen.', 
+      en: 'You agree to indemnify me against any claims arising from your use of this website.' 
     },
     'legal.contactText': { 
-      de: 'Bei Fragen oder Anmerkungen kontaktieren Sie uns bitte unter',
-      en: 'For questions or comments, please contact us at'
+      de: 'Bei Fragen kontaktieren Sie mich unter',
+      en: 'For questions, contact me at'
     },
-    'legal.date': { de: 'Datum', en: 'Date' },
-    'legal.dateValue': { de: '01. Januar 2026', en: '01 January 2026' },
+    'legal.date': { de: 'Stand', en: 'Date' },
+    'legal.dateValue': { de: '22. Januar 2026', en: '22 January 2026' },
   
     'about.title': { de: 'Über mich', en: 'Why me' },
     'about.location': { de: 'Ich wohne', en: 'I live' },

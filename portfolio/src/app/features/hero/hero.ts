@@ -11,4 +11,12 @@ export class Hero {
   scrollDownActive = false;
 
   constructor(public translationService: TranslationService) {}
+
+  scrollToAbout(event: Event) {
+    event.preventDefault();
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

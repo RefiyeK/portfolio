@@ -16,11 +16,6 @@
   font-weight: 300;
   color: $primary-color;
   margin-bottom: $spacing-xl;
-  align-self: flex-start;
-  max-width: 900px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .legal-content {
@@ -29,36 +24,35 @@
 }
 
 .legal-section {
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-lg;
   
   h2 {
     font-family: $font-primary;
-    font-size: $font-size-md;
-    font-weight: 600;
+    font-size: $font-size-lg;
+    font-weight: 500;
     color: $primary-color;
-    margin-bottom: $spacing-xs;
+    margin-bottom: $spacing-sm;
   }
   
   p {
     font-family: $font-primary;
-    font-size: $font-size-sm;
+    font-size: $font-size-md;
     font-weight: 300;
     color: $secondary-color-white;
     line-height: 1.6;
-    margin-bottom: $spacing-xs;
+    margin-bottom: $spacing-sm;
   }
   
   ul {
-    list-style: disc;
     margin-left: $spacing-md;
-    margin-bottom: $spacing-xs;
+    margin-bottom: $spacing-sm;
     
     li {
       font-family: $font-primary;
-      font-size: $font-size-sm;
+      font-size: $font-size-md;
       font-weight: 300;
       color: $secondary-color-white;
-      line-height: 1.6;
+      line-height: 1.8;
     }
   }
   
@@ -92,7 +86,6 @@
   margin-top: $spacing-lg;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .legal-container {
     padding: $spacing-lg $spacing-md;
@@ -101,5 +94,46 @@
   
   .legal-title {
     font-size: $font-size-xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-container {
+    padding: $spacing-md $spacing-sm;
+    padding-top: 90px;
+  }
+  
+  .legal-title {
+    font-size: $font-size-lg;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  .legal-section {
+    margin-bottom: $spacing-md;
+    
+    h2 {
+      font-size: $font-size-md;
+      margin-bottom: $spacing-xs;
+    }
+    
+    p {
+      font-size: $font-size-sm;
+      line-height: 1.5;
+    }
+    
+    ul {
+      margin-left: $spacing-sm;
+      
+      li {
+        font-size: $font-size-sm;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .legal-date {
+    font-size: 0.75rem;
+    margin-top: $spacing-md;
   }
 }

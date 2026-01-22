@@ -51,8 +51,9 @@
     </div>
     
 
-     <a href="#about" class="scroll-down" (mouseenter)="scrollDownActive = true" (mouseleave)="scrollDownActive = false"
-        (touchstart)="scrollDownActive = true" (touchend)="scrollDownActive = false">
+     <a href="#about" class="scroll-down" (click)="scrollToAbout($event)"
+   (mouseenter)="scrollDownActive = true" (mouseleave)="scrollDownActive = false"
+   (touchstart)="scrollDownActive = true" (touchend)="scrollDownActive = false">
         <img [src]="scrollDownActive ? 'icon/pfeile-unten-hover.svg' : 'icon/pfeile-unten.svg'" alt="Scroll down">
       </a>
   </div>

@@ -79,12 +79,6 @@ export class Contact {
     }
   }
 
-  // getCheckboxIcon(): string {
-  //   if (this.privacyAccepted) {
-  //     return 'icon/check_box_accept.svg';
-  //   }
-  //   return 'icon/check_box_.svg';
-  // }
   getCheckboxIcon(): string {
     if (this.privacyAccepted) {
       return 'icon/check_box_accept.svg';
@@ -131,4 +125,12 @@ export class Contact {
     this.privacyAccepted = false;
     this.privacyError = false;
   }
+
+  scrollToHero(event: Event) {
+  event.preventDefault();
+  const element = document.getElementById('hero');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 }
