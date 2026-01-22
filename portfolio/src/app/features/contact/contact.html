@@ -42,7 +42,9 @@
         <div class="input-wrapper">
           <label for="name" [class.error]="nameError">{{ translationService.t('contact.name') }}</label>
           <input type="text" id="name" name="name" placeholder=" " [(ngModel)]="formData.name" (blur)="validateName()" [class.error]="nameError" autocomplete="name">
-          <img *ngIf="nameSuccess" src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
+          @if (nameSuccess) {
+            <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
+          }
         </div>
         <span class="error-message" [class.visible]="nameError">{{ translationService.t('contact.nameRequired') }}</span>
       </div>
@@ -52,7 +54,9 @@
         <div class="input-wrapper">
           <label for="email" [class.error]="emailError">{{ translationService.t('contact.email') }}</label>
           <input type="email" id="email" name="email" placeholder=" " [(ngModel)]="formData.email" (blur)="validateEmail()" [class.error]="emailError" autocomplete="email">
-          <img *ngIf="emailSuccess" src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
+          @if (emailSuccess) {
+            <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
+          }
         </div>
         <span class="error-message" [class.visible]="emailError">{{ translationService.t('contact.emailRequired') }}</span>
       </div>
@@ -64,7 +68,9 @@
         <label for="message" [class.error]="messageError">{{ translationService.t('contact.message') }}</label>
         <textarea id="message" name="message" placeholder=" " [(ngModel)]="formData.message" (blur)="validateMessage()"
           [class.error]="messageError" rows="5"></textarea>
-        <img *ngIf="messageSuccess" src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon textarea-icon">
+        @if (messageSuccess) {
+          <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon textarea-icon">
+        }
       </div>
       <span class="error-message" [class.visible]="messageError">{{ translationService.t('contact.messageRequired') }}</span>
     </div>
@@ -102,8 +108,10 @@
   </div>
 
   <!-- Success Message -->
-  <div class="success-message" *ngIf="messageSent">
-    <img src="icon/check_box_accept.svg" alt="Erfolg">
-    <p>{{ translationService.t('contact.success') }}</p>
-  </div>
+  @if (messageSent) {
+    <div class="success-message">
+      <img src="icon/check_box_accept.svg" alt="Erfolg">
+      <p>{{ translationService.t('contact.success') }}</p>
+    </div>
+  }
 </section>

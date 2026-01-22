@@ -1,4 +1,4 @@
-import { Component, HostListener, ElementRef, Renderer2, Input } from '@angular/core';
+import { Component, HostListener, ElementRef, Renderer2, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 
@@ -9,19 +9,17 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './header.scss',
 })
 export class Header {
+  private el = inject(ElementRef);
+  private renderer = inject(Renderer2);
+  translationService = inject(TranslationService);
+  
   @Input() isStatic: boolean = false;
   isScrolled = false;
   currentLang: 'de' | 'en' = 'de';
   langHovered = false;
-  hoveredLang: 'de' | 'en' | null = null;  // BU SATIRI EKLE
+  hoveredLang: 'de' | 'en' | null = null;
   mobileLangHoveredOn: 'de' | 'en' | null = null;
   mobileMenuOpen = false;
-
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-    public translationService: TranslationService
-  ) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

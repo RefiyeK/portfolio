@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
@@ -11,5 +11,5 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './footer.scss'
 })
 export class FooterComponent {
-  constructor(public translationService: TranslationService) {}
+  translationService = inject(TranslationService);
 }

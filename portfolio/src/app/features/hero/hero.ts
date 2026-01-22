@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -8,9 +8,8 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './hero.scss',
 })
 export class Hero {
+  translationService = inject(TranslationService);
   scrollDownActive = false;
-
-  constructor(public translationService: TranslationService) {}
 
   scrollToAbout(event: Event) {
     event.preventDefault();

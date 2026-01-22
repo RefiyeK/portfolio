@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 
@@ -10,9 +10,8 @@ import { TranslationService } from '../../services/translation.service';
   styleUrls: ['./projects.scss']
 })
 export class MyProjectsComponent {
+  translationService = inject(TranslationService);
   activeTab = 0;
-  
-  constructor(public translationService: TranslationService) {}
   
   projects = [
     {
@@ -57,9 +56,9 @@ export class MyProjectsComponent {
         en: 'This was a solo project where I deepened my knowledge in API integration and dynamic DOM manipulation.'
       },
       technologies: [
-        { name: 'Html', icon: 'icon/html_.svg' },
-        { name: 'css', icon: 'icon/css_.svg' },
-        { name: 'JavaScript', icon: 'icon/javascript_.svg' }
+        { name: 'Html', icon: 'icon/html-.svg' },
+        { name: 'css', icon: 'icon/css-.svg' },
+        { name: 'JavaScript', icon: 'icon/javascript-.svg' }
       ],
       previewImage: 'img/pokedex-.png',
       liveUrl: 'https://refiyek.github.io/pokedex/',

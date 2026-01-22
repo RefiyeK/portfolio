@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
@@ -11,5 +11,5 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './privacy-policy.scss'
 })
 export class PrivacyPolicyComponent {
-  constructor(public translationService: TranslationService) {}
+  translationService = inject(TranslationService);
 }

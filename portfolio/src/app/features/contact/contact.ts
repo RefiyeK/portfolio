@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -12,6 +12,8 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './contact.scss',
 })
 export class Contact {
+  translationService = inject(TranslationService);
+  
   // Hover states
   emailHovered = false;
   phoneHovered = false;
@@ -38,8 +40,6 @@ export class Contact {
 
   // Form state
   messageSent = false;
-
-  constructor(public translationService: TranslationService) {}
 
   validateName() {
     if (this.formData.name.trim().length > 0) {
@@ -89,7 +89,6 @@ export class Contact {
     return 'icon/check_box_.svg';
   }
 
-  
   isFormValid(): boolean {
     return this.nameSuccess && this.emailSuccess && this.messageSuccess && this.privacyAccepted;
   }
@@ -127,10 +126,10 @@ export class Contact {
   }
 
   scrollToHero(event: Event) {
-  event.preventDefault();
-  const element = document.getElementById('hero');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    event.preventDefault();
+    const element = document.getElementById('hero');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
-}
 }

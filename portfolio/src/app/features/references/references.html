@@ -3,17 +3,18 @@
   <p class="references-subtitle">{{ translationService.t('references.subtitle') }}</p>
   
   <div class="references-grid">
-    <div class="reference-card" *ngFor="let ref of references"
-      (mouseenter)="onHover(ref, true)" (mouseleave)="onHover(ref, false)">
-      <div class="circle-wrapper">
-        <img [src]="getCircleImage(ref)" alt="circle background" class="circle-bg">
-        <div class="card-content">
-          <h3 class="colleague-name">{{ ref.name }}</h3>
-          <p class="project-name">{{ translationService.t('references.project') }} <span class="project-highlight">{{ ref.project }}</span></p>
-          <p class="quote">"{{ ref.quote[currentLang] }}"</p>
-          <a [href]="ref.linkedIn" target="_blank" class="linkedin-link">{{ translationService.t('references.linkedIn') }}</a>
+    @for (ref of references; track ref.name) {
+      <div class="reference-card" (mouseenter)="onHover(ref, true)" (mouseleave)="onHover(ref, false)">
+        <div class="circle-wrapper">
+          <img [src]="getCircleImage(ref)" alt="circle background" class="circle-bg">
+          <div class="card-content">
+            <h3 class="colleague-name">{{ ref.name }}</h3>
+            <p class="project-name">{{ translationService.t('references.project') }} <span class="project-highlight">{{ ref.project }}</span></p>
+            <p class="quote">"{{ ref.quote[currentLang] }}"</p>
+            <a [href]="ref.linkedIn" target="_blank" class="linkedin-link">{{ translationService.t('references.linkedIn') }}</a>
+          </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 </section>

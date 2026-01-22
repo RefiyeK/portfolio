@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -8,5 +8,5 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './about.scss',
 })
 export class About {
-  constructor(public translationService: TranslationService) {}
+  translationService = inject(TranslationService);
 }

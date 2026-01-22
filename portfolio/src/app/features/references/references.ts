@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 
@@ -10,9 +10,8 @@ import { TranslationService } from '../../services/translation.service';
   styleUrls: ['./references.scss']
 })
 export class ReferencesComponent {
+  translationService = inject(TranslationService);
   isMobile = window.innerWidth <= 768;
-
-  constructor(public translationService: TranslationService) {}
 
   references = [
     {

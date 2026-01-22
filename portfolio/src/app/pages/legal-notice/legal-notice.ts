@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 
@@ -9,5 +9,5 @@ import { TranslationService } from '../../services/translation.service';
   styleUrl: './legal-notice.scss'
 })
 export class LegalNotice {
-  constructor(public translationService: TranslationService) {}
+  translationService = inject(TranslationService);
 }
