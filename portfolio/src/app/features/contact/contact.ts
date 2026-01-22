@@ -103,7 +103,6 @@ export class Contact {
     }
 
     if (this.isFormValid()) {
-      console.log('Form submitted:', this.formData);
       this.messageSent = true;
       
       setTimeout(() => {
@@ -125,12 +124,27 @@ export class Contact {
     this.privacyError = false;
   }
 
+  // scrollToHero(event: Event) {
+  //   event.preventDefault();
+  //   const element = document.getElementById('hero');
+  //   if (element) {
+  //     const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
+  //   window.scrollTo({ top: yOffset, behavior: 'smooth' });
+  //   }
+  // }
   scrollToHero(event: Event) {
-    event.preventDefault();
-    const element = document.getElementById('hero');
-    if (element) {
-      const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
+  event.preventDefault();
+  this.scrollTopActive = true;  // ← Bunu ekle
+  
+  const element = document.getElementById('hero');
+  if (element) {
+    const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
     window.scrollTo({ top: yOffset, behavior: 'smooth' });
-    }
   }
+  
+  // 300ms sonra resetle
+  setTimeout(() => {
+    this.scrollTopActive = false;
+  }, 300);
+}
 }

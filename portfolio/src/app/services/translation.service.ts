@@ -166,7 +166,6 @@ export class TranslationService {
   t(key: string): string {
     const translation = this.translations[key];
     if (!translation) {
-      console.warn(`Translation missing for key: ${key}`);
       return key;
     }
     return translation[this.currentLang()];

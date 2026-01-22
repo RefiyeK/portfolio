@@ -7,10 +7,11 @@
   <!-- Tabs Navigation -->
   <nav class="tabs-navigation">
     @for (project of projects; track project.name; let i = $index) {
-      <button class="tab-button" [class.active]="activeTab === i" (click)="selectTab(i)">
-        {{ i + 1 }}. {{ translationService.t('projects.project') }}
-      </button>
-    }
+    <button class="tab-button" [class.active]="activeTab === i" (click)="selectTab(i)">
+      <span class="tab-desktop">{{ project.name }}</span>
+      <span class="tab-mobile">{{ i + 1 }}. {{ translationService.t('projects.project') }}</span>
+    </button>
+  }
   </nav>
 
   <!-- Project Content -->

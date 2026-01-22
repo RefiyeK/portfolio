@@ -34,16 +34,15 @@
         transition: opacity $transition-speed ease;
       }
 
-      .arrow-default {
-        opacity: 1;
-      }
+      .icon-default { display: block; }
+      .icon-hover { display: none; }
 
-      .arrow-hover {
-        opacity: 0;
-      }
+    &:hover, &:active {
+      .icon-default { display: none; }
+      .icon-hover { display: block; }
     }
   }
-
+  }
   // ------------------------------------------
   // LINKE SEITE - Profilbild und Shape
   // ------------------------------------------
@@ -52,10 +51,7 @@
     position: relative;
     display: flex;
     align-items: flex-start;
-    padding-top: clamp(60px, 9vw, 155px);
-
-    //padding-top: clamp(50px, 8vw, 55px);
-    //padding-top: clamp(60px, 9vw, 65px);
+    padding-top: clamp(60px, 5vw, 155px);
     
     .mobile-hero-image {
       display: none;
@@ -225,7 +221,6 @@
   }
 }
 
-
 // ==========================================
 // TABLET - max 768px
 // ==========================================
@@ -245,9 +240,9 @@
       gap: 0;
       width: 100%;
 
-
       .scroll-down {
         position: relative;
+        z-index: 999;
         bottom: auto;
         left: auto;
         transform: none;
@@ -263,14 +258,12 @@
           height: 100%;
         }
 
-        .arrow-hover {
-          display: none;
-        }
+        .icon-default { display: block; }
+        .icon-hover { display: none; }
 
-        &:hover {
-          .arrow-default {
-            opacity: 1;
-          }
+        &:hover, &:active {
+          .icon-default { display: none; }
+          .icon-hover { display: block; }
         }
       }
     }

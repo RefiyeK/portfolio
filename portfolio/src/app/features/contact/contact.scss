@@ -623,6 +623,16 @@ textarea {
         width: clamp(70px, 18vw, 100px);
         height: clamp(70px, 18vw, 100px);
       }
+
+      // Default icon
+      .icon-default { display: block; }
+      .icon-hover { display: none; }
+      
+      // Touch/Click aktif olduğunda
+      &:active {
+        .icon-default { display: none; }
+        .icon-hover { display: block; }
+      }
     }
   }
 }
