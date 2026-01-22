@@ -129,7 +129,8 @@ export class Contact {
     event.preventDefault();
     const element = document.getElementById('hero');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({ top: yOffset, behavior: 'smooth' });
     }
   }
 }

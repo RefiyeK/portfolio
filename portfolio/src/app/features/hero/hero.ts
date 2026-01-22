@@ -15,7 +15,8 @@ export class Hero {
     event.preventDefault();
     const element = document.getElementById('about');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({ top: yOffset, behavior: 'smooth' });
     }
   }
 }
