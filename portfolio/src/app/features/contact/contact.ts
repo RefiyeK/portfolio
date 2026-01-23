@@ -124,14 +124,7 @@ export class Contact {
     this.privacyError = false;
   }
 
-  // scrollToHero(event: Event) {
-  //   event.preventDefault();
-  //   const element = document.getElementById('hero');
-  //   if (element) {
-  //     const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
-  //   window.scrollTo({ top: yOffset, behavior: 'smooth' });
-  //   }
-  // }
+ 
   scrollToHero(event: Event) {
   event.preventDefault();
   this.scrollTopActive = true;  // ← Bunu ekle
@@ -142,7 +135,7 @@ export class Contact {
     window.scrollTo({ top: yOffset, behavior: 'smooth' });
   }
   
-  // 300ms sonra resetle
+
   setTimeout(() => {
     this.scrollTopActive = false;
   }, 300);
