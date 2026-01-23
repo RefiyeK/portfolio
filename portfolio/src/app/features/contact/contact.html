@@ -41,7 +41,8 @@
       <div class="form-group">
         <div class="input-wrapper">
           <label for="name" [class.error]="nameError">{{ translationService.t('contact.name') }}</label>
-          <input type="text" id="name" name="name" placeholder=" " [(ngModel)]="formData.name" (blur)="validateName()" [class.error]="nameError" autocomplete="name">
+          <input type="text" id="name" name="name" placeholder=" " [(ngModel)]="formData.name" (blur)="validateName()" 
+          [class.error]="nameError" autocomplete="name">
           @if (nameSuccess) {
             <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
           }
@@ -53,7 +54,8 @@
       <div class="form-group">
         <div class="input-wrapper">
           <label for="email" [class.error]="emailError">{{ translationService.t('contact.email') }}</label>
-          <input type="email" id="email" name="email" placeholder=" " [(ngModel)]="formData.email" (blur)="validateEmail()" [class.error]="emailError" autocomplete="email">
+          <input type="email" id="email" name="email" placeholder=" " [(ngModel)]="formData.email" (blur)="validateEmail()" 
+          [class.error]="emailError" autocomplete="email">
           @if (emailSuccess) {
             <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
           }

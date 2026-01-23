@@ -8,7 +8,7 @@ export class TranslationService {
 
   private translations: { [key: string]: { de: string; en: string } } = {
     // Header
-    'header.about': { de: 'Über mich', en: 'Why me' },
+    'header.about': { de: 'Über mich', en: 'About me' },
     'header.skills': { de: 'Kenntnisse', en: 'Skills' },
     'header.projects': { de: 'Projekte', en: 'Projects' },
     'header.contact': { de: 'Kontakt', en: 'Contact' },
@@ -136,7 +136,7 @@ export class TranslationService {
     'legal.date': { de: 'Stand', en: 'Date' },
     'legal.dateValue': { de: '22. Januar 2026', en: '22 January 2026' },
   
-    'about.title': { de: 'Über mich', en: 'Why me' },
+    'about.title': { de: 'Über mich', en: 'About me' },
     'about.location': { de: 'Ich wohne', en: 'I live' },
     'about.locationCity': { de: 'in Köln...', en: 'in Cologne...' },
     'about.description': { 
@@ -145,7 +145,7 @@ export class TranslationService {
     },
     'about.cta': { de: 'Lass uns reden', en: "Let's talk" },
 
-    'references.title': { de: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich', en: 'Need a team player? Here what my colloagues said about me' },
+    'references.title': { de: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich', en: "Need a team player? Here's what my colleagues say about me" },
     'references.subtitle': { de: 'Das sagen meine Kollegen über mich', en: 'What my colleagues say about me' },
     'references.linkedIn': { de: 'LinkedIn Profil', en: 'LinkedIn Profile' },
     'references.project': { de: 'Projekt', en: 'Project' },

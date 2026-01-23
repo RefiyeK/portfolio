@@ -78,7 +78,7 @@
   width: 100%;
   padding: $spacing-lg;
   gap: $spacing-lg;
-  border-radius: 0 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 // ------------------------------------------
@@ -353,7 +353,7 @@
       width: 100%;
       height: auto;
       padding: $spacing-md;
-      border-radius: 0 20px 20px 20px;
+      border-radius: 20px 20px 20px 20px;
 
       // Desktop Elemente verstecken
       .project-info,
