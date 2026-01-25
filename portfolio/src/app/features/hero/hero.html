@@ -1,23 +1,24 @@
 <section class="hero" id="home">
   <div class="hero-container">
     <!-- Sol taraf - Profil Fotoğrafı -->
-<div class="hero-image">
-  <!-- Desktop: Shape ve Circle birlikte -->
-  <div class="desktop-image-wrapper">
-    <div class="background-shape">
-      <img src="icon/shape-1.svg" alt="" class="shape-default">
-      <img src="icon/shape.svg" alt="" class="shape-hover">
+    <div class="hero-image">
+      
+      
+      <div class="desktop-image-wrapper">
+        <div class="background-shape">
+          <img src="icon/shape-1.svg" alt="" class="shape-default">
+          <img src="icon/shape.svg" alt="" class="shape-hover">
+        </div>
+        <div class="image-circle">
+          <img src="img/refiyek.png" alt="Refiye Külhanbey">
+        </div>
+      </div>
+      
+      <!-- Mobile: Sadece yuvarlak fotoğraf -->
+      <div class="mobile-hero-image">
+        <img src="img/refiye-mobile.png" alt="Refiye">
+      </div>
     </div>
-    <div class="image-circle">
-      <img src="img/refiyek.png" alt="Refiye Külhanbey">
-    </div>
-  </div>
-  
-  <!-- Mobile: Sadece yuvarlak fotoğraf -->
-  <div class="mobile-hero-image">
-    <img src="img/refiye-mobile.png" alt="Refiye">
-  </div>
-</div>
     
     <!-- Sağ taraf - İsim ve Bilgiler -->
     <div class="hero-content">
@@ -29,10 +30,15 @@
         <h1 class="hero-name">Refiye Külhanbey</h1>
         <h2 class="hero-title">{{ translationService.t('hero.title') }}</h2>
       </div>
-    
+
+      
+      <a href="#about" class="scroll-down" (click)="scrollToAbout($event)">
+        <img src="icon/pfeile-unten.svg" alt="Scroll down" class="icon-default">
+        <img src="icon/pfeile-unten-hover.svg" alt="Scroll down" class="icon-hover">
+      </a>
     </div>
 
-    <!-- Vertical Socials - hero-container İÇİNDE -->
+    <!-- Vertical Socials -->
     <div class="vertical-socials">
       <a href="mailto:contact@refiye-kuelhanbey.com" aria-label="E-Mail" target="_blank" class="social-link">
         <img src="icon/email-default.svg" alt="Email" class="icon-default">
@@ -49,11 +55,5 @@
         <img src="icon/linkedin-hover.svg" alt="LinkedIn" class="icon-hover">
       </a>
     </div>
-    
-
-     <a href="#about" class="scroll-down" (click)="scrollToAbout($event)">
-      <img src="icon/pfeile-unten.svg" alt="Scroll down" class="icon-default">
-      <img src="icon/pfeile-unten-hover.svg" alt="Scroll down" class="icon-hover">
-    </a>
   </div>
 </section>
