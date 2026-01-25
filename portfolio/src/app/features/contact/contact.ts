@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class Contact {
   translationService = inject(TranslationService);
+  private http = inject(HttpClient);
   
   // Hover states
   emailHovered = false;
@@ -40,6 +42,8 @@ export class Contact {
 
   // Form state
   messageSent = false;
+  isSending = false;
+  sendError = false;
 
   validateName() {
     if (this.formData.name.trim().length > 0) {
@@ -103,13 +107,34 @@ export class Contact {
     }
 
     if (this.isFormValid()) {
-      this.messageSent = true;
-      
-      setTimeout(() => {
-        this.messageSent = false;
-        this.resetForm();
-      }, 3000);
+      this.sendEmail();
     }
+  }
+
+  private sendEmail() {
+    this.isSending = true;
+    this.sendError = false;
+
+    this.http.post<{success: boolean; message: string}>('/send-mail.php', this.formData)
+      .subscribe({
+        next: (response) => {
+          this.isSending = false;
+          if (response.success) {
+            this.messageSent = true;
+            setTimeout(() => {
+              this.messageSent = false;
+              this.resetForm();
+            }, 3000);
+          } else {
+            this.sendError = true;
+          }
+        },
+        error: (error) => {
+          console.error('Mail sending failed:', error);
+          this.isSending = false;
+          this.sendError = true;
+        }
+      });
   }
 
   resetForm() {
@@ -122,22 +147,21 @@ export class Contact {
     this.messageSuccess = false;
     this.privacyAccepted = false;
     this.privacyError = false;
+    this.sendError = false;
   }
 
- 
   scrollToHero(event: Event) {
-  event.preventDefault();
-  this.scrollTopActive = true;  // ← Bunu ekle
-  
-  const element = document.getElementById('hero');
-  if (element) {
-    const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({ top: yOffset, behavior: 'smooth' });
-  }
-  
+    event.preventDefault();
+    this.scrollTopActive = true;
+    
+    const element = document.getElementById('hero');
+    if (element) {
+      const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: yOffset, behavior: 'smooth' });
+    }
 
-  setTimeout(() => {
-    this.scrollTopActive = false;
-  }, 300);
-}
+    setTimeout(() => {
+      this.scrollTopActive = false;
+    }, 300);
+  }
 }

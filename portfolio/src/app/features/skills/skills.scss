@@ -5,7 +5,6 @@
 // ==========================================
 .skills {
   width: 100%;
-  min-height: 100vh;
   background-color: $background-color;
   padding-top: clamp(80px, 10vh, 100px);
   display: flex;
@@ -236,6 +235,40 @@
         // Rechte Seite - volle Breite
         .skills-right {
           max-width: 100%;
+        .learning-content {
+            min-height: 400px;
+            
+            // Circle büyüsün
+            .circle-background {
+              width: clamp(380px, 50vw, 450px);
+              height: clamp(380px, 50vw, 450px);
+            }
+          }
+        }
+      }
+      
+      // Text içeriği ayarla
+      .text-content {
+        max-width: 320px;
+        padding: $spacing-sm;
+        
+        h3 {
+          font-size: $font-size-sm;
+        }
+        
+        .learning-icon {
+          gap: $spacing-lg;
+          
+          .learning-item img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        
+        .learning-text {
+          font-size: $font-size-sm;
+          margin-top: 30px;
+          max-width: 280px;
         }
       }
     }
@@ -448,6 +481,34 @@
                 font-size: 0.6rem;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// SEHR KLEIN MOBIL - max 400px
+// ==========================================
+@media (max-width: 400px) {
+  .skills {
+    .skills-container {
+      .mobile-learning-section {
+        .mobile-learning-content {
+          flex-direction: column;
+          align-items: center;
+          gap: $spacing-md;
+          
+          // Icon üstte
+          .mobile-learning-icon {
+            order: -1;
+          }
+          
+          // Text altta, tam genişlik
+          .mobile-learning-text {
+            text-align: center;
+            width: 100%;
           }
         }
       }

@@ -2,7 +2,6 @@
 
 .references-container {
   background: $background-color;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +19,7 @@
 }
 
 .references-subtitle {
-  display: none; // Desktop'ta gizli
+  display: none;
 }
 
 .references-grid {
@@ -184,9 +183,10 @@
           margin-right: 0;
         }
 
-        .circle-wrapper {
+        .circle-wrapper { 
           .circle-bg {
             cursor: default;
+            padding-left: 10px;
           }
         }
 

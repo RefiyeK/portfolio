@@ -5,15 +5,14 @@
 // ==========================================
 .contact-container {
   background: $background-color;
-  height: 100vh;
   padding: $spacing-md $spacing-xl;
-  padding-top: $spacing-md;
+  padding-top: clamp(80px, 10vh, 120px);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  scroll-margin-top: 100px;
+ 
 }
 
 // ------------------------------------------

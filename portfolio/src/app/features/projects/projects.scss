@@ -5,13 +5,13 @@
 // ==========================================
 .projects-container {
   background: $background-color;
-  min-height: 100vh;
   color: $secondary-color-white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: $spacing-lg;
+  padding-top: clamp(80px, 12vh, 120px);
 }
 
 // ------------------------------------------

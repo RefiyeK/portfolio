@@ -5,9 +5,9 @@
 // ==========================================
 .about {
   width: 100%;
-  min-height: 90vh;
   background-color: $background-color;
   padding-top: clamp(80px, 10vh, 100px);
+  padding-bottom: clamp(60px, 8vh, 80px);
   display: flex;
   align-items: center;
   
