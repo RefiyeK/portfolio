@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class TranslationService {
-  currentLang = signal<'de' | 'en'>('de');
+  currentLang = signal<'de' | 'en'>(this.getInitialLang());
 
   private translations: { [key: string]: { de: string; en: string } } = {
     // Header
@@ -159,8 +159,17 @@ export class TranslationService {
     'skills.cta': { de: 'Lass uns reden', en: "Let's talk" },
   };
 
+  private getInitialLang(): 'de' | 'en' {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'de' || saved === 'en') {
+      return saved;
+    }
+    return 'de';
+  }
+
   setLanguage(lang: 'de' | 'en') {
     this.currentLang.set(lang);
+    localStorage.setItem('lang', lang);
   }
 
   t(key: string): string {

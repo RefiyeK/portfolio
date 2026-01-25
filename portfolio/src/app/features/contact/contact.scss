@@ -512,9 +512,16 @@ textarea {
           margin-bottom: 0;
           padding-left: 0;
         }
-      }
 
-      // Input - Mobil
+      input:focus + label,
+      input:not(:placeholder-shown) + label,
+      textarea:focus + label,
+      textarea:not(:placeholder-shown) + label {
+      opacity: 0;  
+      }  
+    }
+    
+    // Input - Mobil
       input {
         font-size: $font-size-sm;
         padding: $spacing-md $spacing-sm;
