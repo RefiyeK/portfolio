@@ -41,6 +41,7 @@ export class TranslationService {
     'contact.message': { de: 'Ihre Nachricht', en: 'Your Message' },
     'contact.nameRequired': { de: 'Ihr Name ist erforderlich', en: 'Your name is required' },
     'contact.emailRequired': { de: 'Ihre E-Mail ist erforderlich', en: 'Your email is required' },
+    'contact.emailInvalid': { de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein', en: 'Please enter a valid email address' },
     'contact.messageRequired': { de: 'Ihre Nachricht ist erforderlich', en: 'Your message is required' },
     'contact.privacyStart': { de: 'Ich habe die', en: 'I have read the' },
     'contact.privacyLink': { de: 'Datenschutzerklärung', en: 'Privacy Policy' },

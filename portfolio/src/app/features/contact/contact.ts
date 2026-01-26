@@ -35,6 +35,7 @@ export class Contact {
   nameSuccess = false;
   emailError = false;
   emailSuccess = false;
+  emailErrorType: 'required' | 'invalid' | null = null;
   messageError = false;
   messageSuccess = false;
   privacyAccepted = false;
@@ -56,13 +57,24 @@ export class Contact {
   }
 
   validateEmail() {
+    const email = this.formData.email.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(this.formData.email)) {
-      this.emailError = false;
-      this.emailSuccess = true;
-    } else {
+    
+    if (email.length === 0) {
+      // Boş bırakılmış
       this.emailError = true;
       this.emailSuccess = false;
+      this.emailErrorType = 'required';
+    } else if (!emailRegex.test(email)) {
+      // Format yanlış
+      this.emailError = true;
+      this.emailSuccess = false;
+      this.emailErrorType = 'invalid';
+    } else {
+      // Geçerli
+      this.emailError = false;
+      this.emailSuccess = true;
+      this.emailErrorType = null;
     }
   }
 
@@ -143,6 +155,7 @@ export class Contact {
     this.nameSuccess = false;
     this.emailError = false;
     this.emailSuccess = false;
+    this.emailErrorType = null;
     this.messageError = false;
     this.messageSuccess = false;
     this.privacyAccepted = false;

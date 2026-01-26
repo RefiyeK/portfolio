@@ -64,4 +64,19 @@ export class Header {
     this.mobileMenuOpen = false;
     document.body.style.overflow = '';
   }
+
+  scrollToSection(sectionId: string, event: Event): void {
+    event.preventDefault();
+    this.closeMobileMenu();
+    
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      const headerHeight = 80;
+      
+      if (element) {
+        const topPosition = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+      }
+    }, 100);
+  }
 }

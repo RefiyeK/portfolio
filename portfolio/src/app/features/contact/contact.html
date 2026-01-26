@@ -60,7 +60,9 @@
             <img src="icon/check_box_accept.svg" alt="Gültig" class="validation-icon">
           }
         </div>
-        <span class="error-message" [class.visible]="emailError">{{ translationService.t('contact.emailRequired') }}</span>
+        <span class="error-message" [class.visible]="emailError">
+          {{ emailErrorType === 'required' ? translationService.t('contact.emailRequired') : translationService.t('contact.emailInvalid') }}
+        </span>
       </div>
     </div>
 
@@ -101,13 +103,12 @@
   </form>
 
   <!-- Mobile Scroll Top Button -->
-<div class="scroll-top-mobile">
-  <a href="#hero" (click)="scrollToHero($event)">
-    <img src="icon/propertydefault.svg" alt="Nach oben scrollen" class="icon-default">
-    <img src="icon/propertyhover.svg" alt="Nach oben scrollen" class="icon-hover">
-  </a>
-</div>
-
+  <div class="scroll-top-mobile">
+    <a href="#hero" (click)="scrollToHero($event)">
+      <img src="icon/propertydefault.svg" alt="Nach oben scrollen" class="icon-default">
+      <img src="icon/propertyhover.svg" alt="Nach oben scrollen" class="icon-hover">
+    </a>
+  </div>
 
   <!-- Success Message -->
   @if (messageSent) {

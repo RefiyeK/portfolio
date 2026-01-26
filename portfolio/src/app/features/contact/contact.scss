@@ -6,7 +6,6 @@
 .contact-container {
   background: $background-color;
   padding: $spacing-md $spacing-xl;
-  padding-top: clamp(80px, 12vh, 120px);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -280,10 +279,11 @@ textarea {
   align-items: center;
   gap: $spacing-xs;
   margin-top: $spacing-xs;
-  cursor: pointer;
+  cursor: default;
 
   &:hover .checkbox-container {
     transform: skewY(5deg);
+    cursor: pointer;
   }
 }
 
@@ -407,7 +407,6 @@ textarea {
     height: auto;
     min-height: 100vh;
     padding: $spacing-md;
-    padding-top: $spacing-xl;
   }
 
   // Header - Mobil

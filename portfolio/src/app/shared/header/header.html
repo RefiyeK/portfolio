@@ -13,10 +13,10 @@
     <!-- Desktop Navigation -->
     <nav class="nav desktop-nav">
       <ul class="nav-list">
-        <li><a href="#about">{{ translationService.t('header.about') }}</a></li>
-        <li><a href="#skills">{{ translationService.t('header.skills') }}</a></li>
-        <li><a href="#projects">{{ translationService.t('header.projects') }}</a></li>
-        <li><a href="#contact">{{ translationService.t('header.contact') }}</a></li>
+        <li><a (click)="scrollToSection('about', $event)">{{ translationService.t('header.about') }}</a></li>
+  <li><a (click)="scrollToSection('skills', $event)">{{ translationService.t('header.skills') }}</a></li>
+  <li><a (click)="scrollToSection('projects', $event)">{{ translationService.t('header.projects') }}</a></li>
+  <li><a (click)="scrollToSection('contact', $event)">{{ translationService.t('header.contact') }}</a></li>
       </ul>
     </nav>
 
@@ -46,15 +46,15 @@
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" [class.open]="mobileMenuOpen" (click)="closeMobileMenu()">
-    <div class="mobile-menu-circle" (click)="$event.stopPropagation()">
-      <nav class="mobile-nav">
-        <ul>
-          <li><a href="#about" (click)="closeMobileMenu()">{{ translationService.t('header.about') }}</a></li>
-          <li><a href="#skills" (click)="closeMobileMenu()">{{ translationService.t('header.skills') }}</a></li>
-          <li><a href="#projects" (click)="closeMobileMenu()">{{ translationService.t('header.projects') }}</a></li>
-          <li><a href="#contact" (click)="closeMobileMenu()">{{ translationService.t('header.contact') }}</a></li>
-        </ul>
+<div class="mobile-menu-overlay" [class.open]="mobileMenuOpen" (click)="closeMobileMenu()">
+  <div class="mobile-menu-circle" (click)="$event.stopPropagation()">
+    <nav class="mobile-nav">
+      <ul>
+        <li><a (click)="scrollToSection('about', $event)">{{ translationService.t('header.about') }}</a></li>
+        <li><a (click)="scrollToSection('skills', $event)">{{ translationService.t('header.skills') }}</a></li>
+        <li><a (click)="scrollToSection('projects', $event)">{{ translationService.t('header.projects') }}</a></li>
+        <li><a (click)="scrollToSection('contact', $event)">{{ translationService.t('header.contact') }}</a></li>
+      </ul>
         <div class="mobile-lang">
           <a href="#" 
              [class.active]="currentLang === 'de'" 
