@@ -6,7 +6,7 @@
 .about {
   width: 100%;
   background-color: $background-color;
-  padding-top: clamp(80px, 10vh, 100px);
+  padding-top: clamp(80px, 12vh, 100px);
   padding-bottom: clamp(60px, 8vh, 80px);
   display: flex;
   align-items: center;
@@ -15,7 +15,6 @@
   // Container
   // ------------------------------------------
   .about-container {
-    scroll-margin-top: 100px; 
     max-width: $container-max-width;
     margin: 0 auto;
     padding: $spacing-md $spacing-xl;

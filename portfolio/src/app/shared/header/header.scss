@@ -72,7 +72,7 @@
 
     .logo-text {
       font-family: $font-primary;
-      font-size: 0.75rem;
+      font-size: 1rem;
       color: $background-color;
       font-weight: 300;
       margin-top: -2px;
@@ -331,18 +331,18 @@
 
       .logo-mobile {
         display: block;
-        height: 40px;
+        height: 35px;
       }
 
       .logo-name {
-        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        font-size: 1rem;
         color: $secondary-color-white;
         line-height: 1;
         margin: 0;
       }
 
       .logo-text {
-        font-size: clamp(0.55rem, 1.8vw, 0.75rem);
+        font-size: 1rem;
         color: $primary-color;
         line-height: 1;
         margin: 0;
@@ -354,6 +354,7 @@
   .mobile-menu-overlay {
     top: 100%;
     justify-content: center;
+    padding-top: 0;
 
     &.open {
       opacity: 1;
@@ -380,6 +381,18 @@
   }
 }
 
+
+// ==========================================
+// SURFACE DUO - max 540px
+// ==========================================
+@media (max-width: 540px) and (min-width: 481px) {
+  .mobile-menu-circle {
+    width: clamp(290px, 55vw, 340px);
+    height: clamp(290px, 55vw, 340px);
+    margin-top: 55px;
+  }
+}
+
 // ==========================================
 // MOBIL - max 480px
 // ==========================================
@@ -400,7 +413,7 @@
     // Logo - Mobil
     .logo {
       .logo-mobile {
-        height: 45px;
+        height: 38px;
       }
     }
   }
@@ -411,6 +424,6 @@
     height: $mobile-circle-size-sm;
     max-width: $mobile-circle-max-sm;
     max-height: $mobile-circle-max-sm;
-    margin-top: $mobile-circle-margin-top-sm;
+    margin-top: 40px;
   }
 }
