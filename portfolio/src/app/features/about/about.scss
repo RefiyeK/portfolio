@@ -6,7 +6,7 @@
 .about {
   width: 100%;
   background-color: $background-color;
-  padding-top: clamp(80px, 12vh, 100px);
+  padding-top: $spacing-lg;
   padding-bottom: clamp(60px, 8vh, 80px);
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
     .about-content {
       display: flex;
       justify-content: center;
-      align-items: flex-start;  // ← GEÄNDERT: center → flex-start (nach oben)
+      align-items: flex-start;
       gap: clamp(60px, 10vw, 120px);
       max-width: 1200px;
       margin: 0 auto;
@@ -46,7 +46,7 @@
       .about-left {
         flex: 0 1 auto;
         max-width: 400px;
-        margin-top: 0;  // ← Falls nötig: negative Wert z.B. -20px
+        margin-top: 0;
         
         .location {
           display: flex;
@@ -60,7 +60,6 @@
             flex-shrink: 0;
           }
           
-          // Standort Text
           .location-text {
             font-family: $font-primary;
             font-size: $font-size-lg;
@@ -161,8 +160,6 @@
     
     .about-container {
       padding: $spacing-sm;
-      // padding: clamp(1.5rem, 3vw, 2rem);
-      // padding-top: clamp(3.5rem, 5vw, 4rem);
 
       // Titel - Mobil
       .section-title {

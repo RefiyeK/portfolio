@@ -6,7 +6,7 @@
 .skills {
   width: 100%;
   background-color: $background-color;
-  padding-top: clamp(80px, 12vh, 100px);
+  padding-top: $spacing-lg;
   display: flex;
   align-items: center;
  

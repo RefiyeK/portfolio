@@ -95,6 +95,7 @@
       font-size: clamp(1rem, 1.5vw, $font-size-lg);
       transition: color $transition-speed ease;
       position: relative;
+      cursor: pointer;
 
       &:hover {
         color: $secondary-color-white;

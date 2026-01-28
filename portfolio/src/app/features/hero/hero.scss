@@ -38,12 +38,13 @@
     // Desktop Wrapper - Shape und Circle zusammen
     .desktop-image-wrapper {
       position: relative;
-      width: clamp(250px, 45vw, 450px);
+      width: clamp(250px, 45vw, 80%);
       height: 100%;
 
       .background-shape {
         position: absolute;
-        top: 22%;
+        // top: 22%;
+        bottom: 0;
         left:10%;
         width: 100%;
         height: 80%;

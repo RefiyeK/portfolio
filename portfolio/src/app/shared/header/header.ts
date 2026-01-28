@@ -1,5 +1,6 @@
 import { Component, HostListener, ElementRef, Renderer2, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { TranslationService } from '../../services/translation.service';
 export class Header {
   private el = inject(ElementRef);
   private renderer = inject(Renderer2);
+  private router = inject(Router);
   translationService = inject(TranslationService);
   
   @Input() isStatic: boolean = false;
@@ -69,14 +71,28 @@ export class Header {
     event.preventDefault();
     this.closeMobileMenu();
     
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      const headerHeight = 80;
-      
-      if (element) {
-        const topPosition = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top: topPosition, behavior: 'smooth' });
-      }
-    }, 100);
+    // Eğer ana sayfada değilsek, önce ana sayfaya git
+    if (this.router.url !== '/' && !this.router.url.startsWith('/#')) {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          this.scrollToElement(sectionId);
+        }, 300);
+      });
+    } else {
+      // Ana sayfadaysak direkt scroll et
+      setTimeout(() => {
+        this.scrollToElement(sectionId);
+      }, 100);
+    }
+  }
+
+  private scrollToElement(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    const headerHeight = 80;
+    
+    if (element) {
+      const topPosition = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    }
   }
 }
