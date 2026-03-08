@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   padding: $spacing-xl;
+  scroll-margin-top: $header-height-desktop;
 }
 
 .references-title {
@@ -116,6 +117,7 @@
 /* Responsive - Mobile */
 @media (max-width: 768px) {
   .references-container {
+    scroll-margin-top: $header-height-mobile;
     padding: 0;
     margin: 0;
     min-height: auto;

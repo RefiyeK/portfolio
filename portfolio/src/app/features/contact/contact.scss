@@ -5,12 +5,13 @@
 // ==========================================
 .contact-container {
   background: $background-color;
-  padding: $spacing-md $spacing-xl;
+  padding: $spacing-lg $spacing-xl;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  scroll-margin-top: $header-height-desktop;
  
 }
 
@@ -404,6 +405,7 @@ textarea {
 // ==========================================
 @media (max-width: 768px) {
   .contact-container {
+    scroll-margin-top: $header-height-mobile;
     height: auto;
     min-height: 100vh;
     padding: $spacing-md;

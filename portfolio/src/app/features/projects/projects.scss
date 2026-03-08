@@ -6,12 +6,12 @@
 .projects-container {
   background: $background-color;
   color: $secondary-color-white;
- 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: $spacing-lg;
+  padding: calc(#{$spacing-lg} + #{$spacing-md});
+  scroll-margin-top: $header-height-desktop;
 }
 
 // ------------------------------------------
@@ -313,6 +313,7 @@
 // ==========================================
 @media (max-width: 768px) {
   .projects-container {
+    scroll-margin-top: calc(#{$header-height-mobile} + #{$spacing-md});
     padding: $spacing-md;
     min-height: auto;
 
