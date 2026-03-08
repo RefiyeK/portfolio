@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Header } from './shared/header/header';
 import { Hero } from './features/hero/hero';
@@ -16,11 +16,10 @@ import { FooterComponent } from './shared/footer/footer';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('portfolio');
+  private readonly router = inject(Router);
 
-  constructor(private router: Router) {}
-
-  isPrivacyPage(): boolean {
+  // getter statt Methode — Angular's Change Detection aktualisiert nach jeder Navigation automatisch
+  get isPrivacyPage(): boolean {
     return this.router.url === '/privacy-policy' || this.router.url === '/legal-notice';
   }
 }

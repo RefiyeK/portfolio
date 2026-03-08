@@ -1,180 +1,155 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, signal, computed, DestroyRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
 export class Contact {
-  translationService = inject(TranslationService);
-  private http = inject(HttpClient);
-  
-  // Hover states
-  emailHovered = false;
-  phoneHovered = false;
-  scrollHovered = false;
-  checkboxHovered = false;
-  scrollTopActive = false;
+  readonly translationService = inject(TranslationService);
+  private readonly http = inject(HttpClient);
+  private readonly destroyRef = inject(DestroyRef);
 
-  // Form data
-  formData = {
-    name: '',
-    email: '',
-    message: ''
-  };
+  // Hover states
+  readonly emailHovered   = signal(false);
+  readonly phoneHovered   = signal(false);
+  readonly scrollHovered  = signal(false);
+  readonly checkboxHovered = signal(false);
+
+  // Form data — plain object, kein Signal nötig (ngModel schreibt direkt)
+  formData = { name: '', email: '', message: '' };
 
   // Validation states
-  nameError = false;
-  nameSuccess = false;
-  emailError = false;
-  emailSuccess = false;
-  emailErrorType: 'required' | 'invalid' | null = null;
-  messageError = false;
-  messageSuccess = false;
-  privacyAccepted = false;
-  privacyError = false;
+  readonly nameError       = signal(false);
+  readonly nameSuccess     = signal(false);
+  readonly emailError      = signal(false);
+  readonly emailSuccess    = signal(false);
+  readonly emailErrorType  = signal<'required' | 'invalid' | null>(null);
+  readonly messageError    = signal(false);
+  readonly messageSuccess  = signal(false);
+  readonly privacyAccepted = signal(false);
+  readonly privacyError    = signal(false);
 
   // Form state
-  messageSent = false;
-  isSending = false;
-  sendError = false;
+  readonly messageSent = signal(false);
+  readonly isSending   = signal(false);
+  readonly sendError   = signal(false);
 
-  validateName() {
-    if (this.formData.name.trim().length > 0) {
-      this.nameError = false;
-      this.nameSuccess = true;
-    } else {
-      this.nameError = true;
-      this.nameSuccess = false;
-    }
+  // Abgeleitete Zustände — computed, nie manuell setzen
+  readonly isFormValid = computed(() =>
+    this.nameSuccess() && this.emailSuccess() &&
+    this.messageSuccess() && this.privacyAccepted()
+  );
+
+  readonly checkboxIcon = computed(() => {
+    if (this.privacyAccepted())   return 'icon/check_box_accept.svg';
+    if (this.checkboxHovered())   return 'icon/check_box_hover.svg';
+    return 'icon/check_box_.svg';
+  });
+
+  validateName(): void {
+    const isValid = this.formData.name.trim().length > 0;
+    this.nameError.set(!isValid);
+    this.nameSuccess.set(isValid);
   }
 
-  validateEmail() {
+  validateEmail(): void {
     const email = this.formData.email.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     if (email.length === 0) {
-      // Boş bırakılmış
-      this.emailError = true;
-      this.emailSuccess = false;
-      this.emailErrorType = 'required';
+      this.setEmailState(true, false, 'required');
     } else if (!emailRegex.test(email)) {
-      // Format yanlış
-      this.emailError = true;
-      this.emailSuccess = false;
-      this.emailErrorType = 'invalid';
+      this.setEmailState(true, false, 'invalid');
     } else {
-      // Geçerli
-      this.emailError = false;
-      this.emailSuccess = true;
-      this.emailErrorType = null;
+      this.setEmailState(false, true, null);
     }
   }
 
-  validateMessage() {
-    if (this.formData.message.trim().length > 0) {
-      this.messageError = false;
-      this.messageSuccess = true;
-    } else {
-      this.messageError = true;
-      this.messageSuccess = false;
-    }
+  private setEmailState(
+    error: boolean,
+    success: boolean,
+    type: 'required' | 'invalid' | null
+  ): void {
+    this.emailError.set(error);
+    this.emailSuccess.set(success);
+    this.emailErrorType.set(type);
   }
 
-  togglePrivacy() {
-    this.privacyAccepted = !this.privacyAccepted;
-    if (this.privacyAccepted) {
-      this.privacyError = false;
-    }
+  validateMessage(): void {
+    const isValid = this.formData.message.trim().length > 0;
+    this.messageError.set(!isValid);
+    this.messageSuccess.set(isValid);
   }
 
-  getCheckboxIcon(): string {
-    if (this.privacyAccepted) {
-      return 'icon/check_box_accept.svg';
-    }
-    if (this.checkboxHovered) {
-      return 'icon/check_box_hover.svg';
-    }
-    return 'icon/check_box_.svg';
+  togglePrivacy(): void {
+    const next = !this.privacyAccepted();
+    this.privacyAccepted.set(next);
+    if (next) this.privacyError.set(false);
   }
 
-  isFormValid(): boolean {
-    return this.nameSuccess && this.emailSuccess && this.messageSuccess && this.privacyAccepted;
-  }
-
-  onSubmit() {
+  onSubmit(): void {
     this.validateName();
     this.validateEmail();
     this.validateMessage();
-    
-    if (!this.privacyAccepted) {
-      this.privacyError = true;
-    }
-
-    if (this.isFormValid()) {
-      this.sendEmail();
-    }
+    if (!this.privacyAccepted()) this.privacyError.set(true);
+    if (this.isFormValid()) this.sendEmail();
   }
 
-  private sendEmail() {
-    this.isSending = true;
-    this.sendError = false;
+  private sendEmail(): void {
+    this.isSending.set(true);
+    this.sendError.set(false);
 
-    this.http.post<{success: boolean; message: string}>('/send-mail.php', this.formData)
+    this.http
+      .post<{ success: boolean; message: string }>('/send-mail.php', this.formData)
       .subscribe({
-        next: (response) => {
-          this.isSending = false;
-          if (response.success) {
-            this.messageSent = true;
-            setTimeout(() => {
-              this.messageSent = false;
-              this.resetForm();
-            }, 3000);
-          } else {
-            this.sendError = true;
-          }
-        },
-        error: (error) => {
-          console.error('Mail sending failed:', error);
-          this.isSending = false;
-          this.sendError = true;
-        }
+        next:  (res)   => this.handleSendSuccess(res),
+        error: (err)   => this.handleSendError(err),
       });
   }
 
-  resetForm() {
-    this.formData = { name: '', email: '', message: '' };
-    this.nameError = false;
-    this.nameSuccess = false;
-    this.emailError = false;
-    this.emailSuccess = false;
-    this.emailErrorType = null;
-    this.messageError = false;
-    this.messageSuccess = false;
-    this.privacyAccepted = false;
-    this.privacyError = false;
-    this.sendError = false;
+  private handleSendSuccess(res: { success: boolean; message: string }): void {
+    this.isSending.set(false);
+    if (res.success) {
+      this.messageSent.set(true);
+      this.scheduleFormReset();
+    } else {
+      this.sendError.set(true);
+    }
   }
 
-  scrollToHero(event: Event) {
-    event.preventDefault();
-    this.scrollTopActive = true;
-    
-    const element = document.getElementById('hero');
-    if (element) {
-      const yOffset = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({ top: yOffset, behavior: 'smooth' });
-    }
+  private handleSendError(error: unknown): void {
+    console.error('Mail sending failed:', error);
+    this.isSending.set(false);
+    this.sendError.set(true);
+  }
 
-    setTimeout(() => {
-      this.scrollTopActive = false;
-    }, 300);
+  // DestroyRef verhindert State-Update auf bereits zerstörter Komponente
+  private scheduleFormReset(): void {
+    const timer = setTimeout(() => {
+      this.messageSent.set(false);
+      this.resetForm();
+    }, 3000);
+    this.destroyRef.onDestroy(() => clearTimeout(timer));
+  }
+
+  private resetForm(): void {
+    this.formData = { name: '', email: '', message: '' };
+    this.nameError.set(false);      this.nameSuccess.set(false);
+    this.emailError.set(false);     this.emailSuccess.set(false);
+    this.emailErrorType.set(null);
+    this.messageError.set(false);   this.messageSuccess.set(false);
+    this.privacyAccepted.set(false);
+    this.privacyError.set(false);   this.sendError.set(false);
+  }
+
+  scrollToHero(event: Event): void {
+    event.preventDefault();
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

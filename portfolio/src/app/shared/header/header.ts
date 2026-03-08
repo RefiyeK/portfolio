@@ -1,98 +1,80 @@
-import { Component, HostListener, ElementRef, Renderer2, Input, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, ElementRef, Renderer2, AfterViewInit, input, computed, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
-  private el = inject(ElementRef);
-  private renderer = inject(Renderer2);
-  private router = inject(Router);
-  translationService = inject(TranslationService);
-  
-  @Input() isStatic: boolean = false;
+export class Header implements AfterViewInit {
+  private readonly el = inject(ElementRef);
+  private readonly renderer = inject(Renderer2);
+  private readonly router = inject(Router);
+  readonly translationService = inject(TranslationService);
+
+  readonly isStatic = input<boolean>(false);
+
+  // Single source of truth — direkt vom Service abgeleitet, kein lokaler Desync möglich
+  readonly currentLang = computed(() => this.translationService.currentLang());
+
   isScrolled = false;
-  currentLang: 'de' | 'en' = 'de';
-  langHovered = false;
   hoveredLang: 'de' | 'en' | null = null;
   mobileLangHoveredOn: 'de' | 'en' | null = null;
   mobileMenuOpen = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (window.innerWidth <= 768) return;
-    if (this.isStatic) return;
+  // Einmalig gecacht — verhindert DOM-Query bei jedem Scroll-Event
+  private headerEl: HTMLElement | null = null;
 
-    const heroHeight = window.innerHeight;
-    const headerHeight = 140;
-    const scrollPosition = window.scrollY;
-    
-    const header = this.el.nativeElement.querySelector('.header');
-    if (!header) return;
-
-    if (scrollPosition >= (heroHeight - headerHeight)) {
-      this.isScrolled = true;
-      this.renderer.setStyle(header, 'position', 'fixed');
-      this.renderer.setStyle(header, 'top', '0');
-      this.renderer.setStyle(header, 'bottom', 'auto');
-    } else {
-      this.isScrolled = false;
-      this.renderer.setStyle(header, 'position', 'absolute');
-      this.renderer.setStyle(header, 'bottom', '0');
-      this.renderer.setStyle(header, 'top', 'auto');
-    }
+  ngAfterViewInit(): void {
+    this.headerEl = this.el.nativeElement.querySelector('.header');
   }
 
-  switchLanguage(lang: 'de' | 'en') {
-    this.currentLang = lang;
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    if (window.innerWidth <= 768 || this.isStatic() || !this.headerEl) return;
+
+    const shouldBeFixed = window.scrollY >= window.innerHeight - 140;
+    if (shouldBeFixed === this.isScrolled) return;
+    this.isScrolled = shouldBeFixed;
+  }
+
+  switchLanguage(lang: 'de' | 'en'): void {
     this.translationService.setLanguage(lang);
   }
 
-  toggleMobileMenu() {
+  toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
-    if (this.mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    this.renderer.setStyle(document.body, 'overflow', this.mobileMenuOpen ? 'hidden' : '');
   }
 
-  closeMobileMenu() {
+  closeMobileMenu(): void {
     this.mobileMenuOpen = false;
-    document.body.style.overflow = '';
+    this.renderer.setStyle(document.body, 'overflow', '');
   }
 
   scrollToSection(sectionId: string, event: Event): void {
     event.preventDefault();
     this.closeMobileMenu();
-    
-    // Eğer ana sayfada değilsek, önce ana sayfaya git
-    if (this.router.url !== '/' && !this.router.url.startsWith('/#')) {
+
+    const isOnHomePage = this.router.url === '/' || this.router.url.startsWith('/#');
+
+    if (!isOnHomePage) {
+      // 300ms: Wartezeit bis Angular Router + DOM die neue Route vollständig gerendert hat
       this.router.navigate(['/'], { fragment: sectionId }).then(() => {
-        setTimeout(() => {
-          this.scrollToElement(sectionId);
-        }, 300);
+        setTimeout(() => this.scrollToElement(sectionId), 300);
       });
     } else {
-      // Ana sayfadaysak direkt scroll et
-      setTimeout(() => {
-        this.scrollToElement(sectionId);
-      }, 100);
+      setTimeout(() => this.scrollToElement(sectionId), 100);
     }
   }
 
   private scrollToElement(sectionId: string): void {
     const element = document.getElementById(sectionId);
-    const headerHeight = 80;
-    
-    if (element) {
-      const topPosition = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top: topPosition, behavior: 'smooth' });
-    }
+    if (!element) return;
+
+    const topPosition = element.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: topPosition, behavior: 'smooth' });
   }
 }

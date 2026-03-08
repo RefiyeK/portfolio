@@ -21,6 +21,13 @@
     top: auto !important;
   }
 
+  &.scrolled {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+  }
+
+  
   // ------------------------------------------
   // Container
   // ------------------------------------------

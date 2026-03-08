@@ -161,17 +161,22 @@ export class TranslationService {
   };
 
   private getInitialLang(): 'de' | 'en' {
+    try {
     const saved = localStorage.getItem('lang');
-    if (saved === 'de' || saved === 'en') {
-      return saved;
+    if (saved === 'de' || saved === 'en') return saved;
+    } catch {
     }
     return 'de';
   }
 
-  setLanguage(lang: 'de' | 'en') {
+  setLanguage(lang: 'de' | 'en'): void{
     this.currentLang.set(lang);
+    try {
     localStorage.setItem('lang', lang);
+  } catch {
+
   }
+}
 
   t(key: string): string {
     const translation = this.translations[key];
