@@ -261,10 +261,6 @@
     gap: $spacing-md;
   }
 
-  .main-title {
-    font-size: $font-size-xl;
-  }
-
   .tab-button {
     font-size: $font-size-md;
     padding: $spacing-xs $spacing-sm;
@@ -308,6 +304,14 @@
   }
 }
 
+  @media (max-width: 1200px) {
+  .projects-container {
+    padding: $spacing-md;
+    padding-top: 63px;
+  }
+}
+
+
 // ==========================================
 // MOBIL - max 768px
 // ==========================================
@@ -316,6 +320,7 @@
     scroll-margin-top: calc(#{$header-height-mobile} + #{$spacing-md});
     padding: $spacing-md;
     min-height: auto;
+    padding-top: calc(#{$spacing-md} + #{$spacing-sm});
 
     // Header - Mobil
     .projects-header {

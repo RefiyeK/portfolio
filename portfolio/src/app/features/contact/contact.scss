@@ -53,7 +53,7 @@
 
 .contact-title {
   font-family: $font-heading;
-  font-size: $font-size-xl;
+  font-size: $font-size-xxl;
   font-weight: 300;
   color: $primary-color;
   text-align: center;
@@ -409,12 +409,14 @@ textarea {
     height: auto;
     min-height: 100vh;
     padding: $spacing-md;
+    padding-top: calc(#{$spacing-md} + #{$spacing-sm});
   }
 
   // Header - Mobil
   .contact-header {
     flex-direction: column;
     margin-bottom: $spacing-md;
+    margin-top: 0;
 
     .contact-title {
       font-size: $font-size-xl;

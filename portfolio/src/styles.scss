@@ -41,8 +41,8 @@ $font-primary: 'Josefin Sans', sans-serif;
 $font-heading: 'Anta', sans-serif;
 
 // Schriftgrößen
-$font-size-xxl: clamp(3rem, 5vw, 5rem);          // 48px - 80px arası
-$font-size-xl: clamp(2.5rem, 4vw, 3.5rem);       // 40px - 56px arası
+$font-size-xxl:3.75rem;
+$font-size-xl: 2rem;
 $font-size-project-title: clamp(1.8rem, 2.5vw, 2.063rem);  //(29px - 33px)
 $font-size-project-heading: clamp(1.5rem, 2vw, 1.75rem);   //(24px - 28px)
 $font-size-lg: clamp(1.4rem, 2vw, 1.8rem);       // 22px - 29px arası
@@ -62,17 +62,17 @@ $container-max-width: min(1440px, 90vw);
 
 // Header Heights
 $header-height-desktop: 100px;
-$header-height-mobile: 80px;
+$header-height-mobile: 100px;
 $hero-mobile-offset: 270px;
 
 
-$mobile-circle-size: calc(100vw - 40px);
+$mobile-circle-size: calc(65vw - 40px);
 $mobile-circle-max: 500px;
 $mobile-circle-margin-top: 10px;
 
 
-$mobile-circle-size-sm: calc(100vw - 40px);
-$mobile-circle-max-sm: 350px;
+$mobile-circle-size-sm: calc(97vw - 42px);
+$mobile-circle-max-sm: 400px;
 $mobile-circle-margin-top-sm: 10px;
 
 

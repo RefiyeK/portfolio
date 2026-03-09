@@ -362,20 +362,22 @@
   .mobile-menu-overlay {
     top: 100%;
     justify-content: center;
-    padding-top: 0;
+    align-items: flex-start;
+    padding-top: calc(#{$spacing-md} + #{$mobile-circle-margin-top});
 
     &.open {
       opacity: 1;
       visibility: visible;
+    
     }
   }
 
   // Mobile Menu Circle - Tablet
   .mobile-menu-circle {
-    width: $mobile-circle-size;
-    height: $mobile-circle-size;
-    max-width: $mobile-circle-max;
-    max-height: $mobile-circle-max;
+    width: clamp(310px, calc(231px + 24.5vw), 420px);
+    height: clamp(310px, calc(231px + 24.5vw), 420px);
+    max-height: 43vh;
+    max-width: 43vh;
     margin: 0 auto;
     background: url('/icon/ellipse-img.svg') no-repeat center center;
     background-size: contain;
@@ -389,24 +391,11 @@
   }
 }
 
-
-// ==========================================
-// SURFACE DUO - max 540px
-// ==========================================
-@media (max-width: 540px) and (min-width: 481px) {
-  .mobile-menu-circle {
-    width: clamp(290px, 55vw, 340px);
-    height: clamp(290px, 55vw, 340px);
-    margin-top: 55px;
-  }
-}
-
 // ==========================================
 // MOBIL - max 480px
 // ==========================================
 @media (max-width: 480px) {
   .header {
-    // Hamburger Button - Mobil
     .hamburger-btn {
       width: 30px;
       height: 35px;
@@ -425,13 +414,5 @@
       }
     }
   }
-
-  // Mobile Menu Circle - Mobil
-  .mobile-menu-circle {
-    width: $mobile-circle-size-sm;
-    height: $mobile-circle-size-sm;
-    max-width: $mobile-circle-max-sm;
-    max-height: $mobile-circle-max-sm;
-    margin-top: 40px;
-  }
 }
+
