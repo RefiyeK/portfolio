@@ -14,6 +14,32 @@ export class MyProjectsComponent {
   activeTab = 0;
   
   projects = [
+        {
+      name: 'Join',
+      technologiesText: 'Angular, TypeScript, Firebase, SCSS',
+      duration: { de: '8 Wochen', en: '8 Weeks' },
+      about: { 
+        de: 'Ein Kanban-basiertes Projektmanagement-Tool für Teams. Aufgaben können erstellt, priorisiert und per Drag & Drop zwischen verschiedenen Status-Spalten verschoben werden.',
+        en: 'A Kanban-based project management tool for teams. Tasks can be created, prioritized, and moved between different status columns via drag & drop.'
+      },
+      workProcess: { 
+        de: 'Das Projekt wurde komponentenbasiert mit Angular entwickelt. Firebase dient als Backend für Authentifizierung und Echtzeit-Datenbank. Der Code folgt einer klaren Service-Architektur.',
+        en: 'The project was developed component-based with Angular. Firebase serves as the backend for authentication and real-time database. The code follows a clear service architecture.'
+      },
+      groupExperience: { 
+        de: 'In einem 4-köpfigen Team habe ich eng mit meinen Kollegen zusammengearbeitet. Wir haben Git für die Versionskontrolle genutzt und Aufgaben klar aufgeteilt.',
+        en: 'In a team of 4, I worked closely with my colleagues. We used Git for version control and clearly divided tasks.'
+      },
+      technologies: [
+        { name: 'Angular', icon: 'icon/angular-.svg' },
+        { name: 'TypeScript', icon: 'icon/typescript-.svg' },
+        { name: 'Firebase', icon: 'icon/firebase-.svg' },
+        { name: 'CSS', icon: 'icon/css-.svg' }
+      ],
+      previewImage: 'img/join.png',
+      liveUrl: 'https://join-refiye-41dba.web.app',
+      githubUrl: 'https://github.com/RefiyeK/Join'
+    },
     {
       name: 'El Pollo Loco',
       technologiesText: 'JavaScript, HTML, CSS',

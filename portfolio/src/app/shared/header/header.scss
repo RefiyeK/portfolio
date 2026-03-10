@@ -416,3 +416,33 @@
   }
 }
 
+@media (max-width: 768px) and (max-height: 400px) {
+
+  .mobile-menu-overlay {
+    padding-top: 0;
+  }
+
+  .mobile-menu-circle {
+    max-height: none;
+    max-width: none;
+    width: 65vh;
+    height: 65vh;
+  }
+
+  .mobile-nav ul {
+    margin: 0 0 $spacing-xs 0;
+
+    li {
+      margin-bottom: $spacing-md;
+
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .mobile-lang a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+}
