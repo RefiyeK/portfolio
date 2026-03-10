@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 
+/**
+ * Displays the projects section with tabbed navigation and project details.
+ */
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -13,6 +16,7 @@ export class MyProjectsComponent {
   translationService = inject(TranslationService);
   activeTab = 0;
   
+  /** List of all projects with translations and metadata */
   projects = [
         {
       name: 'Join',
@@ -92,14 +96,17 @@ export class MyProjectsComponent {
     }
   ];
   
+  /** Switches the active tab to the selected project */
   selectTab(index: number) {
     this.activeTab = index;
   }
   
+  /** Returns the currently selected project */
   get currentProject() {
     return this.projects[this.activeTab];
   }
 
+  /** Returns the current language code */
   get currentLang(): 'de' | 'en' {
     return this.translationService.currentLang();
   }

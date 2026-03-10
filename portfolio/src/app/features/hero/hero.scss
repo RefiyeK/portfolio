@@ -1,8 +1,7 @@
-
 @use '../../../styles.scss' as *;
 
 // ==========================================
-// HERO SEKTION - DESKTOP
+// HERO SECTION - DESKTOP
 // ==========================================
 .hero {        
   display: flex;
@@ -22,7 +21,7 @@
   }
 
   // ------------------------------------------
-  // LINKE SEITE - Profilbild und Shape
+  // LEFT SIDE - Profile Image and Shape
   // ------------------------------------------
   .hero-image {
     position: relative;
@@ -89,7 +88,7 @@
   }
 
   // ------------------------------------------
-  // RECHTE SEITE - Name und Informationen
+  // RIGHT SIDE - Name and Info
   // ------------------------------------------
   .hero-content {
     color: $secondary-color-white;
@@ -163,7 +162,7 @@
 }
 
 // ==========================================
-// VERTIKALE SOCIAL MEDIA LINKS
+// VERTICAL SOCIAL MEDIA LINKS
 // ==========================================
 .vertical-socials {
   position: absolute;
@@ -201,15 +200,6 @@
   }
 }
 
-@media (min-width: 1200px) and (max-height: 800px) {
-  .hero {
-    .hero-container {
-      justify-content: center;
-      align-items: center;
-    }
-  }
-}
-
 // ==========================================
 // SMALL DESKTOP / LARGE TABLET - 769px - 1100px
 // ==========================================
@@ -218,36 +208,33 @@
     .hero-container {
       gap: 3%;
     }
-
-    .hero-content {}
       
-      .hero-logo img {
-        height: clamp(60px, 6vw, 80px);
-        margin-bottom: clamp(15px, 3vw, 30px);
+    .hero-logo img {
+      height: clamp(60px, 6vw, 80px);
+      margin-bottom: clamp(15px, 3vw, 30px);
+    }
+
+    .hero-text {
+      .hero-name {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       }
 
-      .hero-text {
-        .hero-name {
-          font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-        }
-
-        .hero-title {
-          font-size: clamp(1rem, 1.5vw, 1.3rem);
-        }
-      }
-
-      .scroll-down {
-        margin-bottom: clamp(10px, 5vh, 30px);
-        width: 40px;
-        height: 10%;
+      .hero-title {
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
       }
     }
-  }
 
+    .scroll-down {
+      margin-bottom: clamp(10px, 5vh, 30px);
+      width: 40px;
+      height: 10%;
+    }
+  }
+}
 
 // ==========================================
 // MOBILE - max 768px
-// Tek breakpoint, tek clamp — cihaz breakpoint'i YOK
+// Single breakpoint, single clamp — no device-specific overrides
 // ==========================================
 @media (max-width: 768px) {
   .hero {
@@ -342,7 +329,7 @@
 }
 
 // ==========================================
-// LANDSCAPE - kisa ekran, genis görüntü
+// LANDSCAPE - short screen, wide viewport
 // ==========================================
 @media (max-height: 700px) and (min-width: 769px) {
   .hero {
@@ -405,6 +392,9 @@
   }
 }
 
+// ==========================================
+// MOBILE LANDSCAPE - short and narrow
+// ==========================================
 @media (max-width: 768px) and (max-height: 400px) {
   .hero {
     padding-bottom: 12rem;

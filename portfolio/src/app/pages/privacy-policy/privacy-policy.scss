@@ -1,7 +1,7 @@
 @use '../../../styles.scss' as *;
 
 .privacy-container {
-  background: $background-color;  // Koyu arka plan
+  background: $background-color;
   padding: $spacing-xl;
   padding-top: 120px;
   display: flex;
@@ -13,7 +13,7 @@
   font-family: $font-heading;
   font-size: $font-size-xxl;
   font-weight: 300;
-  color: $primary-color;  // Mavi başlık
+  color: $primary-color;
   margin-bottom: $spacing-xl;
 }
 
@@ -29,7 +29,7 @@
     font-family: $font-primary;
     font-size: $font-size-lg;
     font-weight: 500;
-    color: $primary-color;  // Mavi alt başlıklar
+    color: $primary-color;
     margin-bottom: $spacing-sm;
   }
   
@@ -37,7 +37,7 @@
     font-family: $font-primary;
     font-size: $font-size-md;
     font-weight: 300;
-    color: $secondary-color-white;  // Beyaz metin
+    color: $secondary-color-white;
     line-height: 1.6;
     margin-bottom: $spacing-sm;
   }
@@ -50,7 +50,7 @@
       font-family: $font-primary;
       font-size: $font-size-md;
       font-weight: 300;
-      color: $secondary-color-white;  // Beyaz liste
+      color: $secondary-color-white;
       line-height: 1.8;
     }
   }
@@ -58,7 +58,7 @@
 
 .contact-info {
   a {
-    color: $primary-color;  // Mavi link
+    color: $primary-color;
     text-decoration: underline;
     
     &:hover {
@@ -80,9 +80,9 @@
   font-size: $font-size-md;
   padding: $spacing-sm $spacing-lg;
   border-radius: 25px;
-  border: 2px solid $primary-color;  // Mavi border
+  border: 2px solid $primary-color;
   background: transparent;
-  color: $primary-color;  // Mavi yazı
+  color: $primary-color;
   text-decoration: none;
   transition: all $transition-speed ease;
   

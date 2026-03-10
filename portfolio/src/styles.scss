@@ -28,7 +28,6 @@
 }
 
 
-/* SCSS Variables - Farben und Schriften */       
 $background-color: #262E34;
 $primary-color: #89BCD9;        
 $secondary-color-white: #F8F5EC;           
@@ -36,31 +35,26 @@ $inactive-grey: #262E341F; //12%
 $error-color: #E44C36;
 $done-color: #97E163;     
 
-// Schriften
 $font-primary: 'Josefin Sans', sans-serif;
 $font-heading: 'Anta', sans-serif;
 
-// Schriftgrößen
 $font-size-xxl:3.75rem;
 $font-size-xl: 2rem;
 $font-size-project-title: clamp(1.8rem, 2.5vw, 2.063rem);  //(29px - 33px)
 $font-size-project-heading: clamp(1.5rem, 2vw, 1.75rem);   //(24px - 28px)
-$font-size-lg: clamp(1.4rem, 2vw, 1.8rem);       // 22px - 29px arası
-$font-size-md: clamp(1rem, 1.5vw, 1.2rem);       // 16px - 19px arası
-$font-size-base: 1rem;                            // 16px (sabit)
-$font-size-sm: clamp(1rem, 1.1vw, 1.1rem);      // 16px - 17.6px arası
+$font-size-lg: clamp(1.4rem, 2vw, 1.8rem);       // 22px - 29px
+$font-size-md: clamp(1rem, 1.5vw, 1.2rem);       // 16px - 19px
+$font-size-base: 1rem;                            // 16px
+$font-size-sm: clamp(1rem, 1.1vw, 1.1rem);      // 16px - 17.6px
 
-// Abstände
 $spacing-xs: clamp(0.4rem, 0.5vw, 0.5rem);
 $spacing-sm: clamp(0.8rem, 1vw, 1rem);
 $spacing-md: clamp(1.5rem, 2vw, 2rem);
 $spacing-lg: clamp(2.5rem, 3vw, 3rem);
 $spacing-xl: clamp(3.5rem, 4vw, 4rem);
 
-// Container
 $container-max-width: min(1440px, 90vw);
 
-// Header Heights
 $header-height-desktop: 100px;
 $header-height-mobile: 100px;
 $hero-mobile-offset: 270px;
@@ -76,10 +70,8 @@ $mobile-circle-max-sm: 400px;
 $mobile-circle-margin-top-sm: 10px;
 
 
-// Transitions
 $transition-speed: 0.3s;
 
-/* Global Styles - Alle Elemente */
 * {
   margin: 0;
   padding: 0;

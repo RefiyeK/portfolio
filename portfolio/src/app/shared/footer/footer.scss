@@ -28,7 +28,6 @@
         transition: all 100ms ease;
         cursor: pointer;
         
-        // Desktop hover - beyaz renk
         &:hover {
           color: $secondary-color-white;
         }
@@ -117,7 +116,6 @@
             opacity: 0;
           }
 
-          // Desktop'ta mobile ikonları gizle
           .icon-mobile {
             opacity: 0;
           }
@@ -223,7 +221,6 @@
         .legal-link {
           font-size: $font-size-sm;
 
-          // Mobilde hover yok
           &:hover {
             color: $background-color;
           }

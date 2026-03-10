@@ -1,7 +1,7 @@
 @use '../../../styles.scss' as *;
 
 // ==========================================
-// CONTACT SEKTION - DESKTOP
+// CONTACT SECTION - DESKTOP
 // ==========================================
 .contact-container {
   background: $background-color;
@@ -12,11 +12,10 @@
   align-items: center;
   justify-content: flex-start;
   scroll-margin-top: $header-height-desktop;
- 
 }
 
 // ------------------------------------------
-// Scroll Top Button (oben rechts)
+// Scroll Top Button (top right)
 // ------------------------------------------
 .scroll-top-btn {
   position: absolute;
@@ -38,7 +37,7 @@
 }
 
 // ------------------------------------------
-// Header (Titel)
+// Header (Title)
 // ------------------------------------------
 .contact-header {
   display: flex;
@@ -61,7 +60,7 @@
 }
 
 // ------------------------------------------
-// Inhalt (Beschreibung + Info)
+// Content (Description + Info)
 // ------------------------------------------
 .contact-content {
   display: grid;
@@ -72,9 +71,7 @@
   margin-bottom: $spacing-sm;
 }
 
-// Beschreibungstext
 .contact-description { 
-
   p {
     font-family: $font-primary;
     font-size: $font-size-md;
@@ -85,7 +82,6 @@
   }
 }
 
-// Kontakt Links (Email, Telefon)
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -112,20 +108,18 @@
   }
 }
 
-// CTA Titel (Desktop versteckt)
 .contact-cta-title {
   display: none;
 }
 
 // ==========================================
-// FORMULAR
+// FORM
 // ==========================================
 .contact-form {
   width: 100%;
   max-width: 900px;
 }
 
-// Formular Zeile (2 Spalten)
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -133,7 +127,6 @@
   margin-bottom: $spacing-xs;
 }
 
-// Formular Gruppe (einzelnes Feld)
 .form-group {
   display: flex;
   flex-direction: column;
@@ -174,7 +167,7 @@ label {
 }
 
 // ------------------------------------------
-// Input & Textarea Felder
+// Input & Textarea Fields
 // ------------------------------------------
 input,
 textarea {
@@ -190,24 +183,20 @@ textarea {
   font-weight: 300;
   transition: border-color $transition-speed ease;
   
-  // Fokus mit Placeholder
   &:focus:placeholder-shown {
     outline: none;
     background: #36444d;
   }
 
-  // Fokus
   &:focus {
     outline: none;
     border-color: $primary-color;
   }
 
-  // Mit Inhalt
   &:not(:placeholder-shown) {
     background: transparent;
   }
   
-  // Fehler Status
   &.error {
     border-color: $error-color;
   }
@@ -216,7 +205,6 @@ textarea {
     color: transparent;
   }
   
-  // Webkit Autofill Fix
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
@@ -226,7 +214,6 @@ textarea {
   }
 }
 
-// Textarea spezifisch
 textarea {
   border-radius: 12px;
   resize: none;
@@ -234,7 +221,7 @@ textarea {
 }
 
 // ------------------------------------------
-// Validierungs Icon
+// Validation Icon
 // ------------------------------------------
 .validation-icon {
   position: absolute;
@@ -251,7 +238,7 @@ textarea {
 }
 
 // ------------------------------------------
-// Fehlermeldung
+// Error Message
 // ------------------------------------------
 .error-message {
   font-family: $font-primary;
@@ -273,7 +260,7 @@ textarea {
 }
 
 // ------------------------------------------
-// Datenschutz Checkbox
+// Privacy Checkbox
 // ------------------------------------------
 .privacy-wrapper {
   display: flex;
@@ -288,7 +275,6 @@ textarea {
   }
 }
 
-// Checkbox Container
 .checkbox-container {
   width: 24px;
   height: 24px;
@@ -300,7 +286,6 @@ textarea {
   background: transparent;
 }
 
-// Checkbox Icon
 .checkbox-icon {
   width: 24px;
   height: 24px;
@@ -309,14 +294,12 @@ textarea {
   object-fit: contain;
 }
 
-// Datenschutz Text
 .privacy-text {
   font-family: $font-primary;
   font-size: $font-size-sm;
   color: $secondary-color-white;
 }
 
-// Datenschutz Link
 .privacy-link {
   color: $primary-color;
   text-decoration: underline;
@@ -347,27 +330,23 @@ textarea {
   cursor: pointer;
   transition: all $transition-speed ease;
   
-  // Aktiv Status
   &.active {
     border-color: $primary-color;
     color: $primary-color;
     cursor: pointer;
     
     &:hover {
-      background: rgba($secondary-color-white, 0.15);  // ← Gri hover
+      background: rgba($secondary-color-white, 0.15);
     }
   }
 }
 
-// Scroll Top Button - Mobil (Desktop versteckt)
 .scroll-top-mobile {
   display: none;
 }
 
-
-
 // ------------------------------------------
-// Erfolgs-Nachricht (Success Message)
+// Success Message
 // ------------------------------------------
 .success-message {
   position: fixed;
@@ -399,9 +378,8 @@ textarea {
   }
 }
 
-
 // ==========================================
-// MOBIL - max 768px
+// MOBILE - max 768px
 // ==========================================
 @media (max-width: 768px) {
   .contact-container {
@@ -412,7 +390,6 @@ textarea {
     padding-top: calc(#{$spacing-md} + #{$spacing-sm});
   }
 
-  // Header - Mobil
   .contact-header {
     flex-direction: column;
     margin-bottom: $spacing-md;
@@ -427,7 +404,6 @@ textarea {
     }
   }
 
-  // Inhalt - Mobil
   .contact-content {
     grid-template-columns: 1fr;
     gap: $spacing-md;
@@ -435,7 +411,6 @@ textarea {
     width: 90%;
     max-width: 550px; 
 
-    // Kontakt Info - Mobil
     .contact-info {
       order: 1;
       gap: $spacing-sm;
@@ -454,14 +429,12 @@ textarea {
           color: $secondary-color-white;
         }
 
-        // Telefon oben (Mobil)
         &:last-child {
           order: -1;
         }
       }
     }
 
-    // Beschreibung - Mobil
     .contact-description {
       order: 2;
 
@@ -472,7 +445,6 @@ textarea {
     }
   }
 
-  // CTA Titel - Mobil (sichtbar)
   .contact-cta-title {
     display: block;
     font-family: $font-primary;
@@ -484,7 +456,7 @@ textarea {
   }
 
   // ------------------------------------------
-  // Formular - Mobil
+  // Form - Mobile
   // ------------------------------------------
   .contact-form {
     width: 90%; 
@@ -496,14 +468,12 @@ textarea {
       gap: $spacing-md;
     }
 
-    // Formular Gruppe - Mobil
     .form-group {
       position: relative;
 
       .input-wrapper {
         position: relative;
 
-        // Label innerhalb Input
         label {
           position: absolute;
           top: 50%;
@@ -518,15 +488,14 @@ textarea {
           padding-left: 0;
         }
 
-      input:focus + label,
-      input:not(:placeholder-shown) + label,
-      textarea:focus + label,
-      textarea:not(:placeholder-shown) + label {
-      opacity: 0;  
-      }  
-    }
+        input:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
+          opacity: 0;  
+        }  
+      }
     
-    // Input - Mobil
       input {
         font-size: $font-size-sm;
         padding: $spacing-md $spacing-sm;
@@ -539,7 +508,6 @@ textarea {
         }
       }
 
-      // Textarea - Mobil
       textarea {
         font-size: $font-size-sm;
         padding: $spacing-md;
@@ -547,7 +515,6 @@ textarea {
         border-radius: 30px;
       }
 
-      // Textarea Label Position
       &.full-width .input-wrapper label {
         top: $spacing-md;
         left: $spacing-md;
@@ -555,7 +522,6 @@ textarea {
       }
     }
 
-    // Datenschutz - Mobil
     .privacy-wrapper {
       pointer-events: none;
       align-items: flex-start;
@@ -592,7 +558,6 @@ textarea {
       }
     }
 
-    // Submit Button - Mobil
     .button-wrapper {
       justify-content: flex-end;
 
@@ -618,7 +583,7 @@ textarea {
     }
   }
 
-  // Scroll Top Button - Mobil (sichtbar)
+  // Scroll Top Button - Mobile (visible)
   .scroll-top-mobile {
     display: flex;
     justify-content: center;
@@ -635,11 +600,9 @@ textarea {
         height: clamp(70px, 18vw, 100px);
       }
 
-      // Default icon
       .icon-default { display: block; }
       .icon-hover { display: none; }
       
-      // Touch/Click aktif olduğunda
       &:active {
         .icon-default { display: none; }
         .icon-hover { display: block; }
@@ -649,15 +612,13 @@ textarea {
 }
 
 // ==========================================
-// KLEIN MOBIL - max 480px
+// SMALL MOBILE - max 480px
 // ==========================================
 @media (max-width: 480px) {
-  // Inhalt - Klein Mobil
   .contact-content {
     max-width: 300px; 
   }
 
-  // Formular - Klein Mobil
   .contact-form {
     max-width: 300px;
 
@@ -674,7 +635,6 @@ textarea {
     }
   }
 
-  // Scroll Top - Klein Mobil
   .scroll-top-mobile {
     a {
       img {

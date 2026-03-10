@@ -4,6 +4,9 @@ import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { TranslationService } from '../../services/translation.service';
 
+/**
+ * Contact section with form validation, email sending, and privacy checkbox.
+ */
 @Component({
   selector: 'app-contact',
   imports: [FormsModule, RouterLink],
@@ -15,49 +18,52 @@ export class Contact {
   private readonly http = inject(HttpClient);
   private readonly destroyRef = inject(DestroyRef);
 
-  // Hover states
-  readonly emailHovered   = signal(false);
-  readonly phoneHovered   = signal(false);
-  readonly scrollHovered  = signal(false);
+  /** Hover states for interactive icons */
+  readonly emailHovered = signal(false);
+  readonly phoneHovered = signal(false);
+  readonly scrollHovered = signal(false);
   readonly checkboxHovered = signal(false);
 
-  // Form data — plain object, kein Signal nötig (ngModel schreibt direkt)
+  /** Form data bound via ngModel */
   formData = { name: '', email: '', message: '' };
 
-  // Validation states
-  readonly nameError       = signal(false);
-  readonly nameSuccess     = signal(false);
-  readonly emailError      = signal(false);
-  readonly emailSuccess    = signal(false);
-  readonly emailErrorType  = signal<'required' | 'invalid' | null>(null);
-  readonly messageError    = signal(false);
-  readonly messageSuccess  = signal(false);
+  /** Validation state signals */
+  readonly nameError = signal(false);
+  readonly nameSuccess = signal(false);
+  readonly emailError = signal(false);
+  readonly emailSuccess = signal(false);
+  readonly emailErrorType = signal<'required' | 'invalid' | null>(null);
+  readonly messageError = signal(false);
+  readonly messageSuccess = signal(false);
   readonly privacyAccepted = signal(false);
-  readonly privacyError    = signal(false);
+  readonly privacyError = signal(false);
 
-  // Form state
+  /** Form submission state signals */
   readonly messageSent = signal(false);
-  readonly isSending   = signal(false);
-  readonly sendError   = signal(false);
+  readonly isSending = signal(false);
+  readonly sendError = signal(false);
 
-  // Abgeleitete Zustände — computed, nie manuell setzen
+  /** Returns true when all fields are valid and privacy is accepted */
   readonly isFormValid = computed(() =>
     this.nameSuccess() && this.emailSuccess() &&
     this.messageSuccess() && this.privacyAccepted()
   );
 
+  /** Returns the appropriate checkbox icon based on state */
   readonly checkboxIcon = computed(() => {
-    if (this.privacyAccepted())   return 'icon/check_box_accept.svg';
-    if (this.checkboxHovered())   return 'icon/check_box_hover.svg';
+    if (this.privacyAccepted()) return 'icon/check_box_accept.svg';
+    if (this.checkboxHovered()) return 'icon/check_box_hover.svg';
     return 'icon/check_box_.svg';
   });
 
+  /** Validates the name field on blur */
   validateName(): void {
     const isValid = this.formData.name.trim().length > 0;
     this.nameError.set(!isValid);
     this.nameSuccess.set(isValid);
   }
 
+  /** Validates the email field on blur — checks required and format */
   validateEmail(): void {
     const email = this.formData.email.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,6 +77,7 @@ export class Contact {
     }
   }
 
+  /** Sets all email validation signals at once */
   private setEmailState(
     error: boolean,
     success: boolean,
@@ -81,18 +88,21 @@ export class Contact {
     this.emailErrorType.set(type);
   }
 
+  /** Validates the message field on blur */
   validateMessage(): void {
     const isValid = this.formData.message.trim().length > 0;
     this.messageError.set(!isValid);
     this.messageSuccess.set(isValid);
   }
 
+  /** Toggles the privacy checkbox and clears its error */
   togglePrivacy(): void {
     const next = !this.privacyAccepted();
     this.privacyAccepted.set(next);
     if (next) this.privacyError.set(false);
   }
 
+  /** Validates all fields and sends the email if the form is valid */
   onSubmit(): void {
     this.validateName();
     this.validateEmail();
@@ -101,6 +111,7 @@ export class Contact {
     if (this.isFormValid()) this.sendEmail();
   }
 
+  /** Sends the form data to the backend via HTTP POST */
   private sendEmail(): void {
     this.isSending.set(true);
     this.sendError.set(false);
@@ -108,11 +119,12 @@ export class Contact {
     this.http
       .post<{ success: boolean; message: string }>('/send-mail.php', this.formData)
       .subscribe({
-        next:  (res)   => this.handleSendSuccess(res),
-        error: (err)   => this.handleSendError(err),
+        next: (res) => this.handleSendSuccess(res),
+        error: (err) => this.handleSendError(err),
       });
   }
 
+  /** Handles a successful server response */
   private handleSendSuccess(res: { success: boolean; message: string }): void {
     this.isSending.set(false);
     if (res.success) {
@@ -123,13 +135,14 @@ export class Contact {
     }
   }
 
+  /** Handles a failed HTTP request */
   private handleSendError(error: unknown): void {
     console.error('Mail sending failed:', error);
     this.isSending.set(false);
     this.sendError.set(true);
   }
 
-  // DestroyRef verhindert State-Update auf bereits zerstörter Komponente
+  /** Resets the form after 3 seconds — cleanup via DestroyRef */
   private scheduleFormReset(): void {
     const timer = setTimeout(() => {
       this.messageSent.set(false);
@@ -138,6 +151,7 @@ export class Contact {
     this.destroyRef.onDestroy(() => clearTimeout(timer));
   }
 
+  /** Resets all form fields and validation states */
   private resetForm(): void {
     this.formData = { name: '', email: '', message: '' };
     this.nameError.set(false);      this.nameSuccess.set(false);
@@ -148,6 +162,7 @@ export class Contact {
     this.privacyError.set(false);   this.sendError.set(false);
   }
 
+  /** Smooth scrolls to the hero section */
   scrollToHero(event: Event): void {
     event.preventDefault();
     document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
