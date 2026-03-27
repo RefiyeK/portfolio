@@ -61,6 +61,9 @@
   text-align: center;
   padding: $spacing-md;
   max-width: 300px;
+  overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .colleague-name {
@@ -82,13 +85,29 @@
   color: $primary-color;
 }
 
+.quote-wrapper {
+  overflow-y: auto;
+  max-height: 140px;
+  margin-bottom: $spacing-md;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($primary-color, 0.45) transparent;
+
+  &::-webkit-scrollbar       { width: 3px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($primary-color, 0.45);
+    border-radius: 2px;
+  }
+}
+
 .quote {
   font-family: $font-primary;
   font-size: $font-size-md;
   font-weight: 300;
   color: $secondary-color-white;
   line-height: 1.2;
-  margin-bottom: $spacing-md;
+  margin-bottom: 0;
+  padding-right: 4px;
 }
 
 .linkedin-link {
@@ -111,6 +130,24 @@
   .reference-card {
     width: 320px;
     height: 320px;
+  }
+
+  .card-content {
+    max-width: 240px;
+    overflow-x: hidden;
+  }
+
+  .quote-wrapper {
+    overflow-x: hidden;
+  }
+
+  .quote {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .colleague-name {
+    word-break: break-word;
   }
 }
 
@@ -206,10 +243,28 @@
             margin-bottom: $spacing-sm;
           }
 
-          .quote {
-            font-size: $font-size-sm;
-            line-height: 1.4;
+          .quote-wrapper {
+            overflow-y: auto;
+            max-height: 140px;
             margin-bottom: $spacing-sm;
+            scrollbar-width: thin;
+            scrollbar-color: rgba($primary-color, 0.4) transparent;
+            &::-webkit-scrollbar       { width: 2px; }
+            &::-webkit-scrollbar-track { background: transparent; }
+            &::-webkit-scrollbar-thumb {
+             background-color: rgba($primary-color, 0.4);
+              border-radius: 2px;
+            }
+          }
+
+          .quote {
+            font-family: $font-primary;
+            font-size: $font-size-sm;
+            font-weight: 300;
+            color: $secondary-color-white;
+            line-height: 1.2;
+            margin-bottom: 0;
+            padding-right: 4px;
           }
 
           .linkedin-link {
@@ -252,9 +307,22 @@
             font-size: $font-size-sm;
           }
 
+          .quote-wrapper {
+            max-height: 140px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba($primary-color, 0.4) transparent;
+            &::-webkit-scrollbar       { width: 2px; }
+            &::-webkit-scrollbar-thumb {
+              background-color: rgba($primary-color, 0.4);
+              border-radius: 2px;
+            }
+          }
+
           .quote {
             font-size: $font-size-sm;
             line-height: 1.3;
+            margin-bottom: 0;
           }
         }
       }

@@ -33,21 +33,21 @@ export class ReferencesComponent {
    */
   references = [
     {
-      name: 'Sahra Mueller',
-      project: 'El Pollo Loco',
+      name: 'Philipp Biebert',
+      project: 'Join',
       quote: {
-        de: 'Refiye hat Inhalte in Zusammenarbeit mit den Teammitgliedern entwickelt, formatiert und geliefert. Sie ist eine zuverlässige und freundliche Person.',
-        en: 'Refiye developed, formatted, and delivered content in collaboration with team members. She is a reliable and friendly person.'
-      },
+      de: 'Refiye war ein wertvolles Teammitglied im Join-Projekt. Sie arbeitete sehr sorgfältig an der Implementierung des Angular-Frontends und legte großen Wert auf qualitativ hochwertigen Code. Bei der Integration von Firebase bewies sie ein starkes technisches Verständnis und einen lösungsorientierten Ansatz. Sie beteiligte sich aktiv an Diskussionen und kommunizierte teamintern stets transparent. Ihre zuverlässige Arbeitsweise hat maßgeblich zum Fortschritt des Projekts beigetragen.',        
+      en: 'Refiye was a valuable team member in the Join project. She worked very carefully on the implementation of the Angular frontend and placed great emphasis on high-quality code. During the integration of Firebase, she demonstrated strong technical understanding and a solution-oriented approach. She actively participated in discussions and communicated transparently within the team. Her reliable way of working significantly contributed to the projects progress.'      
+    },
       linkedIn: 'https://linkedin.com/',
       isHovered: false
     },
     {
-      name: 'James Rugman',
+      name: 'Leon Fischer',
       project: 'Pokedex',
       quote: {
-        de: 'Refiye ist eine zuverlässige und freundliche Person. Sie arbeitet strukturiert und schreibt sauberen Code. Ich empfehle sie als Kollegin.',
-        en: 'Refiye is a reliable and friendly person. She works in a structured way and writes clean code. I recommend her as a colleague.'
+        de: 'Refiye hat uns bei der Entwicklung der Pokedex-App tatkräftig unterstützt. Sie zeigte eine gute Auffassungsgabe bei der Umsetzung der UI-Komponenten mit HTML und CSS. Besonders hervorzuheben ist ihre Fähigkeit, Feedback konstruktiv umzusetzen und sich schnell in neue Aufgabenbereiche einzuarbeiten. Sie war eine freundliche Kollegin, die ihre Aufgaben stets pflichtbewusst und termingerecht erledigte. Ihre strukturierte Arbeitsweise war eine Bereicherung für unser kleines Team und wir schätzen ihren Einsatz sehr.',
+        en: 'Refiye actively supported us during the development of the Pokedex app. She showed a good understanding of implementing UI components using HTML and CSS. Particularly noteworthy is her ability to implement feedback constructively and to quickly adapt to new areas of responsibility. She was a friendly colleague who always completed her tasks conscientiously and on time. Her structured way of working was an enrichment for our small team, and we greatly appreciate her commitment.'
       },
       linkedIn: 'https://linkedin.com/',
       isHovered: false
