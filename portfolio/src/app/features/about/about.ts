@@ -1,15 +1,32 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, AfterViewInit, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
-/**
- * Displays the "About Me" section with location info and a short biography.
- */
 @Component({
   selector: 'app-about',
   imports: [],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
-export class About {
+export class About implements AfterViewInit {
   translationService = inject(TranslationService);
+  private el = inject(ElementRef);
+  private cdr = inject(ChangeDetectorRef);
+
+  isVisible = false;
+
+  ngAfterViewInit(): void {
+    const section = this.el.nativeElement.querySelector('.about');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          this.isVisible = entry.isIntersecting;
+          this.cdr.detectChanges();
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (section) observer.observe(section);
+  }
 }
