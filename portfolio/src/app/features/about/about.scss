@@ -210,10 +210,18 @@
 }
 
 
-@keyframes fadeIn {
-  0%   { opacity: 1; }
-  25%  { opacity: 0; }
-  50%  { opacity: 1; }
-  75%  { opacity: 0; }
-  100% { opacity: 1; }
+.cursor {
+  color: $primary-color;
+  font-weight: 300;
+  animation: blink 0.8s step-end infinite;
+
+  &--hidden {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
